@@ -6,7 +6,7 @@ namespace LibrarySystem  // Replace with your project's namespace
 {
     public class DatabaseHelper
     {
-        private string mySqlConn = "server=127.0.0.1;user=root;password=;database=library;";
+        private string mySqlConn = "server=127.0.0.1;user=root;password=12345678910;database=librarymanagementsystem;";
         private MySqlConnection connection;
 
         public DatabaseHelper()
