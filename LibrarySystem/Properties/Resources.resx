@@ -121,8 +121,11 @@
   <data name="Firefly logo of library 64016" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pics\Firefly logo of library 64016.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="open-book" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pics\open-book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="people" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pics\people.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="world-book-day" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pics\world-book-day.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pics\user_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,13 +136,13 @@
   <data name="data-report" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pics\data-report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="people" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pics\people.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="open-book" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pics\open-book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="network" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pics\network.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="world-book-day" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\pics\world-book-day.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lib" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lib.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

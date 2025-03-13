@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace LibrarySystem
 {
-    public partial class Books : Form
+    public partial class Homepage: Form
     {
-        public Books()
+        public Homepage()
         {
             InitializeComponent();
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

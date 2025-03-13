@@ -2,16 +2,15 @@ using System;
 using System.Windows.Forms;
 namespace LibrarySystem
 {
-    public partial class ProfilePage : Form
+    public partial class UserProfile : Form
     {
-        public ProfilePage()
+        public UserProfile()
         {
             InitializeComponent();
         }
 
         private void InitializeComponent()
         {
-
             label1 = new Label();
             user_pic = new PictureBox();
             name = new Label();
@@ -29,16 +28,16 @@ namespace LibrarySystem
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(236, 9);
+            label1.Font = new Font("Modern No. 20", 26.2499962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(192, 19);
             label1.Name = "label1";
-            label1.Size = new Size(153, 37);
+            label1.Size = new Size(202, 36);
             label1.TabIndex = 0;
             label1.Text = "User Profile";
             // 
             // user_pic
             // 
-            user_pic.Location = new Point(86, 79);
+            user_pic.Location = new Point(42, 89);
             user_pic.Name = "user_pic";
             user_pic.Size = new Size(146, 137);
             user_pic.TabIndex = 1;
@@ -47,58 +46,62 @@ namespace LibrarySystem
             // name
             // 
             name.AutoSize = true;
-            name.Location = new Point(329, 79);
+            name.Font = new Font("Modern No. 20", 11.9999981F);
+            name.Location = new Point(285, 89);
             name.Name = "name";
-            name.Size = new Size(39, 15);
+            name.Size = new Size(44, 18);
             name.TabIndex = 2;
             name.Text = "Name";
             // 
             // email
             // 
             email.AutoSize = true;
-            email.Location = new Point(329, 130);
+            email.Font = new Font("Modern No. 20", 11.9999981F);
+            email.Location = new Point(285, 140);
             email.Name = "email";
-            email.Size = new Size(36, 15);
+            email.Size = new Size(48, 18);
             email.TabIndex = 3;
             email.Text = "Email";
             // 
             // contact
             // 
             contact.AutoSize = true;
-            contact.Location = new Point(329, 184);
+            contact.Font = new Font("Modern No. 20", 11.9999981F);
+            contact.Location = new Point(285, 194);
             contact.Name = "contact";
-            contact.Size = new Size(49, 15);
+            contact.Size = new Size(56, 18);
             contact.TabIndex = 4;
             contact.Text = "Contact";
             // 
             // txtName
             // 
-            txtName.Location = new Point(410, 76);
+            txtName.Location = new Point(366, 86);
             txtName.Name = "txtName";
             txtName.ReadOnly = true;
-            txtName.Size = new Size(184, 23);
+            txtName.Size = new Size(184, 25);
             txtName.TabIndex = 5;
             // 
             // txtContact
             // 
-            txtContact.Location = new Point(410, 181);
+            txtContact.Location = new Point(366, 191);
             txtContact.Name = "txtContact";
             txtContact.ReadOnly = true;
-            txtContact.Size = new Size(184, 23);
+            txtContact.Size = new Size(184, 25);
             txtContact.TabIndex = 6;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(410, 130);
+            txtEmail.Location = new Point(366, 140);
             txtEmail.Name = "txtEmail";
             txtEmail.ReadOnly = true;
-            txtEmail.Size = new Size(184, 23);
+            txtEmail.Size = new Size(184, 25);
             txtEmail.TabIndex = 7;
             // 
             // btnPic
             // 
             btnPic.FlatStyle = FlatStyle.Popup;
-            btnPic.Location = new Point(98, 252);
+            btnPic.Font = new Font("Modern No. 20", 11.9999981F);
+            btnPic.Location = new Point(54, 262);
             btnPic.Name = "btnPic";
             btnPic.Size = new Size(123, 39);
             btnPic.TabIndex = 8;
@@ -109,7 +112,8 @@ namespace LibrarySystem
             // btnEdit
             // 
             btnEdit.FlatStyle = FlatStyle.Popup;
-            btnEdit.Location = new Point(340, 252);
+            btnEdit.Font = new Font("Modern No. 20", 11.9999981F);
+            btnEdit.Location = new Point(296, 262);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(123, 39);
             btnEdit.TabIndex = 9;
@@ -121,7 +125,8 @@ namespace LibrarySystem
             // 
             btnSave.Enabled = false;
             btnSave.FlatStyle = FlatStyle.Popup;
-            btnSave.Location = new Point(494, 252);
+            btnSave.Font = new Font("Modern No. 20", 11.9999981F);
+            btnSave.Location = new Point(450, 262);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(123, 39);
             btnSave.TabIndex = 10;
@@ -129,9 +134,9 @@ namespace LibrarySystem
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
-            // ProfilePage
+            // UserProfile
             // 
-            ClientSize = new Size(669, 434);
+            ClientSize = new Size(630, 363);
             Controls.Add(btnSave);
             Controls.Add(btnEdit);
             Controls.Add(btnPic);
@@ -143,8 +148,9 @@ namespace LibrarySystem
             Controls.Add(name);
             Controls.Add(user_pic);
             Controls.Add(label1);
+            Font = new Font("Modern No. 20", 11.9999981F);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ProfilePage";
+            Name = "UserProfile";
             Load += ProfilePage_Load;
             ((System.ComponentModel.ISupportInitialize)user_pic).EndInit();
             ResumeLayout(false);

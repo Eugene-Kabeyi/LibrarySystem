@@ -9,9 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="form 1.cs" />
+    <Compile Remove="form 1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
     <PackageReference Include="HIC.System.Windows.Forms.DataVisualization" Version="1.0.1" />
     <PackageReference Include="Maikebing.System.Windows.Forms.DataVisualization" Version="5.0.1" />
+    <PackageReference Include="MySql.Data" Version="9.2.0" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.13.2" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
   </ItemGroup>
 

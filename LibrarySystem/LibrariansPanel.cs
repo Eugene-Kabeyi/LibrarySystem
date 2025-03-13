@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace LibrarySystem
 {
-    public partial class Mambers: Form
+    public partial class LibrariansPanel : Form
     {
-        public Mambers()
+        public LibrariansPanel()
         {
             InitializeComponent();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

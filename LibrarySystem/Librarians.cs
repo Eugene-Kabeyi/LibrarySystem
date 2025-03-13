@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace LibrarySystem
 {
-    public partial class Books : Form
+    public partial class Librarians : Form
     {
-        public Books()
+        public Librarians()
         {
             InitializeComponent();
         }
 
-        private void chart1_Click(object sender, EventArgs e)
+        private void lbMembers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Librarians_Load(object sender, EventArgs e)
         {
 
         }
