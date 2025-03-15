@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage));
             iconButton2 = new FontAwesome.Sharp.IconButton();
             btnMembers = new FontAwesome.Sharp.IconButton();
             btnBooks = new FontAwesome.Sharp.IconButton();
             btnDash = new FontAwesome.Sharp.IconButton();
             label5 = new Label();
             panel2 = new Panel();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             libName = new Label();
             logo = new PictureBox();
             panel1 = new Panel();
             picAdmin = new PictureBox();
             lbFname = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             panel1.SuspendLayout();
@@ -74,7 +75,7 @@
             btnMembers.Padding = new Padding(10, 0, 4, 0);
             btnMembers.Size = new Size(174, 53);
             btnMembers.TabIndex = 4;
-            btnMembers.Text = "Reserve Book";
+            btnMembers.Text = "Request Book";
             btnMembers.TextAlign = ContentAlignment.MiddleLeft;
             btnMembers.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnMembers.UseVisualStyleBackColor = true;
@@ -95,7 +96,7 @@
             btnBooks.Padding = new Padding(10, 0, 4, 0);
             btnBooks.Size = new Size(184, 66);
             btnBooks.TabIndex = 3;
-            btnBooks.Text = "Borrow Book";
+            btnBooks.Text = "Borrowed Book";
             btnBooks.TextAlign = ContentAlignment.MiddleLeft;
             btnBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnBooks.UseVisualStyleBackColor = true;
@@ -146,6 +147,27 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(174, 458);
             panel2.TabIndex = 4;
+            // 
+            // iconButton1
+            // 
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconButton1.ForeColor = SystemColors.ControlLightLight;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Book;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 30;
+            iconButton1.Location = new Point(0, 143);
+            iconButton1.Margin = new Padding(3, 10, 3, 10);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Padding = new Padding(1, 0, 4, 0);
+            iconButton1.Size = new Size(174, 53);
+            iconButton1.TabIndex = 5;
+            iconButton1.Text = "Book List";
+            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = true;
             // 
             // libName
             // 
@@ -198,27 +220,6 @@
             lbFname.TabIndex = 4;
             lbFname.Text = "User";
             // 
-            // iconButton1
-            // 
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Book;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 30;
-            iconButton1.Location = new Point(0, 143);
-            iconButton1.Margin = new Padding(3, 10, 3, 10);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Padding = new Padding(1, 0, 4, 0);
-            iconButton1.Size = new Size(174, 53);
-            iconButton1.TabIndex = 5;
-            iconButton1.Text = "Book List";
-            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = true;
-            // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -227,8 +228,10 @@
             Controls.Add(iconButton2);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Homepage";
             Text = "Homepage";
+            Load += Homepage_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();

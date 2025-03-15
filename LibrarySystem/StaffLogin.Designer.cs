@@ -1,4 +1,6 @@
-﻿namespace LibrarySystem
+﻿
+
+namespace LibrarySystem
 {
     partial class StaffLogin
     {
@@ -32,12 +34,12 @@
             panel1 = new Panel();
             label8 = new Label();
             pictureBox1 = new PictureBox();
-            btnLogin = new Button();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
             label7 = new Label();
+            btnLogin = new Button();
+            txtPassword = new TextBox();
+            txtUsername = new TextBox();
+            label5 = new Label();
+            llb = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -49,10 +51,10 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(btnLogin);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(label4);
+            panel1.Controls.Add(llb);
             panel1.Location = new Point(83, 26);
             panel1.Name = "panel1";
             panel1.Size = new Size(469, 382);
@@ -79,6 +81,17 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Modern No. 20", 8.999999F);
+            label7.Location = new Point(147, 313);
+            label7.Name = "label7";
+            label7.Size = new Size(183, 15);
+            label7.TabIndex = 16;
+            label7.Text = "Incase of any issues Contact ADMIN";
+            label7.Click += label7_Click;
+            // 
             // btnLogin
             // 
             btnLogin.BackColor = SystemColors.Highlight;
@@ -92,19 +105,19 @@
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             // 
-            // textBox4
+            // txtPassword
             // 
-            textBox4.Location = new Point(136, 191);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(299, 23);
-            textBox4.TabIndex = 11;
+            txtPassword.Location = new Point(136, 191);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(299, 23);
+            txtPassword.TabIndex = 11;
             // 
-            // textBox3
+            // txtUsername
             // 
-            textBox3.Location = new Point(136, 135);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(299, 23);
-            textBox3.TabIndex = 9;
+            txtUsername.Location = new Point(136, 135);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(299, 23);
+            txtUsername.TabIndex = 9;
             // 
             // label5
             // 
@@ -116,26 +129,15 @@
             label5.TabIndex = 10;
             label5.Text = "Password";
             // 
-            // label4
+            // llb
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Modern No. 20", 11.249999F);
-            label4.Location = new Point(38, 136);
-            label4.Name = "label4";
-            label4.Size = new Size(68, 17);
-            label4.TabIndex = 8;
-            label4.Text = "Username";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Modern No. 20", 8.999999F);
-            label7.Location = new Point(147, 313);
-            label7.Name = "label7";
-            label7.Size = new Size(183, 15);
-            label7.TabIndex = 16;
-            label7.Text = "Incase of any issues Contact ADMIN";
-            label7.Click += label7_Click;
+            llb.AutoSize = true;
+            llb.Font = new Font("Modern No. 20", 11.249999F);
+            llb.Location = new Point(38, 136);
+            llb.Name = "llb";
+            llb.Size = new Size(68, 17);
+            llb.TabIndex = 8;
+            llb.Text = "Username";
             // 
             // StaffLogin
             // 
@@ -143,13 +145,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(625, 467);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StaffLogin";
             Text = "StaffLogin";
+            Load += StaffLogin_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
+
+
+
 
         #endregion
 
@@ -158,9 +165,9 @@
         private PictureBox pictureBox1;
         private Label label7;
         private Button btnLogin;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private TextBox txtPassword;
+        private TextBox txtUsername;
         private Label label5;
-        private Label label4;
+        private Label llb;
     }
 }

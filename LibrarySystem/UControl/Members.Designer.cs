@@ -1,13 +1,13 @@
-﻿namespace LibrarySystem
+﻿namespace LibrarySystem.UControl
 {
-    partial class Librarians
+    partial class Members
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,10 +20,10 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -46,8 +46,6 @@
             lbMembers = new Label();
             textBox1 = new TextBox();
             dataGridView1 = new DataGridView();
-            textBox6 = new TextBox();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -63,7 +61,7 @@
             btnSave.IconColor = Color.White;
             btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSave.IconSize = 22;
-            btnSave.Location = new Point(633, 156);
+            btnSave.Location = new Point(628, 150);
             btnSave.Name = "btnSave";
             btnSave.Padding = new Padding(10, 0, 0, 0);
             btnSave.Size = new Size(103, 34);
@@ -75,7 +73,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.BackColor = SystemColors.Highlight;
+            btnDelete.BackColor = Color.Maroon;
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
             btnDelete.ForeColor = SystemColors.ControlLightLight;
@@ -83,7 +81,7 @@
             btnDelete.IconColor = Color.White;
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 22;
-            btnDelete.Location = new Point(633, 201);
+            btnDelete.Location = new Point(628, 195);
             btnDelete.Name = "btnDelete";
             btnDelete.Padding = new Padding(10, 0, 0, 0);
             btnDelete.Size = new Size(103, 34);
@@ -103,7 +101,7 @@
             btnReset.IconColor = Color.White;
             btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnReset.IconSize = 22;
-            btnReset.Location = new Point(633, 245);
+            btnReset.Location = new Point(628, 239);
             btnReset.Name = "btnReset";
             btnReset.Padding = new Padding(10, 0, 0, 0);
             btnReset.Size = new Size(103, 34);
@@ -122,7 +120,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 22;
-            btnSearch.Location = new Point(337, 71);
+            btnSearch.Location = new Point(332, 65);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(38, 24);
             btnSearch.TabIndex = 19;
@@ -139,14 +137,14 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(171, 125);
+            textBox4.Location = new Point(171, 89);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(196, 23);
             textBox4.TabIndex = 8;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(171, 159);
+            textBox3.Location = new Point(171, 123);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(196, 23);
             textBox3.TabIndex = 7;
@@ -170,7 +168,7 @@
             // 
             lbPhone.AutoSize = true;
             lbPhone.Font = new Font("Modern No. 20", 11.9999981F);
-            lbPhone.Location = new Point(44, 159);
+            lbPhone.Location = new Point(44, 123);
             lbPhone.Name = "lbPhone";
             lbPhone.Size = new Size(105, 18);
             lbPhone.TabIndex = 4;
@@ -180,7 +178,7 @@
             // 
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Modern No. 20", 11.9999981F);
-            lbEmail.Location = new Point(44, 125);
+            lbEmail.Location = new Point(44, 89);
             lbEmail.Name = "lbEmail";
             lbEmail.Size = new Size(48, 18);
             lbEmail.TabIndex = 3;
@@ -216,7 +214,7 @@
             btnEdit.IconColor = Color.White;
             btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEdit.IconSize = 22;
-            btnEdit.Location = new Point(633, 111);
+            btnEdit.Location = new Point(628, 105);
             btnEdit.Name = "btnEdit";
             btnEdit.Padding = new Padding(10, 0, 0, 0);
             btnEdit.Size = new Size(103, 34);
@@ -228,8 +226,6 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(textBox6);
-            panel2.Controls.Add(label1);
             panel2.Controls.Add(textBox5);
             panel2.Controls.Add(textBox4);
             panel2.Controls.Add(textBox3);
@@ -239,7 +235,7 @@
             panel2.Controls.Add(lbEmail);
             panel2.Controls.Add(lbLname);
             panel2.Controls.Add(lbFname);
-            panel2.Location = new Point(16, 100);
+            panel2.Location = new Point(11, 94);
             panel2.Name = "panel2";
             panel2.Size = new Size(565, 192);
             panel2.TabIndex = 18;
@@ -248,16 +244,15 @@
             // 
             lbMembers.AutoSize = true;
             lbMembers.Font = new Font("Modern No. 20", 35.9999962F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbMembers.Location = new Point(239, 18);
+            lbMembers.Location = new Point(234, 12);
             lbMembers.Name = "lbMembers";
-            lbMembers.Size = new Size(233, 50);
+            lbMembers.Size = new Size(196, 50);
             lbMembers.TabIndex = 17;
-            lbMembers.Text = "Librarians";
-            lbMembers.Click += lbMembers_Click;
+            lbMembers.Text = "Members";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(17, 71);
+            textBox1.Location = new Point(12, 65);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(303, 23);
             textBox1.TabIndex = 16;
@@ -266,33 +261,15 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(14, 298);
+            dataGridView1.Location = new Point(9, 292);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(772, 134);
+            dataGridView1.Size = new Size(722, 134);
             dataGridView1.TabIndex = 15;
             // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(171, 91);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(196, 23);
-            textBox6.TabIndex = 11;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Modern No. 20", 11.9999981F);
-            label1.Location = new Point(44, 88);
-            label1.Name = "label1";
-            label1.Size = new Size(71, 18);
-            label1.TabIndex = 10;
-            label1.Text = "Username";
-            // 
-            // Librarians
+            // Members
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(btnSave);
             Controls.Add(btnDelete);
             Controls.Add(btnReset);
@@ -302,10 +279,8 @@
             Controls.Add(lbMembers);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Librarians";
-            Text = "Librarians";
-            Load += Librarians_Load;
+            Name = "Members";
+            Size = new Size(756, 439);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -334,7 +309,5 @@
         private Label lbMembers;
         private TextBox textBox1;
         private DataGridView dataGridView1;
-        private TextBox textBox6;
-        private Label label1;
     }
 }

@@ -1,13 +1,13 @@
-﻿namespace LibrarySystem
+﻿namespace LibrarySystem.UControl
 {
     partial class Borrowed
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,18 +20,18 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            dgvBorrowedBooks = new DataGridView();
             grBxBorrowed = new GroupBox();
             panel1 = new Panel();
             textBox2 = new TextBox();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
             lblTitle = new Label();
             lblBorrower = new Label();
             textBox1 = new TextBox();
@@ -40,37 +40,42 @@
             lblReturnDate = new Label();
             dateTimePicker2 = new DateTimePicker();
             btnSave = new FontAwesome.Sharp.IconButton();
-            btnEdit = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             btnReset = new FontAwesome.Sharp.IconButton();
-            dgvBorrowedBooks = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).BeginInit();
             grBxBorrowed.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).BeginInit();
             SuspendLayout();
+            // 
+            // dgvBorrowedBooks
+            // 
+            dgvBorrowedBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBorrowedBooks.Location = new Point(4, 227);
+            dgvBorrowedBooks.Margin = new Padding(2);
+            dgvBorrowedBooks.Name = "dgvBorrowedBooks";
+            dgvBorrowedBooks.RowHeadersWidth = 62;
+            dgvBorrowedBooks.RowTemplate.Height = 28;
+            dgvBorrowedBooks.Size = new Size(720, 141);
+            dgvBorrowedBooks.TabIndex = 12;
             // 
             // grBxBorrowed
             // 
             grBxBorrowed.Controls.Add(panel1);
             grBxBorrowed.Controls.Add(btnSave);
-            grBxBorrowed.Controls.Add(btnEdit);
-            grBxBorrowed.Controls.Add(iconButton1);
             grBxBorrowed.Controls.Add(btnReset);
             grBxBorrowed.Controls.Add(dgvBorrowedBooks);
             grBxBorrowed.Font = new Font("Modern No. 20", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            grBxBorrowed.Location = new Point(10, 11);
+            grBxBorrowed.Location = new Point(19, 24);
             grBxBorrowed.Margin = new Padding(2);
             grBxBorrowed.Name = "grBxBorrowed";
             grBxBorrowed.Padding = new Padding(2);
-            grBxBorrowed.Size = new Size(728, 373);
-            grBxBorrowed.TabIndex = 13;
+            grBxBorrowed.Size = new Size(728, 354);
+            grBxBorrowed.TabIndex = 14;
             grBxBorrowed.TabStop = false;
             grBxBorrowed.Text = "Borrowed Books";
             // 
             // panel1
             // 
             panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(iconButton2);
             panel1.Controls.Add(lblTitle);
             panel1.Controls.Add(lblBorrower);
             panel1.Controls.Add(textBox1);
@@ -90,28 +95,6 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(289, 30);
             textBox2.TabIndex = 3;
-            textBox2.TextChanged += txtBorrower_TextChanged;
-            // 
-            // iconButton2
-            // 
-            iconButton2.BackColor = SystemColors.Highlight;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            iconButton2.ForeColor = SystemColors.ControlLightLight;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Save;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 22;
-            iconButton2.Location = new Point(199, 148);
-            iconButton2.Margin = new Padding(0, 3, 3, 3);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Padding = new Padding(10, 0, 0, 0);
-            iconButton2.Size = new Size(93, 34);
-            iconButton2.TabIndex = 19;
-            iconButton2.Text = "Save";
-            iconButton2.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton2.UseVisualStyleBackColor = false;
             // 
             // lblTitle
             // 
@@ -134,7 +117,6 @@
             lblBorrower.Size = new Size(108, 18);
             lblBorrower.TabIndex = 2;
             lblBorrower.Text = "Borrower Name";
-            lblBorrower.Click += lblBorrower_Click;
             // 
             // textBox1
             // 
@@ -143,7 +125,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(289, 30);
             textBox1.TabIndex = 1;
-            textBox1.TextChanged += txtTitle_TextChanged;
             // 
             // lblBorrowDate
             // 
@@ -155,7 +136,6 @@
             lblBorrowDate.Size = new Size(90, 18);
             lblBorrowDate.TabIndex = 4;
             lblBorrowDate.Text = "Borrow Date";
-            lblBorrowDate.Click += lblBorrowDate_Click;
             // 
             // dateTimePicker1
             // 
@@ -185,7 +165,6 @@
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(289, 21);
             dateTimePicker2.TabIndex = 7;
-            dateTimePicker2.ValueChanged += dtpReturnDate_ValueChanged;
             // 
             // btnSave
             // 
@@ -197,55 +176,15 @@
             btnSave.IconColor = Color.White;
             btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSave.IconSize = 22;
-            btnSave.Location = new Point(584, 80);
+            btnSave.Location = new Point(563, 69);
             btnSave.Name = "btnSave";
             btnSave.Padding = new Padding(10, 0, 0, 0);
-            btnSave.Size = new Size(103, 34);
+            btnSave.Size = new Size(124, 34);
             btnSave.TabIndex = 18;
             btnSave.Text = "Return";
             btnSave.TextAlign = ContentAlignment.MiddleLeft;
             btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            btnEdit.BackColor = SystemColors.Highlight;
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnEdit.ForeColor = SystemColors.ControlLightLight;
-            btnEdit.IconChar = FontAwesome.Sharp.IconChar.HandsBound;
-            btnEdit.IconColor = Color.White;
-            btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEdit.IconSize = 22;
-            btnEdit.Location = new Point(584, 35);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Padding = new Padding(10, 0, 0, 0);
-            btnEdit.Size = new Size(103, 34);
-            btnEdit.TabIndex = 17;
-            btnEdit.Text = "Borrow";
-            btnEdit.TextAlign = ContentAlignment.MiddleLeft;
-            btnEdit.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = SystemColors.Highlight;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 22;
-            iconButton1.Location = new Point(584, 125);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Padding = new Padding(10, 0, 0, 0);
-            iconButton1.Size = new Size(103, 34);
-            iconButton1.TabIndex = 16;
-            iconButton1.Text = "Delete";
-            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = false;
             // 
             // btnReset
             // 
@@ -257,63 +196,44 @@
             btnReset.IconColor = Color.White;
             btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnReset.IconSize = 22;
-            btnReset.Location = new Point(584, 169);
+            btnReset.Location = new Point(563, 118);
             btnReset.Name = "btnReset";
             btnReset.Padding = new Padding(10, 0, 0, 0);
-            btnReset.Size = new Size(103, 34);
+            btnReset.Size = new Size(124, 34);
             btnReset.TabIndex = 15;
-            btnReset.Text = "Reset";
+            btnReset.Text = "Clear";
             btnReset.TextAlign = ContentAlignment.MiddleLeft;
             btnReset.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnReset.UseVisualStyleBackColor = false;
             // 
-            // dgvBorrowedBooks
-            // 
-            dgvBorrowedBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBorrowedBooks.Location = new Point(4, 227);
-            dgvBorrowedBooks.Margin = new Padding(2);
-            dgvBorrowedBooks.Name = "dgvBorrowedBooks";
-            dgvBorrowedBooks.RowHeadersWidth = 62;
-            dgvBorrowedBooks.RowTemplate.Height = 28;
-            dgvBorrowedBooks.Size = new Size(720, 142);
-            dgvBorrowedBooks.TabIndex = 12;
-            dgvBorrowedBooks.CellContentClick += dgvBorrowedBooks_CellContentClick;
-            // 
-            // Form1
+            // Borrowed
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(774, 409);
             Controls.Add(grBxBorrowed);
-            Margin = new Padding(2);
-            Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Name = "Borrowed";
+            Size = new Size(781, 399);
+            ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).EndInit();
             grBxBorrowed.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).EndInit();
             ResumeLayout(false);
-
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grBxBorrowed;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblBorrowDate;
-        private System.Windows.Forms.Label lblBorrower;
-        private System.Windows.Forms.Label lblReturnDate;
-        private System.Windows.Forms.DataGridView dgvBorrowedBooks;
-        private FontAwesome.Sharp.IconButton btnSave;
-        private FontAwesome.Sharp.IconButton btnEdit;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnReset;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private DataGridView dgvBorrowedBooks;
+        private GroupBox grBxBorrowed;
         private Panel panel1;
         private TextBox textBox2;
+        private Label lblTitle;
+        private Label lblBorrower;
         private TextBox textBox1;
+        private Label lblBorrowDate;
         private DateTimePicker dateTimePicker1;
+        private Label lblReturnDate;
         private DateTimePicker dateTimePicker2;
+        private FontAwesome.Sharp.IconButton btnSave;
+        private FontAwesome.Sharp.IconButton btnReset;
     }
 }

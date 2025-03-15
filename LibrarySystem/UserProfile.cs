@@ -11,6 +11,7 @@ namespace LibrarySystem
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserProfile));
             label1 = new Label();
             user_pic = new PictureBox();
             name = new Label();
@@ -150,6 +151,7 @@ namespace LibrarySystem
             Controls.Add(label1);
             Font = new Font("Modern No. 20", 11.9999981F);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "UserProfile";
             Load += ProfilePage_Load;
             ((System.ComponentModel.ISupportInitialize)user_pic).EndInit();

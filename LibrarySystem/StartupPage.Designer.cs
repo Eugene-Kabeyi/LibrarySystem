@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartupPage));
             richTextBox1 = new RichTextBox();
             pictureBox1 = new PictureBox();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            staffToLogin = new FontAwesome.Sharp.IconButton();
+            btnuserToLogin = new FontAwesome.Sharp.IconButton();
+            btnstaffToLogin = new FontAwesome.Sharp.IconButton();
             pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -43,85 +43,100 @@
             richTextBox1.BackColor = SystemColors.ControlLightLight;
             richTextBox1.BorderStyle = BorderStyle.None;
             richTextBox1.Font = new Font("Papyrus", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox1.Location = new Point(414, 72);
+            richTextBox1.Location = new Point(591, 120);
+            richTextBox1.Margin = new Padding(4, 5, 4, 5);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(374, 202);
+            richTextBox1.Size = new Size(534, 337);
             richTextBox1.TabIndex = 2;
             richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, -5);
+            pictureBox1.Location = new Point(0, -2);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(408, 455);
+            pictureBox1.Size = new Size(583, 752);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // iconButton1
+            // btnuserToLogin
             // 
-            iconButton1.BackColor = SystemColors.Highlight;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Modern No. 20", 14.25F);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 35;
-            iconButton1.Location = new Point(455, 283);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Padding = new Padding(30, 0, 0, 0);
-            iconButton1.Size = new Size(267, 42);
-            iconButton1.TabIndex = 3;
-            iconButton1.Text = "Sign in as User";
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = false;
+            btnuserToLogin.BackColor = SystemColors.Highlight;
+            btnuserToLogin.FlatStyle = FlatStyle.Flat;
+            btnuserToLogin.Font = new Font("Modern No. 20", 14.25F);
+            btnuserToLogin.ForeColor = SystemColors.Window;
+            btnuserToLogin.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
+            btnuserToLogin.IconColor = Color.White;
+            btnuserToLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnuserToLogin.IconSize = 35;
+            btnuserToLogin.Location = new Point(650, 472);
+            btnuserToLogin.Margin = new Padding(4, 5, 4, 5);
+            btnuserToLogin.Name = "btnuserToLogin";
+            btnuserToLogin.Padding = new Padding(43, 0, 0, 0);
+            btnuserToLogin.Size = new Size(381, 70);
+            btnuserToLogin.TabIndex = 3;
+            btnuserToLogin.Text = "Sign in as User";
+            btnuserToLogin.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnuserToLogin.UseVisualStyleBackColor = false;
+            btnuserToLogin.Click += BtnUserToLogin_Click;
+            btnuserToLogin.MouseEnter += Button_MouseEnter;
+            btnuserToLogin.MouseLeave += Button_MouseLeave;
             // 
-            // staffToLogin
+            // btnstaffToLogin
             // 
-            staffToLogin.BackColor = SystemColors.Highlight;
-            staffToLogin.FlatStyle = FlatStyle.Flat;
-            staffToLogin.Font = new Font("Modern No. 20", 14.25F);
-            staffToLogin.ForeColor = SystemColors.ControlLightLight;
-            staffToLogin.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
-            staffToLogin.IconColor = Color.White;
-            staffToLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            staffToLogin.IconSize = 35;
-            staffToLogin.Location = new Point(455, 348);
-            staffToLogin.Name = "staffToLogin";
-            staffToLogin.Padding = new Padding(30, 0, 0, 0);
-            staffToLogin.Size = new Size(267, 42);
-            staffToLogin.TabIndex = 4;
-            staffToLogin.Text = "Sign in as Staff";
-            staffToLogin.TextImageRelation = TextImageRelation.ImageBeforeText;
-            staffToLogin.UseVisualStyleBackColor = false;
+            btnstaffToLogin.BackColor = SystemColors.Highlight;
+            btnstaffToLogin.FlatStyle = FlatStyle.Flat;
+            btnstaffToLogin.Font = new Font("Modern No. 20", 14.25F);
+            btnstaffToLogin.ForeColor = SystemColors.Window;
+            btnstaffToLogin.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
+            btnstaffToLogin.IconColor = Color.White;
+            btnstaffToLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnstaffToLogin.IconSize = 35;
+            btnstaffToLogin.Location = new Point(650, 580);
+            btnstaffToLogin.Margin = new Padding(4, 5, 4, 5);
+            btnstaffToLogin.Name = "btnstaffToLogin";
+            btnstaffToLogin.Padding = new Padding(43, 0, 0, 0);
+            btnstaffToLogin.Size = new Size(381, 70);
+            btnstaffToLogin.TabIndex = 4;
+            btnstaffToLogin.Text = "Sign in as Staff";
+            btnstaffToLogin.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnstaffToLogin.UseVisualStyleBackColor = false;
+            btnstaffToLogin.Click += BtnStaffToLogin_Click;
+            btnstaffToLogin.MouseEnter += Button_MouseEnter;
+            btnstaffToLogin.MouseLeave += Button_MouseLeave;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Firefly_logo_of_library_64016;
-            pictureBox2.Location = new Point(564, 12);
+            pictureBox2.Location = new Point(806, 20);
+            pictureBox2.Margin = new Padding(4, 5, 4, 5);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(63, 50);
+            pictureBox2.Size = new Size(90, 83);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
             // StartupPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1143, 750);
             Controls.Add(pictureBox2);
-            Controls.Add(staffToLogin);
-            Controls.Add(iconButton1);
+            Controls.Add(btnstaffToLogin);
+            Controls.Add(btnuserToLogin);
             Controls.Add(richTextBox1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 5, 4, 5);
             Name = "StartupPage";
             Text = "StartupPage";
+            Load += StartupPage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -130,8 +145,8 @@
         #endregion
         private RichTextBox richTextBox1;
         private PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton staffToLogin;
+        private FontAwesome.Sharp.IconButton btnuserToLogin;
+        private FontAwesome.Sharp.IconButton btnstaffToLogin;
         private PictureBox pictureBox2;
     }
 }

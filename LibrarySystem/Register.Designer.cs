@@ -285,6 +285,7 @@
             ClientSize = new Size(535, 525);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Register";
             Text = "Register";
             Load += Register_Load;

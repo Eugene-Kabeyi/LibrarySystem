@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminProfile));
             btnSave = new Button();
             btnEdit = new Button();
             btnPic = new Button();
@@ -164,8 +165,10 @@
             Controls.Add(name);
             Controls.Add(user_pic);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdminProfile";
             Text = "AdminProfile";
+            Load += AdminProfile_Load;
             ((System.ComponentModel.ISupportInitialize)user_pic).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LibrarianProfile));
             btnSave = new Button();
             btnEdit = new Button();
             btnPic = new Button();
@@ -164,6 +165,7 @@
             Controls.Add(name);
             Controls.Add(user_pic);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LibrarianProfile";
             Text = "LibrarianProfile";
             ((System.ComponentModel.ISupportInitialize)user_pic).EndInit();

@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace LibrarySystem
 {
-    public partial class Login : Form
+    public partial class UserLogin : Form
     {
-        public Login()
+        public UserLogin()
         {
             InitializeComponent();
             DatabaseHelper dbHelper = new DatabaseHelper();

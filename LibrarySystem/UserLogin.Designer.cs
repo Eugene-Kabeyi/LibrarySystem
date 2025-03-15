@@ -1,6 +1,6 @@
 ﻿namespace LibrarySystem
 {
-    partial class Login
+    partial class UserLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserLogin));
             panel1 = new Panel();
             label8 = new Label();
             pictureBox1 = new PictureBox();
@@ -157,6 +157,7 @@
             ClientSize = new Size(583, 487);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
