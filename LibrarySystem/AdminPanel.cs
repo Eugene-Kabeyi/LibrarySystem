@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static LibrarySystem.StaffLogin;
 
 namespace LibrarySystem
 {
@@ -17,6 +19,35 @@ namespace LibrarySystem
         public AdminPanel()
         {
             InitializeComponent();
+            LoadDash();
+        }
+        private void LoadDash()
+        {
+            if (StaffSession.UserId == 0 &&
+        string.IsNullOrEmpty(StaffSession.FirstName) &&
+        string.IsNullOrEmpty(StaffSession.LastName) &&
+        string.IsNullOrEmpty(StaffSession.Username) &&
+        string.IsNullOrEmpty(StaffSession.Email))
+            {
+                MessageBox.Show("Session expired. Please log in again.", "Session Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Redirect to StartPage
+                StartupPage startPage = new StartupPage();
+                startPage.Show();
+
+                // Close homepage
+                this.Close();
+            }
+            LoadUserControl(new UControl.Dashboard());  // Load Dashboard UserControl
+            lblUsername.Text = StaffSession.FirstName;
+            // Load Profile Picture
+            if (StaffSession.Picture != null)
+            {
+                using (MemoryStream ms = new MemoryStream(StaffSession.Picture))
+                {
+                    picAdmin.Image = Image.FromStream(ms);
+                }
+            }
         }
         public static class AdminSession
         {
@@ -26,15 +57,7 @@ namespace LibrarySystem
             public static Image ProfilePicture;
         }
 
-        public void SetUserDetails(string fullName, string email, string phoneNumber, Image profilePicture)
-        {
-            AdminSession.FullName = fullName;
-            AdminSession.Email = email;
-            AdminSession.PhoneNumber = phoneNumber;
-            AdminSession.ProfilePicture = profilePicture;
-
-
-        }
+    
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -61,9 +84,8 @@ namespace LibrarySystem
 
         private void pnlContent_Paint(object sender, PaintEventArgs e)
         {
-            
-        }
 
+        }
 
         private void LoadUserControl(UserControl control)
         {
@@ -109,14 +131,31 @@ namespace LibrarySystem
 
             if (result == DialogResult.Yes)
             {
+                StaffSession.UserId = 0;
+                StaffSession.FirstName = null;
+                StaffSession.LastName = null;
+                StaffSession.Username = null;
+                StaffSession.Email = null;
+                StaffSession.Picture = null;
+
                 // Open the startup form (LoginForm)
                 StartupPage startup = new StartupPage();
                 startup.Show();
-
                 // Close the current form
+                //
                 this.Close();
+
             }
         }
 
+        private void pnlContent_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
     }
 }

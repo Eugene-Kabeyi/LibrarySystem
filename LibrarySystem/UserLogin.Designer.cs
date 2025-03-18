@@ -1,4 +1,5 @@
-﻿namespace LibrarySystem
+﻿
+namespace LibrarySystem
 {
     partial class UserLogin
     {
@@ -32,13 +33,13 @@
             panel1 = new Panel();
             label8 = new Label();
             pictureBox1 = new PictureBox();
-            linkLabel1 = new LinkLabel();
+            lblSignup = new LinkLabel();
             label7 = new Label();
             btnLogin = new Button();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
+            txtPassword = new TextBox();
+            txtEmail = new TextBox();
+            lblPassword = new Label();
+            lblEmail = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -48,16 +49,16 @@
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label8);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(linkLabel1);
+            panel1.Controls.Add(lblSignup);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(btnLogin);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label4);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(txtEmail);
+            panel1.Controls.Add(lblPassword);
+            panel1.Controls.Add(lblEmail);
             panel1.Location = new Point(50, 30);
             panel1.Name = "panel1";
-            panel1.Size = new Size(469, 407);
+            panel1.Size = new Size(450, 418);
             panel1.TabIndex = 21;
             // 
             // label8
@@ -65,7 +66,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Modern No. 20", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.Highlight;
-            label8.Location = new Point(63, 63);
+            label8.Location = new Point(45, 73);
             label8.Name = "label8";
             label8.Size = new Size(341, 29);
             label8.TabIndex = 20;
@@ -74,29 +75,30 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(211, 7);
+            pictureBox1.Location = new Point(192, 7);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(56, 50);
+            pictureBox1.Size = new Size(70, 59);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // linkLabel1
+            // lblSignup
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Modern No. 20", 8.999999F);
-            linkLabel1.Location = new Point(256, 328);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(45, 15);
-            linkLabel1.TabIndex = 17;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Sign Up";
+            lblSignup.AutoSize = true;
+            lblSignup.Font = new Font("Modern No. 20", 8.999999F);
+            lblSignup.Location = new Point(238, 313);
+            lblSignup.Name = "lblSignup";
+            lblSignup.Size = new Size(45, 15);
+            lblSignup.TabIndex = 17;
+            lblSignup.TabStop = true;
+            lblSignup.Text = "Sign Up";
+            lblSignup.Click += lblSignup_Click;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Modern No. 20", 8.999999F);
-            label7.Location = new Point(130, 328);
+            label7.Location = new Point(117, 313);
             label7.Name = "label7";
             label7.Size = new Size(127, 15);
             label7.TabIndex = 16;
@@ -108,57 +110,60 @@
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Modern No. 20", 11.249999F);
             btnLogin.ForeColor = SystemColors.ControlLightLight;
-            btnLogin.Location = new Point(151, 262);
+            btnLogin.Location = new Point(144, 250);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(170, 33);
+            btnLogin.Size = new Size(180, 44);
             btnLogin.TabIndex = 15;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
-            // textBox4
+            // txtPassword
             // 
-            textBox4.Location = new Point(136, 191);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(299, 23);
-            textBox4.TabIndex = 11;
+            txtPassword.Location = new Point(102, 191);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(324, 23);
+            txtPassword.TabIndex = 11;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
-            // textBox3
+            // txtEmail
             // 
-            textBox3.Location = new Point(136, 135);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(299, 23);
-            textBox3.TabIndex = 9;
+            txtEmail.Location = new Point(102, 133);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(324, 23);
+            txtEmail.TabIndex = 9;
             // 
-            // label5
+            // lblPassword
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Modern No. 20", 11.249999F);
-            label5.Location = new Point(38, 192);
-            label5.Name = "label5";
-            label5.Size = new Size(65, 17);
-            label5.TabIndex = 10;
-            label5.Text = "Password";
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Modern No. 20", 11.249999F);
+            lblPassword.Location = new Point(31, 197);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(65, 17);
+            lblPassword.TabIndex = 10;
+            lblPassword.Text = "Password";
             // 
-            // label4
+            // lblEmail
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Modern No. 20", 11.249999F);
-            label4.Location = new Point(38, 136);
-            label4.Name = "label4";
-            label4.Size = new Size(46, 17);
-            label4.TabIndex = 8;
-            label4.Text = "Email";
-            label4.Click += label4_Click;
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Modern No. 20", 11.249999F);
+            lblEmail.Location = new Point(31, 139);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(46, 17);
+            lblEmail.TabIndex = 8;
+            lblEmail.Text = "Email";
+            lblEmail.Click += label4_Click;
             // 
-            // Login
+            // UserLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(583, 487);
+            ClientSize = new Size(548, 521);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Login";
+            Name = "UserLogin";
             Text = "Login";
             Load += Login_Load;
             panel1.ResumeLayout(false);
@@ -167,17 +172,19 @@
             ResumeLayout(false);
         }
 
+       
+
         #endregion
 
         private Panel panel1;
         private Label label8;
         private PictureBox pictureBox1;
-        private LinkLabel linkLabel1;
+        private LinkLabel lblSignup;
         private Label label7;
         private Button btnLogin;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private Label label5;
-        private Label label4;
+        private TextBox txtPassword;
+        private TextBox txtEmail;
+        private Label lblPassword;
+        private Label lblEmail;
     }
 }

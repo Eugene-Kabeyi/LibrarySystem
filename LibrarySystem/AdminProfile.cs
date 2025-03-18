@@ -30,5 +30,10 @@ namespace LibrarySystem
                 user_pic.Image = AdminSession.ProfilePicture;
             }
         }
+
+        private void contact_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

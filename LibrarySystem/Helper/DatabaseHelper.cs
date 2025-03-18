@@ -8,7 +8,7 @@ namespace LibrarySystem  // Namespace of your project
     public class DatabaseHelper
     {
         // Connection string for MySQL database
-        private string mySqlConn = "server=127.0.0.1;user=root;password=root;database=Librarymanagementsystem;";
+        private string mySqlConn = "server=127.0.0.1;user=root;password=root;database=library;";
         private MySqlConnection connection;  // MySQL connection object
 
         // Constructor: Initializes the database connection
@@ -69,6 +69,91 @@ namespace LibrarySystem  // Namespace of your project
 
             return dataTable;  // Return fetched data
         }
+
+        public void SaveUserData(
+       string tableName, int userId, string name, string email, string phone,
+       string address, Image image)
+        {
+            string query = $@"
+        INSERT INTO {tableName} (id, name, email, phone, address, picture)
+        VALUES (@id, @name, @email, @phone, @address, @picture)
+        ON DUPLICATE KEY UPDATE 
+            name = @name, email = @email, phone = @phone, 
+            address = @address, picture = @picture;";
+
+            using (MySqlConnection conn = new MySqlConnection(mySqlConn))
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@id", userId);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@phone", phone);
+                cmd.Parameters.AddWithValue("@address", address);
+
+                // 🛠 Handle Image: Check if NULL before converting
+                byte[] imageData = null;
+                if (image != null)
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        imageData = ms.ToArray();
+                    }
+                }
+
+                // ✅ Prevent Truncation (Set Parameter Size)
+                MySqlParameter pictureParam = new MySqlParameter("@picture", MySqlDbType.LongBlob);
+                pictureParam.Value = (object)imageData ?? DBNull.Value; // Handle NULL properly
+                cmd.Parameters.Add(pictureParam);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public (string name, string email, string phone, string address, Image picture)
+         GetData(string tableName, int userId)
+        {
+            string query = $"SELECT name, email, phone, address, picture FROM {tableName} WHERE id = @id";
+
+            using (MySqlConnection conn = new MySqlConnection(mySqlConn))
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@id", userId);
+                conn.Open();
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string name = reader["name"].ToString();
+                        string email = reader["email"].ToString();
+                        string phone = reader["phone"].ToString();
+                        string address = reader["address"].ToString();
+
+                        Image picture = null;
+                        if (reader["picture"] != DBNull.Value)
+                        {
+                            picture = ByteArrayToImage((byte[])reader["picture"]); // Convert Byte Array to Image
+                        }
+
+                        return (name, email, phone, address, picture);
+                    }
+                }
+            }
+
+            return (null, null, null, null, null); // Return empty data if no record is found
+        }
+
+        // 🔹 Helper function: Convert Byte Array to Image
+        private Image ByteArrayToImage(byte[] byteArray)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArray))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
 
         /// <summary>
         /// Retrieves all users from the Users table.

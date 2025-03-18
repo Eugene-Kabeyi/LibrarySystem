@@ -104,6 +104,7 @@ namespace LibrarySystem
             btnLogin.TabIndex = 15;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // txtPassword
             // 

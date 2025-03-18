@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Crypto.Generators;
 
 namespace LibrarySystem
@@ -15,12 +16,20 @@ namespace LibrarySystem
     public partial class StaffLogin : Form
     {
 
-
-        private DatabaseHelper dbHelper = new DatabaseHelper(); // Using the existing DatabaseHelper class
-
+        private string mySqlConn = "server=127.0.0.1;user=root;password=root;database=library;";
         public StaffLogin()
         {
             InitializeComponent();
+        }
+
+        public static class StaffSession
+        {
+            public static int UserId { get; set; }
+            public static string FirstName { get; set; }
+            public static string LastName { get; set; }
+            public static string Username { get; set; }
+            public static string Email { get; set; }
+            public static byte[] Picture { get; set; }
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -31,81 +40,75 @@ namespace LibrarySystem
         {
             
         }
+       
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Get user input from text boxes.
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            // Basic validation.
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please enter both username and password.",
-                                "Login Failed",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter both Username and Password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Fetch all user records using your DatabaseHelper.
-            DatabaseHelper dbHelper = new DatabaseHelper();
-            DataTable usersTable = dbHelper.GetAllStaff();
-
-            // Use DataTable.Select to find a matching user.
-            DataRow[] foundUser = usersTable.Select($"Username = '{username}' AND Password = '{password}'");
-
-            if (foundUser.Length > 0)
+            using (MySqlConnection conn = new MySqlConnection(mySqlConn))
             {
-                // Get the first (and only) matching row.
-                DataRow user = foundUser[0];
+                conn.Open();
+                string query = "SELECT id, firstname, lastname, username, email, picture, password FROM Staff WHERE username = @username";
 
-                // Retrieve individual fields.
-                string firstName = user["FirstName"].ToString();
-                string lastName = user["LastName"].ToString();
-                string fullName = $"{firstName} {lastName}";
-                string email = user["Email"].ToString();
-                string phoneNumber = user["PhoneNumber"].ToString();
-
-                // Retrieve the picture (if it exists).
-                Image profilePicture = null;
-                if (user["Picture"] != DBNull.Value)
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    byte[] pictureData = (byte[])user["Picture"];
-                    if (pictureData.Length > 0)
+                    cmd.Parameters.AddWithValue("@username", username);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        using (MemoryStream ms = new MemoryStream(pictureData))
+                        if (reader.Read())
                         {
-                            profilePicture = Image.FromStream(ms);
+                            string storedPassword = reader.GetString("password");
+
+                            // 🔒 Verify password using BCrypt
+                            if (BCrypt.Net.BCrypt.Verify(password, storedPassword))
+                            {
+                                // ✅ Store staff details in session (except password & gender)
+                                StaffSession.UserId = reader.GetInt32("id");
+                                StaffSession.FirstName = reader.GetString("firstname");
+                                StaffSession.LastName = reader.GetString("lastname");
+                                StaffSession.Username = reader.GetString("username");
+                                StaffSession.Email = reader.GetString("email");
+                                StaffSession.Picture = reader["picture"] as byte[];
+
+                                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                // ✅ Redirect based on FirstName
+                                if (StaffSession.FirstName.ToLower() == "admin")
+                                {
+                                    AdminPanel adminPanel = new AdminPanel();
+                                    adminPanel.Show();
+                                    
+                                }
+                                else
+                                {
+                                    LibrariansPanel librariansPanel = new LibrariansPanel();
+                                    librariansPanel.Show();
+                                }
+
+                                this.Hide(); // Hide login form after successful login
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("User not found!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
-
-                // Open the appropriate panel based on username.
-                if (username.ToLower() == "admin")
-                {
-                    AdminPanel adminPanel = new AdminPanel();
-                    // Optionally, pass user details to AdminPanel.
-                    adminPanel.SetUserDetails(fullName, email, phoneNumber, profilePicture);
-                    adminPanel.Show();
-                }
-                else
-                {
-                    LibrariansPanel librariansPanel = new LibrariansPanel();
-                    // Optionally, pass user details to LibrariansPanel.
-                    librariansPanel.SetUserDetails(fullName, email, phoneNumber, profilePicture);
-                    librariansPanel.Show();
-                }
-
-                this.Hide(); // Hide the login form.
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password!",
-                                "Login Failed",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
             }
         }
+
     }
 }
 

@@ -29,145 +29,138 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage));
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            btnMembers = new FontAwesome.Sharp.IconButton();
-            btnBooks = new FontAwesome.Sharp.IconButton();
-            btnDash = new FontAwesome.Sharp.IconButton();
-            label5 = new Label();
+            btnRequest = new FontAwesome.Sharp.IconButton();
+            btnBorrowed = new FontAwesome.Sharp.IconButton();
+            btnHome = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            lblLogout = new Label();
+            btnBooklist = new FontAwesome.Sharp.IconButton();
             libName = new Label();
             logo = new PictureBox();
             panel1 = new Panel();
-            picAdmin = new PictureBox();
-            lbFname = new Label();
+            picUser = new PictureBox();
+            lblFname = new Label();
+            pnlContent = new Panel();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picAdmin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picUser).BeginInit();
             SuspendLayout();
             // 
-            // iconButton2
+            // btnRequest
             // 
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconButton2.IconColor = Color.Black;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.Location = new Point(361, 223);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(8, 8);
-            iconButton2.TabIndex = 5;
-            iconButton2.Text = "iconButton2";
-            iconButton2.UseVisualStyleBackColor = true;
+            btnRequest.FlatAppearance.BorderSize = 0;
+            btnRequest.FlatStyle = FlatStyle.Flat;
+            btnRequest.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRequest.ForeColor = SystemColors.ControlLightLight;
+            btnRequest.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
+            btnRequest.IconColor = Color.White;
+            btnRequest.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRequest.IconSize = 30;
+            btnRequest.Location = new Point(0, 193);
+            btnRequest.Margin = new Padding(3, 10, 3, 10);
+            btnRequest.Name = "btnRequest";
+            btnRequest.Padding = new Padding(10, 0, 4, 0);
+            btnRequest.Size = new Size(174, 53);
+            btnRequest.TabIndex = 4;
+            btnRequest.Text = "Request Book";
+            btnRequest.TextAlign = ContentAlignment.MiddleLeft;
+            btnRequest.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRequest.UseVisualStyleBackColor = true;
+            btnRequest.Click += btnRequest_Click;
             // 
-            // btnMembers
+            // btnBorrowed
             // 
-            btnMembers.FlatAppearance.BorderSize = 0;
-            btnMembers.FlatStyle = FlatStyle.Flat;
-            btnMembers.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMembers.ForeColor = SystemColors.ControlLightLight;
-            btnMembers.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
-            btnMembers.IconColor = Color.White;
-            btnMembers.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnMembers.IconSize = 30;
-            btnMembers.Location = new Point(0, 193);
-            btnMembers.Margin = new Padding(3, 10, 3, 10);
-            btnMembers.Name = "btnMembers";
-            btnMembers.Padding = new Padding(10, 0, 4, 0);
-            btnMembers.Size = new Size(174, 53);
-            btnMembers.TabIndex = 4;
-            btnMembers.Text = "Request Book";
-            btnMembers.TextAlign = ContentAlignment.MiddleLeft;
-            btnMembers.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMembers.UseVisualStyleBackColor = true;
+            btnBorrowed.FlatAppearance.BorderSize = 0;
+            btnBorrowed.FlatStyle = FlatStyle.Flat;
+            btnBorrowed.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBorrowed.ForeColor = SystemColors.ControlLightLight;
+            btnBorrowed.IconChar = FontAwesome.Sharp.IconChar.BookReader;
+            btnBorrowed.IconColor = Color.White;
+            btnBorrowed.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBorrowed.IconSize = 30;
+            btnBorrowed.Location = new Point(0, 244);
+            btnBorrowed.Margin = new Padding(3, 10, 3, 10);
+            btnBorrowed.Name = "btnBorrowed";
+            btnBorrowed.Padding = new Padding(10, 0, 4, 0);
+            btnBorrowed.Size = new Size(184, 66);
+            btnBorrowed.TabIndex = 3;
+            btnBorrowed.Text = "Borrowed Book";
+            btnBorrowed.TextAlign = ContentAlignment.MiddleLeft;
+            btnBorrowed.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnBorrowed.UseVisualStyleBackColor = true;
+            btnBorrowed.Click += btnBorrowed_Click;
             // 
-            // btnBooks
+            // btnHome
             // 
-            btnBooks.FlatAppearance.BorderSize = 0;
-            btnBooks.FlatStyle = FlatStyle.Flat;
-            btnBooks.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBooks.ForeColor = SystemColors.ControlLightLight;
-            btnBooks.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            btnBooks.IconColor = Color.White;
-            btnBooks.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBooks.IconSize = 30;
-            btnBooks.Location = new Point(0, 244);
-            btnBooks.Margin = new Padding(3, 10, 3, 10);
-            btnBooks.Name = "btnBooks";
-            btnBooks.Padding = new Padding(10, 0, 4, 0);
-            btnBooks.Size = new Size(184, 66);
-            btnBooks.TabIndex = 3;
-            btnBooks.Text = "Borrowed Book";
-            btnBooks.TextAlign = ContentAlignment.MiddleLeft;
-            btnBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnBooks.UseVisualStyleBackColor = true;
-            // 
-            // btnDash
-            // 
-            btnDash.FlatAppearance.BorderSize = 0;
-            btnDash.FlatStyle = FlatStyle.Flat;
-            btnDash.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDash.ForeColor = SystemColors.ControlLightLight;
-            btnDash.IconChar = FontAwesome.Sharp.IconChar.House;
-            btnDash.IconColor = Color.White;
-            btnDash.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnDash.IconSize = 30;
-            btnDash.Location = new Point(0, 106);
-            btnDash.Margin = new Padding(3, 10, 3, 10);
-            btnDash.Name = "btnDash";
-            btnDash.Padding = new Padding(0, 0, 20, 0);
-            btnDash.Size = new Size(174, 36);
-            btnDash.TabIndex = 2;
-            btnDash.Text = "Home";
-            btnDash.TextAlign = ContentAlignment.MiddleLeft;
-            btnDash.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDash.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Modern No. 20", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(61, 345);
-            label5.Name = "label5";
-            label5.Size = new Size(45, 15);
-            label5.TabIndex = 2;
-            label5.Text = "Logout";
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHome.ForeColor = SystemColors.ControlLightLight;
+            btnHome.IconChar = FontAwesome.Sharp.IconChar.House;
+            btnHome.IconColor = Color.White;
+            btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHome.IconSize = 30;
+            btnHome.Location = new Point(0, 106);
+            btnHome.Margin = new Padding(3, 10, 3, 10);
+            btnHome.Name = "btnHome";
+            btnHome.Padding = new Padding(0, 0, 20, 0);
+            btnHome.Size = new Size(174, 36);
+            btnHome.TabIndex = 2;
+            btnHome.Text = "Home";
+            btnHome.TextAlign = ContentAlignment.MiddleLeft;
+            btnHome.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.MenuHighlight;
-            panel2.Controls.Add(iconButton1);
-            panel2.Controls.Add(btnMembers);
-            panel2.Controls.Add(btnBooks);
-            panel2.Controls.Add(btnDash);
-            panel2.Controls.Add(label5);
+            panel2.Controls.Add(lblLogout);
+            panel2.Controls.Add(btnBooklist);
+            panel2.Controls.Add(btnRequest);
+            panel2.Controls.Add(btnBorrowed);
+            panel2.Controls.Add(btnHome);
             panel2.Controls.Add(libName);
             panel2.Controls.Add(logo);
             panel2.Location = new Point(-1, -4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(174, 458);
+            panel2.Size = new Size(174, 564);
             panel2.TabIndex = 4;
             // 
-            // iconButton1
+            // lblLogout
             // 
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Book;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 30;
-            iconButton1.Location = new Point(0, 143);
-            iconButton1.Margin = new Padding(3, 10, 3, 10);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Padding = new Padding(1, 0, 4, 0);
-            iconButton1.Size = new Size(174, 53);
-            iconButton1.TabIndex = 5;
-            iconButton1.Text = "Book List";
-            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = true;
+            lblLogout.AutoSize = true;
+            lblLogout.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLogout.ForeColor = Color.Red;
+            lblLogout.Location = new Point(61, 428);
+            lblLogout.Name = "lblLogout";
+            lblLogout.Size = new Size(59, 18);
+            lblLogout.TabIndex = 6;
+            lblLogout.Text = "Logout";
+            lblLogout.Click += lblLogout_Click;
+            // 
+            // btnBooklist
+            // 
+            btnBooklist.FlatAppearance.BorderSize = 0;
+            btnBooklist.FlatStyle = FlatStyle.Flat;
+            btnBooklist.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBooklist.ForeColor = SystemColors.ControlLightLight;
+            btnBooklist.IconChar = FontAwesome.Sharp.IconChar.Book;
+            btnBooklist.IconColor = Color.White;
+            btnBooklist.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBooklist.IconSize = 30;
+            btnBooklist.Location = new Point(0, 143);
+            btnBooklist.Margin = new Padding(3, 10, 3, 10);
+            btnBooklist.Name = "btnBooklist";
+            btnBooklist.Padding = new Padding(1, 0, 4, 0);
+            btnBooklist.Size = new Size(174, 53);
+            btnBooklist.TabIndex = 5;
+            btnBooklist.Text = "Book List";
+            btnBooklist.TextAlign = ContentAlignment.MiddleLeft;
+            btnBooklist.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnBooklist.UseVisualStyleBackColor = true;
+            btnBooklist.Click += btnBooklist_Click;
             // 
             // libName
             // 
@@ -192,40 +185,49 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
-            panel1.Controls.Add(picAdmin);
-            panel1.Controls.Add(lbFname);
+            panel1.Controls.Add(picUser);
+            panel1.Controls.Add(lblFname);
             panel1.Location = new Point(169, -1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(633, 59);
+            panel1.Size = new Size(835, 66);
             panel1.TabIndex = 3;
             // 
-            // picAdmin
+            // picUser
             // 
-            picAdmin.Image = Properties.Resources.user_icon;
-            picAdmin.Location = new Point(547, 6);
-            picAdmin.Name = "picAdmin";
-            picAdmin.Size = new Size(73, 50);
-            picAdmin.SizeMode = PictureBoxSizeMode.Zoom;
-            picAdmin.TabIndex = 5;
-            picAdmin.TabStop = false;
+            picUser.Image = Properties.Resources.user_icon;
+            picUser.Location = new Point(750, 3);
+            picUser.Name = "picUser";
+            picUser.Size = new Size(73, 60);
+            picUser.SizeMode = PictureBoxSizeMode.Zoom;
+            picUser.TabIndex = 5;
+            picUser.TabStop = false;
+            picUser.Click += picUser_Click;
             // 
-            // lbFname
+            // lblFname
             // 
-            lbFname.AutoSize = true;
-            lbFname.Font = new Font("Modern No. 20", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            lbFname.ForeColor = SystemColors.ControlLightLight;
-            lbFname.Location = new Point(464, 22);
-            lbFname.Name = "lbFname";
-            lbFname.Size = new Size(49, 21);
-            lbFname.TabIndex = 4;
-            lbFname.Text = "User";
+            lblFname.AutoSize = true;
+            lblFname.Font = new Font("Bauhaus 93", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFname.ForeColor = SystemColors.ControlLightLight;
+            lblFname.Location = new Point(679, 28);
+            lblFname.Name = "lblFname";
+            lblFname.Size = new Size(45, 21);
+            lblFname.TabIndex = 4;
+            lblFname.Text = "User";
+            // 
+            // pnlContent
+            // 
+            pnlContent.Location = new Point(179, 71);
+            pnlContent.Name = "pnlContent";
+            pnlContent.Size = new Size(825, 489);
+            pnlContent.TabIndex = 6;
+            pnlContent.Paint += pnlContent_Paint;
             // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(iconButton2);
+            ClientSize = new Size(1004, 559);
+            Controls.Add(pnlContent);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -237,23 +239,22 @@
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picAdmin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picUser).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton btnMembers;
-        private FontAwesome.Sharp.IconButton btnBooks;
-        private FontAwesome.Sharp.IconButton btnDash;
-        private Label label5;
+        private FontAwesome.Sharp.IconButton btnRequest;
+        private FontAwesome.Sharp.IconButton btnBorrowed;
+        private FontAwesome.Sharp.IconButton btnHome;
         private Panel panel2;
         private Label libName;
         private PictureBox logo;
         private Panel panel1;
-        private PictureBox picAdmin;
-        private Label lbFname;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private PictureBox picUser;
+        private Label lblFname;
+        private FontAwesome.Sharp.IconButton btnBooklist;
+        private Panel pnlContent;
+        private Label lblLogout;
     }
 }
