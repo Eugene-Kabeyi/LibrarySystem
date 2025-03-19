@@ -29,115 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LibrarianProfile));
-            btnSave = new Button();
-            btnEdit = new Button();
-            btnPic = new Button();
+            label1 = new Label();
+            uploadPic = new FontAwesome.Sharp.IconButton();
+            btnEdit = new FontAwesome.Sharp.IconButton();
+            btnSave = new FontAwesome.Sharp.IconButton();
             txtEmail = new TextBox();
-            txtContact = new TextBox();
+            txtUsername = new TextBox();
             txtName = new TextBox();
-            contact = new Label();
+            lblUsername = new Label();
             email = new Label();
             name = new Label();
             user_pic = new PictureBox();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)user_pic).BeginInit();
             SuspendLayout();
-            // 
-            // btnSave
-            // 
-            btnSave.Enabled = false;
-            btnSave.FlatStyle = FlatStyle.Popup;
-            btnSave.Font = new Font("Modern No. 20", 11.9999981F);
-            btnSave.Location = new Point(427, 252);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(123, 39);
-            btnSave.TabIndex = 21;
-            btnSave.Text = "SAVE";
-            btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            btnEdit.FlatStyle = FlatStyle.Popup;
-            btnEdit.Font = new Font("Modern No. 20", 11.9999981F);
-            btnEdit.Location = new Point(273, 252);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(123, 39);
-            btnEdit.TabIndex = 20;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnPic
-            // 
-            btnPic.FlatStyle = FlatStyle.Popup;
-            btnPic.Font = new Font("Modern No. 20", 11.9999981F);
-            btnPic.Location = new Point(31, 252);
-            btnPic.Name = "btnPic";
-            btnPic.Size = new Size(123, 39);
-            btnPic.TabIndex = 19;
-            btnPic.Text = "Upload Picture";
-            btnPic.UseVisualStyleBackColor = true;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(343, 130);
-            txtEmail.Name = "txtEmail";
-            txtEmail.ReadOnly = true;
-            txtEmail.Size = new Size(184, 23);
-            txtEmail.TabIndex = 18;
-            // 
-            // txtContact
-            // 
-            txtContact.Location = new Point(343, 181);
-            txtContact.Name = "txtContact";
-            txtContact.ReadOnly = true;
-            txtContact.Size = new Size(184, 23);
-            txtContact.TabIndex = 17;
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(343, 76);
-            txtName.Name = "txtName";
-            txtName.ReadOnly = true;
-            txtName.Size = new Size(184, 23);
-            txtName.TabIndex = 16;
-            // 
-            // contact
-            // 
-            contact.AutoSize = true;
-            contact.Font = new Font("Modern No. 20", 11.9999981F);
-            contact.Location = new Point(262, 184);
-            contact.Name = "contact";
-            contact.Size = new Size(56, 18);
-            contact.TabIndex = 15;
-            contact.Text = "Contact";
-            // 
-            // email
-            // 
-            email.AutoSize = true;
-            email.Font = new Font("Modern No. 20", 11.9999981F);
-            email.Location = new Point(262, 130);
-            email.Name = "email";
-            email.Size = new Size(48, 18);
-            email.TabIndex = 14;
-            email.Text = "Email";
-            // 
-            // name
-            // 
-            name.AutoSize = true;
-            name.Font = new Font("Modern No. 20", 11.9999981F);
-            name.Location = new Point(262, 79);
-            name.Name = "name";
-            name.Size = new Size(44, 18);
-            name.TabIndex = 13;
-            name.Text = "Name";
-            // 
-            // user_pic
-            // 
-            user_pic.Location = new Point(19, 79);
-            user_pic.Name = "user_pic";
-            user_pic.Size = new Size(146, 137);
-            user_pic.TabIndex = 12;
-            user_pic.TabStop = false;
             // 
             // label1
             // 
@@ -149,18 +53,142 @@
             label1.TabIndex = 11;
             label1.Text = "Librarian Profile";
             // 
+            // uploadPic
+            // 
+            uploadPic.BackColor = SystemColors.Highlight;
+            uploadPic.FlatStyle = FlatStyle.Flat;
+            uploadPic.Font = new Font("Modern No. 20", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            uploadPic.ForeColor = SystemColors.ControlLightLight;
+            uploadPic.IconChar = FontAwesome.Sharp.IconChar.Upload;
+            uploadPic.IconColor = Color.White;
+            uploadPic.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            uploadPic.IconSize = 22;
+            uploadPic.Location = new Point(57, 257);
+            uploadPic.Name = "uploadPic";
+            uploadPic.Padding = new Padding(10, 0, 0, 0);
+            uploadPic.Size = new Size(103, 40);
+            uploadPic.TabIndex = 65;
+            uploadPic.Text = "Upload Picture";
+            uploadPic.TextAlign = ContentAlignment.MiddleLeft;
+            uploadPic.TextImageRelation = TextImageRelation.ImageBeforeText;
+            uploadPic.UseVisualStyleBackColor = false;
+            uploadPic.Visible = false;
+            // 
+            // btnEdit
+            // 
+            btnEdit.BackColor = SystemColors.Highlight;
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnEdit.ForeColor = SystemColors.ControlLightLight;
+            btnEdit.IconChar = FontAwesome.Sharp.IconChar.Pencil;
+            btnEdit.IconColor = Color.White;
+            btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEdit.IconSize = 22;
+            btnEdit.Location = new Point(281, 263);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Padding = new Padding(10, 0, 0, 0);
+            btnEdit.Size = new Size(103, 34);
+            btnEdit.TabIndex = 64;
+            btnEdit.Text = "Edit";
+            btnEdit.TextAlign = ContentAlignment.MiddleLeft;
+            btnEdit.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            btnSave.BackColor = SystemColors.Highlight;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnSave.ForeColor = SystemColors.ControlLightLight;
+            btnSave.IconChar = FontAwesome.Sharp.IconChar.Save;
+            btnSave.IconColor = Color.White;
+            btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSave.IconSize = 22;
+            btnSave.Location = new Point(437, 263);
+            btnSave.Name = "btnSave";
+            btnSave.Padding = new Padding(10, 0, 0, 0);
+            btnSave.Size = new Size(103, 34);
+            btnSave.TabIndex = 63;
+            btnSave.Text = "SAVE";
+            btnSave.TextAlign = ContentAlignment.MiddleLeft;
+            btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Visible = false;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(362, 131);
+            txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new Size(184, 23);
+            txtEmail.TabIndex = 62;
+            // 
+            // txtUsername
+            // 
+            txtUsername.Location = new Point(362, 182);
+            txtUsername.Name = "txtUsername";
+            txtUsername.ReadOnly = true;
+            txtUsername.Size = new Size(184, 23);
+            txtUsername.TabIndex = 61;
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(362, 77);
+            txtName.Name = "txtName";
+            txtName.ReadOnly = true;
+            txtName.Size = new Size(184, 23);
+            txtName.TabIndex = 60;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Modern No. 20", 11.9999981F);
+            lblUsername.Location = new Point(281, 185);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(73, 18);
+            lblUsername.TabIndex = 59;
+            lblUsername.Text = "UserName";
+            // 
+            // email
+            // 
+            email.AutoSize = true;
+            email.Font = new Font("Modern No. 20", 11.9999981F);
+            email.Location = new Point(281, 131);
+            email.Name = "email";
+            email.Size = new Size(48, 18);
+            email.TabIndex = 58;
+            email.Text = "Email";
+            // 
+            // name
+            // 
+            name.AutoSize = true;
+            name.Font = new Font("Modern No. 20", 11.9999981F);
+            name.Location = new Point(281, 80);
+            name.Name = "name";
+            name.Size = new Size(44, 18);
+            name.TabIndex = 57;
+            name.Text = "Name";
+            // 
+            // user_pic
+            // 
+            user_pic.Location = new Point(38, 80);
+            user_pic.Name = "user_pic";
+            user_pic.Size = new Size(146, 137);
+            user_pic.TabIndex = 56;
+            user_pic.TabStop = false;
+            // 
             // LibrarianProfile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(625, 356);
-            Controls.Add(btnSave);
+            Controls.Add(uploadPic);
             Controls.Add(btnEdit);
-            Controls.Add(btnPic);
+            Controls.Add(btnSave);
             Controls.Add(txtEmail);
-            Controls.Add(txtContact);
+            Controls.Add(txtUsername);
             Controls.Add(txtName);
-            Controls.Add(contact);
+            Controls.Add(lblUsername);
             Controls.Add(email);
             Controls.Add(name);
             Controls.Add(user_pic);
@@ -168,23 +196,23 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LibrarianProfile";
             Text = "LibrarianProfile";
+            Load += LibrarianProfile_Load;
             ((System.ComponentModel.ISupportInitialize)user_pic).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnSave;
-        private Button btnEdit;
-        private Button btnPic;
+        private Label label1;
+        private FontAwesome.Sharp.IconButton uploadPic;
+        private FontAwesome.Sharp.IconButton btnEdit;
+        private FontAwesome.Sharp.IconButton btnSave;
         private TextBox txtEmail;
-        private TextBox txtContact;
+        private TextBox txtUsername;
         private TextBox txtName;
-        private Label contact;
+        private Label lblUsername;
         private Label email;
         private Label name;
         private PictureBox user_pic;
-        private Label label1;
     }
 }
