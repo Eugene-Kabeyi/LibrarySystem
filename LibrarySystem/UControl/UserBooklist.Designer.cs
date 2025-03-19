@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewBooks = new DataGridView();
             grpBookDetails = new GroupBox();
             txtNoBooks = new TextBox();
@@ -50,6 +51,14 @@
             // dataGridViewBooks
             // 
             dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Gadugi", 12F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewBooks.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewBooks.Location = new Point(39, 310);
             dataGridViewBooks.Name = "dataGridViewBooks";
             dataGridViewBooks.Size = new Size(662, 199);

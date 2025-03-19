@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewBooks = new DataGridView();
             lblPublisher = new Label();
             grpBookDetails = new GroupBox();
@@ -48,9 +49,17 @@
             // dataGridViewBooks
             // 
             dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewBooks.Location = new Point(27, 280);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Gadugi", 12F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewBooks.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewBooks.Location = new Point(27, 266);
             dataGridViewBooks.Name = "dataGridViewBooks";
-            dataGridViewBooks.Size = new Size(662, 125);
+            dataGridViewBooks.Size = new Size(662, 139);
             dataGridViewBooks.TabIndex = 39;
             // 
             // lblPublisher
@@ -111,6 +120,7 @@
             txtPublisher.Location = new Point(162, 175);
             txtPublisher.Margin = new Padding(2);
             txtPublisher.Name = "txtPublisher";
+            txtPublisher.ReadOnly = true;
             txtPublisher.Size = new Size(256, 30);
             txtPublisher.TabIndex = 11;
             // 
@@ -119,6 +129,7 @@
             txtISBN.Location = new Point(162, 127);
             txtISBN.Margin = new Padding(2);
             txtISBN.Name = "txtISBN";
+            txtISBN.ReadOnly = true;
             txtISBN.Size = new Size(256, 30);
             txtISBN.TabIndex = 10;
             // 
@@ -127,6 +138,7 @@
             txtTitle.Location = new Point(162, 42);
             txtTitle.Margin = new Padding(2);
             txtTitle.Name = "txtTitle";
+            txtTitle.ReadOnly = true;
             txtTitle.Size = new Size(256, 30);
             txtTitle.TabIndex = 9;
             // 
@@ -135,6 +147,7 @@
             txtAuthor.Location = new Point(162, 83);
             txtAuthor.Margin = new Padding(2);
             txtAuthor.Name = "txtAuthor";
+            txtAuthor.ReadOnly = true;
             txtAuthor.Size = new Size(256, 30);
             txtAuthor.TabIndex = 5;
             // 

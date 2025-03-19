@@ -26,7 +26,7 @@ namespace LibrarySystem.UControl
             txtEmail.Clear();
             txtRequestDate.Clear();
             selectedBookId = -1;
-            ReturnDate.Value = DateTime.Today;
+            txtRequestDate.Clear();
         }
 
         // Load Only Pending Requests

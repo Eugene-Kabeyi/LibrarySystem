@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridViewBooks = new DataGridView();
             grpBookDetails = new GroupBox();
+            btnRequest = new FontAwesome.Sharp.IconButton();
             txtPublisher = new TextBox();
             txtISBN = new TextBox();
             txtTitle = new TextBox();
@@ -38,10 +40,9 @@
             lblISBN = new Label();
             lblAuthor = new Label();
             lblTitle = new Label();
+            btnClear = new FontAwesome.Sharp.IconButton();
             btnSearch = new FontAwesome.Sharp.IconButton();
             txtSearch = new TextBox();
-            btnRequest = new FontAwesome.Sharp.IconButton();
-            btnClear = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             grpBookDetails.SuspendLayout();
             SuspendLayout();
@@ -49,6 +50,14 @@
             // dataGridViewBooks
             // 
             dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Gadugi", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewBooks.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewBooks.Location = new Point(34, 285);
             dataGridViewBooks.Name = "dataGridViewBooks";
             dataGridViewBooks.Size = new Size(662, 199);
@@ -76,6 +85,27 @@
             grpBookDetails.TabIndex = 38;
             grpBookDetails.TabStop = false;
             grpBookDetails.Text = "Book List";
+            // 
+            // btnRequest
+            // 
+            btnRequest.BackColor = SystemColors.Highlight;
+            btnRequest.FlatStyle = FlatStyle.Flat;
+            btnRequest.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnRequest.ForeColor = SystemColors.ControlLightLight;
+            btnRequest.IconChar = FontAwesome.Sharp.IconChar.HandsHolding;
+            btnRequest.IconColor = Color.White;
+            btnRequest.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRequest.IconSize = 22;
+            btnRequest.Location = new Point(490, 75);
+            btnRequest.Name = "btnRequest";
+            btnRequest.Padding = new Padding(20, 0, 0, 0);
+            btnRequest.Size = new Size(145, 34);
+            btnRequest.TabIndex = 42;
+            btnRequest.Text = "Request";
+            btnRequest.TextAlign = ContentAlignment.MiddleLeft;
+            btnRequest.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRequest.UseVisualStyleBackColor = false;
+            btnRequest.Click += btnRequest_Click;
             // 
             // txtPublisher
             // 
@@ -157,6 +187,27 @@
             lblTitle.TabIndex = 32;
             lblTitle.Text = "Title";
             // 
+            // btnClear
+            // 
+            btnClear.BackColor = SystemColors.Highlight;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnClear.ForeColor = SystemColors.ControlLightLight;
+            btnClear.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            btnClear.IconColor = Color.White;
+            btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnClear.IconSize = 22;
+            btnClear.Location = new Point(490, 127);
+            btnClear.Name = "btnClear";
+            btnClear.Padding = new Padding(20, 0, 0, 0);
+            btnClear.Size = new Size(145, 34);
+            btnClear.TabIndex = 25;
+            btnClear.Text = "Clear";
+            btnClear.TextAlign = ContentAlignment.MiddleLeft;
+            btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
+            // 
             // btnSearch
             // 
             btnSearch.BackColor = SystemColors.Highlight;
@@ -181,48 +232,6 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(303, 23);
             txtSearch.TabIndex = 40;
-            // 
-            // btnRequest
-            // 
-            btnRequest.BackColor = SystemColors.Highlight;
-            btnRequest.FlatStyle = FlatStyle.Flat;
-            btnRequest.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnRequest.ForeColor = SystemColors.ControlLightLight;
-            btnRequest.IconChar = FontAwesome.Sharp.IconChar.HandHoldingHand;
-            btnRequest.IconColor = Color.White;
-            btnRequest.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRequest.IconSize = 22;
-            btnRequest.Location = new Point(496, 94);
-            btnRequest.Name = "btnRequest";
-            btnRequest.Padding = new Padding(20, 0, 0, 0);
-            btnRequest.Size = new Size(145, 34);
-            btnRequest.TabIndex = 42;
-            btnRequest.Text = "Request";
-            btnRequest.TextAlign = ContentAlignment.MiddleLeft;
-            btnRequest.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnRequest.UseVisualStyleBackColor = false;
-            btnRequest.Click += btnRequest_Click;
-            // 
-            // btnClear
-            // 
-            btnClear.BackColor = SystemColors.Highlight;
-            btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnClear.ForeColor = SystemColors.ControlLightLight;
-            btnClear.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            btnClear.IconColor = Color.White;
-            btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnClear.IconSize = 22;
-            btnClear.Location = new Point(496, 146);
-            btnClear.Name = "btnClear";
-            btnClear.Padding = new Padding(20, 0, 0, 0);
-            btnClear.Size = new Size(145, 34);
-            btnClear.TabIndex = 25;
-            btnClear.Text = "Clear";
-            btnClear.TextAlign = ContentAlignment.MiddleLeft;
-            btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += btnClear_Click;
             // 
             // Request
             // 

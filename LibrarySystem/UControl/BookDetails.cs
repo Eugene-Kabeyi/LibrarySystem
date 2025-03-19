@@ -28,7 +28,7 @@ namespace LibrarySystem.UControl
             txtPublisher.Clear();
             txtNoBooks.Clear();
         }
-        
+
         private int selectedBookId = -1; // Store selected book ID
         private void LoadBooks()
         {
@@ -191,7 +191,7 @@ namespace LibrarySystem.UControl
                 MessageBoxIcon.Information);
 
             btnSave.Visible = true;
-            btnEdit.Visible = false;    
+            btnEdit.Visible = false;
             btnAdd.Visible = false;
             btnClear.Visible = false;
             btnDelete.Visible = false;
@@ -255,5 +255,9 @@ namespace LibrarySystem.UControl
             }
         }
 
+        private void dataGridViewBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

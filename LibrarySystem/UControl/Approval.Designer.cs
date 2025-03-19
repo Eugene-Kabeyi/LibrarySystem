@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             grBxBorrowed = new GroupBox();
             btnDeny = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
@@ -199,6 +200,14 @@
             // dgvBorrowedBooks
             // 
             dgvBorrowedBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Gadugi", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvBorrowedBooks.DefaultCellStyle = dataGridViewCellStyle1;
             dgvBorrowedBooks.Location = new Point(0, 231);
             dgvBorrowedBooks.Margin = new Padding(2);
             dgvBorrowedBooks.Name = "dgvBorrowedBooks";

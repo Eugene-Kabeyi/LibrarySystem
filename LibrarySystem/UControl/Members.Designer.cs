@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridUsers = new DataGridView();
             txtUsername = new TextBox();
             label1 = new Label();
@@ -55,6 +56,14 @@
             // dataGridUsers
             // 
             dataGridUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Gadugi", 12F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridUsers.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridUsers.Location = new Point(18, 291);
             dataGridUsers.Name = "dataGridUsers";
             dataGridUsers.RowHeadersWidth = 62;

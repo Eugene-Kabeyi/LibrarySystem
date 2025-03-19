@@ -31,16 +31,18 @@
             dgvBorrowedBooks = new DataGridView();
             grBxBorrowed = new GroupBox();
             panel1 = new Panel();
-            textBox2 = new TextBox();
+            txtBorrowerEmail = new TextBox();
             lblTitle = new Label();
             lblBorrower = new Label();
-            textBox1 = new TextBox();
+            txtBookTitle = new TextBox();
             lblBorrowDate = new Label();
-            dateTimePicker1 = new DateTimePicker();
             lblReturnDate = new Label();
-            dateTimePicker2 = new DateTimePicker();
             btnSave = new FontAwesome.Sharp.IconButton();
             btnReset = new FontAwesome.Sharp.IconButton();
+            txtBorrowDate = new TextBox();
+            txtReturnDate = new TextBox();
+            txtoverdueDays = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).BeginInit();
             grBxBorrowed.SuspendLayout();
             panel1.SuspendLayout();
@@ -68,39 +70,42 @@
             grBxBorrowed.Margin = new Padding(2);
             grBxBorrowed.Name = "grBxBorrowed";
             grBxBorrowed.Padding = new Padding(2);
-            grBxBorrowed.Size = new Size(728, 354);
+            grBxBorrowed.Size = new Size(728, 375);
             grBxBorrowed.TabIndex = 14;
             grBxBorrowed.TabStop = false;
             grBxBorrowed.Text = "Borrowed Books";
             // 
             // panel1
             // 
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(txtoverdueDays);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(txtReturnDate);
+            panel1.Controls.Add(txtBorrowDate);
+            panel1.Controls.Add(txtBorrowerEmail);
             panel1.Controls.Add(lblTitle);
             panel1.Controls.Add(lblBorrower);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtBookTitle);
             panel1.Controls.Add(lblBorrowDate);
-            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(lblReturnDate);
-            panel1.Controls.Add(dateTimePicker2);
             panel1.Location = new Point(5, 35);
             panel1.Name = "panel1";
             panel1.Size = new Size(504, 187);
             panel1.TabIndex = 20;
             // 
-            // textBox2
+            // txtBorrowerEmail
             // 
-            textBox2.Location = new Point(158, 44);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(289, 30);
-            textBox2.TabIndex = 3;
+            txtBorrowerEmail.Location = new Point(158, 44);
+            txtBorrowerEmail.Margin = new Padding(2);
+            txtBorrowerEmail.Name = "txtBorrowerEmail";
+            txtBorrowerEmail.ReadOnly = true;
+            txtBorrowerEmail.Size = new Size(289, 30);
+            txtBorrowerEmail.TabIndex = 3;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Modern No. 20", 11.9999981F);
-            lblTitle.Location = new Point(25, 16);
+            lblTitle.Location = new Point(25, 17);
             lblTitle.Margin = new Padding(2, 0, 2, 0);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(77, 18);
@@ -111,20 +116,21 @@
             // 
             lblBorrower.AutoSize = true;
             lblBorrower.Font = new Font("Modern No. 20", 11.9999981F);
-            lblBorrower.Location = new Point(25, 50);
+            lblBorrower.Location = new Point(25, 51);
             lblBorrower.Margin = new Padding(2, 0, 2, 0);
             lblBorrower.Name = "lblBorrower";
             lblBorrower.Size = new Size(108, 18);
             lblBorrower.TabIndex = 2;
             lblBorrower.Text = "Borrower Name";
             // 
-            // textBox1
+            // txtBookTitle
             // 
-            textBox1.Location = new Point(158, 10);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(289, 30);
-            textBox1.TabIndex = 1;
+            txtBookTitle.Location = new Point(158, 10);
+            txtBookTitle.Margin = new Padding(2);
+            txtBookTitle.Name = "txtBookTitle";
+            txtBookTitle.ReadOnly = true;
+            txtBookTitle.Size = new Size(289, 30);
+            txtBookTitle.TabIndex = 1;
             // 
             // lblBorrowDate
             // 
@@ -137,34 +143,16 @@
             lblBorrowDate.TabIndex = 4;
             lblBorrowDate.Text = "Borrow Date";
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker1.Location = new Point(158, 82);
-            dateTimePicker1.Margin = new Padding(2);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(289, 21);
-            dateTimePicker1.TabIndex = 5;
-            // 
             // lblReturnDate
             // 
             lblReturnDate.AutoSize = true;
             lblReturnDate.Font = new Font("Modern No. 20", 11.9999981F);
-            lblReturnDate.Location = new Point(25, 114);
+            lblReturnDate.Location = new Point(25, 120);
             lblReturnDate.Margin = new Padding(2, 0, 2, 0);
             lblReturnDate.Name = "lblReturnDate";
             lblReturnDate.Size = new Size(88, 18);
             lblReturnDate.TabIndex = 6;
             lblReturnDate.Text = "Return Date";
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker2.Location = new Point(158, 113);
-            dateTimePicker2.Margin = new Padding(2);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(289, 21);
-            dateTimePicker2.TabIndex = 7;
             // 
             // btnSave
             // 
@@ -206,6 +194,44 @@
             btnReset.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnReset.UseVisualStyleBackColor = false;
             // 
+            // txtBorrowDate
+            // 
+            txtBorrowDate.Location = new Point(158, 78);
+            txtBorrowDate.Margin = new Padding(2);
+            txtBorrowDate.Name = "txtBorrowDate";
+            txtBorrowDate.ReadOnly = true;
+            txtBorrowDate.Size = new Size(289, 30);
+            txtBorrowDate.TabIndex = 7;
+            // 
+            // txtReturnDate
+            // 
+            txtReturnDate.Location = new Point(158, 113);
+            txtReturnDate.Margin = new Padding(2);
+            txtReturnDate.Name = "txtReturnDate";
+            txtReturnDate.ReadOnly = true;
+            txtReturnDate.Size = new Size(289, 30);
+            txtReturnDate.TabIndex = 8;
+            // 
+            // txtoverdueDays
+            // 
+            txtoverdueDays.Location = new Point(158, 147);
+            txtoverdueDays.Margin = new Padding(2);
+            txtoverdueDays.Name = "txtoverdueDays";
+            txtoverdueDays.ReadOnly = true;
+            txtoverdueDays.Size = new Size(289, 30);
+            txtoverdueDays.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Modern No. 20", 11.9999981F);
+            label1.Location = new Point(25, 154);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 18);
+            label1.TabIndex = 9;
+            label1.Text = "Overdue Days";
+            // 
             // Borrowed
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -225,15 +251,17 @@
         private DataGridView dgvBorrowedBooks;
         private GroupBox grBxBorrowed;
         private Panel panel1;
-        private TextBox textBox2;
+        private TextBox txtBorrowerEmail;
         private Label lblTitle;
         private Label lblBorrower;
-        private TextBox textBox1;
+        private TextBox txtBookTitle;
         private Label lblBorrowDate;
-        private DateTimePicker dateTimePicker1;
         private Label lblReturnDate;
-        private DateTimePicker dateTimePicker2;
         private FontAwesome.Sharp.IconButton btnSave;
         private FontAwesome.Sharp.IconButton btnReset;
+        private TextBox txtReturnDate;
+        private TextBox txtBorrowDate;
+        private TextBox txtoverdueDays;
+        private Label label1;
     }
 }

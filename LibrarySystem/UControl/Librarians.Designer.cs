@@ -29,6 +29,7 @@ namespace LibrarySystem.UControl
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             txtSearch = new TextBox();
             txtUsername = new TextBox();
             label1 = new Label();
@@ -295,6 +296,14 @@ namespace LibrarySystem.UControl
             // dataGridStaff
             // 
             dataGridStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Gadugi", 12F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridStaff.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridStaff.Location = new Point(21, 285);
             dataGridStaff.Name = "dataGridStaff";
             dataGridStaff.RowHeadersWidth = 62;
