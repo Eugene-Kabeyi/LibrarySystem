@@ -62,6 +62,7 @@ namespace LibrarySystem
             uploadPic.TextAlign = ContentAlignment.MiddleLeft;
             uploadPic.TextImageRelation = TextImageRelation.ImageBeforeText;
             uploadPic.UseVisualStyleBackColor = false;
+            uploadPic.Visible = false;
             uploadPic.Click += btnPic_Click;
             // 
             // btnEdit
@@ -195,13 +196,13 @@ namespace LibrarySystem
             Controls.Add(label1);
             Name = "UserProfile";
             Text = "Uprofile";
-            Load += this.UserProfile_Load;
+            Load += UserProfile_Load;
             ((System.ComponentModel.ISupportInitialize)user_pic).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
-       
+
 
         #endregion
 

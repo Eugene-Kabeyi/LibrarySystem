@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridViewBooks = new DataGridView();
             lblPublisher = new Label();
             grpBookDetails = new GroupBox();
-            btnDelete = new FontAwesome.Sharp.IconButton();
+            btnClear = new FontAwesome.Sharp.IconButton();
             txtPublisher = new TextBox();
             txtISBN = new TextBox();
             txtTitle = new TextBox();
@@ -41,17 +41,17 @@
             lblTitle = new Label();
             btnSearch = new FontAwesome.Sharp.IconButton();
             textBox1 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             grpBookDetails.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewBooks
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(27, 266);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(662, 125);
-            dataGridView1.TabIndex = 39;
+            dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewBooks.Location = new Point(27, 280);
+            dataGridViewBooks.Name = "dataGridViewBooks";
+            dataGridViewBooks.Size = new Size(662, 125);
+            dataGridViewBooks.TabIndex = 39;
             // 
             // lblPublisher
             // 
@@ -66,7 +66,7 @@
             // 
             // grpBookDetails
             // 
-            grpBookDetails.Controls.Add(btnDelete);
+            grpBookDetails.Controls.Add(btnClear);
             grpBookDetails.Controls.Add(txtPublisher);
             grpBookDetails.Controls.Add(txtISBN);
             grpBookDetails.Controls.Add(txtTitle);
@@ -84,26 +84,27 @@
             grpBookDetails.TabIndex = 38;
             grpBookDetails.TabStop = false;
             grpBookDetails.Text = "Books Borrowed";
+            grpBookDetails.Enter += grpBookDetails_Enter;
             // 
-            // btnDelete
+            // btnClear
             // 
-            btnDelete.BackColor = SystemColors.Highlight;
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnDelete.ForeColor = SystemColors.ControlLightLight;
-            btnDelete.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            btnDelete.IconColor = Color.White;
-            btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnDelete.IconSize = 22;
-            btnDelete.Location = new Point(492, 83);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Padding = new Padding(10, 0, 0, 0);
-            btnDelete.Size = new Size(145, 34);
-            btnDelete.TabIndex = 25;
-            btnDelete.Text = "Clear";
-            btnDelete.TextAlign = ContentAlignment.MiddleLeft;
-            btnDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDelete.UseVisualStyleBackColor = false;
+            btnClear.BackColor = SystemColors.Highlight;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnClear.ForeColor = SystemColors.ControlLightLight;
+            btnClear.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            btnClear.IconColor = Color.White;
+            btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnClear.IconSize = 22;
+            btnClear.Location = new Point(477, 100);
+            btnClear.Name = "btnClear";
+            btnClear.Padding = new Padding(20, 0, 0, 0);
+            btnClear.Size = new Size(152, 34);
+            btnClear.TabIndex = 27;
+            btnClear.Text = "Clear";
+            btnClear.TextAlign = ContentAlignment.MiddleLeft;
+            btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnClear.UseVisualStyleBackColor = false;
             // 
             // txtPublisher
             // 
@@ -199,13 +200,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewBooks);
             Controls.Add(grpBookDetails);
             Controls.Add(btnSearch);
             Controls.Add(textBox1);
             Name = "UserBorrowed";
             Size = new Size(750, 420);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += UserBorrowed_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).EndInit();
             grpBookDetails.ResumeLayout(false);
             grpBookDetails.PerformLayout();
             ResumeLayout(false);
@@ -214,10 +216,9 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewBooks;
         private Label lblPublisher;
         private GroupBox grpBookDetails;
-        private FontAwesome.Sharp.IconButton btnDelete;
         private TextBox txtPublisher;
         private TextBox txtISBN;
         private TextBox txtTitle;
@@ -227,5 +228,6 @@
         private Label lblTitle;
         private FontAwesome.Sharp.IconButton btnSearch;
         private TextBox textBox1;
+        private FontAwesome.Sharp.IconButton btnClear;
     }
 }

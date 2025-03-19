@@ -153,7 +153,7 @@ namespace LibrarySystem
             panel2.Controls.Add(logo);
             panel2.Location = new Point(-2, -5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(174, 584);
+            panel2.Size = new Size(174, 594);
             panel2.TabIndex = 1;
             // 
             // btnRequestedBooks

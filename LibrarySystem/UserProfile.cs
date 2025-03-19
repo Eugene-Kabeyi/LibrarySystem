@@ -67,6 +67,7 @@ namespace LibrarySystem
             txtLname.ReadOnly = false;
             btnSave.Visible = true;
             btnEdit.Visible = false;
+            uploadPic.Visible = true;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -105,7 +106,10 @@ namespace LibrarySystem
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Staff details updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadUsers(); 
+                        LoadUsers();
+                        btnSave.Visible = false;
+                        btnEdit.Visible = true;
+                        uploadPic.Visible = false;
                     }
                     else
                     {

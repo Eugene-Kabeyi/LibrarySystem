@@ -305,7 +305,7 @@
             btnSearch.TextAlign = ContentAlignment.MiddleLeft;
             btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = false;
-            btnSearch.Click += btnEdit_Click;
+            btnSearch.Click += btnSearch_Click;
             // 
             // textBox1
             // 

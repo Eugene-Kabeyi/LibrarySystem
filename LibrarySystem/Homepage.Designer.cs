@@ -133,7 +133,7 @@
             lblLogout.AutoSize = true;
             lblLogout.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLogout.ForeColor = Color.Red;
-            lblLogout.Location = new Point(61, 428);
+            lblLogout.Location = new Point(48, 495);
             lblLogout.Name = "lblLogout";
             lblLogout.Size = new Size(59, 18);
             lblLogout.TabIndex = 6;

@@ -143,6 +143,38 @@ namespace LibrarySystem.UControl
             }
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = textBox1.Text.Trim(); // Trim input to remove extra spaces
+            if (string.IsNullOrEmpty(searchText))
+            {
+                LoadBooks(); // If search is empty, reload all books
+                return;
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(mySqlConn))
+            {
+                conn.Open();
+                string query = "SELECT id, isbn, title, author, publisher, number_of_books " +
+                               "FROM Books " +
+                               "WHERE isbn LIKE @search OR " +
+                               "title LIKE @search OR " +
+                               "author LIKE @search OR " +
+                               "publisher LIKE @search";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@search", "%" + searchText + "%");
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        dataGridViewBooks.DataSource = dt;
+                    }
+                }
+            }
+        }
 
 
 

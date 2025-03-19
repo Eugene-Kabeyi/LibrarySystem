@@ -127,7 +127,7 @@
             panel2.Controls.Add(logo);
             panel2.Location = new Point(-1, -4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(174, 588);
+            panel2.Size = new Size(174, 603);
             panel2.TabIndex = 4;
             // 
             // lblLogout
