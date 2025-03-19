@@ -36,6 +36,7 @@ namespace LibrarySystem.UControl
             panel2 = new Panel();
             uploadPic = new FontAwesome.Sharp.IconButton();
             txtLastname = new TextBox();
+            btnSave = new FontAwesome.Sharp.IconButton();
             txtEmail = new TextBox();
             txtFirstname = new TextBox();
             pictureBox1 = new PictureBox();
@@ -48,7 +49,6 @@ namespace LibrarySystem.UControl
             lbMembers = new Label();
             dataGridStaff = new DataGridView();
             createLibAcc = new FontAwesome.Sharp.IconButton();
-            btnSave = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridStaff).BeginInit();
@@ -56,28 +56,25 @@ namespace LibrarySystem.UControl
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(34, 97);
-            txtSearch.Margin = new Padding(4, 5, 4, 5);
+            txtSearch.Location = new Point(24, 58);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(495, 31);
+            txtSearch.Size = new Size(348, 23);
             txtSearch.TabIndex = 25;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(244, 152);
-            txtUsername.Margin = new Padding(4, 5, 4, 5);
+            txtUsername.Location = new Point(171, 91);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(278, 31);
+            txtUsername.Size = new Size(196, 23);
             txtUsername.TabIndex = 11;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Modern No. 20", 11.9999981F);
-            label1.Location = new Point(63, 147);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(44, 88);
             label1.Name = "label1";
-            label1.Size = new Size(108, 25);
+            label1.Size = new Size(71, 18);
             label1.TabIndex = 10;
             label1.Text = "Username";
             // 
@@ -91,11 +88,10 @@ namespace LibrarySystem.UControl
             btnEdit.IconColor = Color.White;
             btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEdit.IconSize = 22;
-            btnEdit.Location = new Point(914, 163);
-            btnEdit.Margin = new Padding(4, 5, 4, 5);
+            btnEdit.Location = new Point(640, 98);
             btnEdit.Name = "btnEdit";
-            btnEdit.Padding = new Padding(14, 0, 0, 0);
-            btnEdit.Size = new Size(147, 57);
+            btnEdit.Padding = new Padding(10, 0, 0, 0);
+            btnEdit.Size = new Size(103, 34);
             btnEdit.TabIndex = 31;
             btnEdit.Text = "Edit";
             btnEdit.TextAlign = ContentAlignment.MiddleLeft;
@@ -116,10 +112,9 @@ namespace LibrarySystem.UControl
             panel2.Controls.Add(lbEmail);
             panel2.Controls.Add(lbLname);
             panel2.Controls.Add(lbFname);
-            panel2.Location = new Point(33, 145);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(23, 87);
             panel2.Name = "panel2";
-            panel2.Size = new Size(807, 320);
+            panel2.Size = new Size(565, 192);
             panel2.TabIndex = 27;
             // 
             // uploadPic
@@ -132,11 +127,10 @@ namespace LibrarySystem.UControl
             uploadPic.IconColor = Color.White;
             uploadPic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             uploadPic.IconSize = 22;
-            uploadPic.Location = new Point(619, 242);
-            uploadPic.Margin = new Padding(4, 5, 4, 5);
+            uploadPic.Location = new Point(433, 145);
             uploadPic.Name = "uploadPic";
-            uploadPic.Padding = new Padding(14, 0, 0, 0);
-            uploadPic.Size = new Size(147, 57);
+            uploadPic.Padding = new Padding(10, 0, 0, 0);
+            uploadPic.Size = new Size(103, 41);
             uploadPic.TabIndex = 33;
             uploadPic.Text = "Upload Picture";
             uploadPic.TextAlign = ContentAlignment.MiddleLeft;
@@ -146,34 +140,52 @@ namespace LibrarySystem.UControl
             // 
             // txtLastname
             // 
-            txtLastname.Location = new Point(244, 93);
-            txtLastname.Margin = new Padding(4, 5, 4, 5);
+            txtLastname.Location = new Point(171, 56);
             txtLastname.Name = "txtLastname";
-            txtLastname.Size = new Size(278, 31);
+            txtLastname.Size = new Size(196, 23);
             txtLastname.TabIndex = 9;
+            // 
+            // btnSave
+            // 
+            btnSave.BackColor = SystemColors.Highlight;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnSave.ForeColor = SystemColors.ControlLightLight;
+            btnSave.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
+            btnSave.IconColor = Color.White;
+            btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSave.IconSize = 22;
+            btnSave.Location = new Point(156, 152);
+            btnSave.Name = "btnSave";
+            btnSave.Padding = new Padding(35, 0, 0, 0);
+            btnSave.Size = new Size(182, 34);
+            btnSave.TabIndex = 32;
+            btnSave.Text = "Update";
+            btnSave.TextAlign = ContentAlignment.MiddleLeft;
+            btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Visible = false;
+            btnSave.Click += btnSave_Click;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(244, 208);
-            txtEmail.Margin = new Padding(4, 5, 4, 5);
+            txtEmail.Location = new Point(171, 125);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(278, 31);
+            txtEmail.Size = new Size(196, 23);
             txtEmail.TabIndex = 8;
             // 
             // txtFirstname
             // 
-            txtFirstname.Location = new Point(244, 32);
-            txtFirstname.Margin = new Padding(4, 5, 4, 5);
+            txtFirstname.Location = new Point(171, 19);
             txtFirstname.Name = "txtFirstname";
-            txtFirstname.Size = new Size(278, 31);
+            txtFirstname.Size = new Size(196, 23);
             txtFirstname.TabIndex = 6;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(610, 32);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(427, 19);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(166, 198);
+            pictureBox1.Size = new Size(116, 119);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -182,10 +194,9 @@ namespace LibrarySystem.UControl
             // 
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Modern No. 20", 11.9999981F);
-            lbEmail.Location = new Point(63, 208);
-            lbEmail.Margin = new Padding(4, 0, 4, 0);
+            lbEmail.Location = new Point(44, 125);
             lbEmail.Name = "lbEmail";
-            lbEmail.Size = new Size(74, 25);
+            lbEmail.Size = new Size(48, 18);
             lbEmail.TabIndex = 3;
             lbEmail.Text = "Email";
             // 
@@ -193,10 +204,9 @@ namespace LibrarySystem.UControl
             // 
             lbLname.AutoSize = true;
             lbLname.Font = new Font("Modern No. 20", 11.9999981F);
-            lbLname.Location = new Point(63, 88);
-            lbLname.Margin = new Padding(4, 0, 4, 0);
+            lbLname.Location = new Point(44, 53);
             lbLname.Name = "lbLname";
-            lbLname.Size = new Size(110, 25);
+            lbLname.Size = new Size(73, 18);
             lbLname.TabIndex = 2;
             lbLname.Text = "LastName";
             // 
@@ -204,10 +214,9 @@ namespace LibrarySystem.UControl
             // 
             lbFname.AutoSize = true;
             lbFname.Font = new Font("Modern No. 20", 11.9999981F);
-            lbFname.Location = new Point(63, 32);
-            lbFname.Margin = new Padding(4, 0, 4, 0);
+            lbFname.Location = new Point(44, 19);
             lbFname.Name = "lbFname";
-            lbFname.Size = new Size(111, 25);
+            lbFname.Size = new Size(74, 18);
             lbFname.TabIndex = 0;
             lbFname.Text = "Firstname";
             // 
@@ -221,11 +230,10 @@ namespace LibrarySystem.UControl
             btnDelete.IconColor = Color.White;
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 22;
-            btnDelete.Location = new Point(914, 233);
-            btnDelete.Margin = new Padding(4, 5, 4, 5);
+            btnDelete.Location = new Point(640, 140);
             btnDelete.Name = "btnDelete";
-            btnDelete.Padding = new Padding(14, 0, 0, 0);
-            btnDelete.Size = new Size(147, 57);
+            btnDelete.Padding = new Padding(10, 0, 0, 0);
+            btnDelete.Size = new Size(103, 34);
             btnDelete.TabIndex = 30;
             btnDelete.Text = "Delete";
             btnDelete.TextAlign = ContentAlignment.MiddleLeft;
@@ -243,11 +251,10 @@ namespace LibrarySystem.UControl
             btnReset.IconColor = Color.White;
             btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnReset.IconSize = 22;
-            btnReset.Location = new Point(914, 307);
-            btnReset.Margin = new Padding(4, 5, 4, 5);
+            btnReset.Location = new Point(640, 184);
             btnReset.Name = "btnReset";
-            btnReset.Padding = new Padding(14, 0, 0, 0);
-            btnReset.Size = new Size(147, 57);
+            btnReset.Padding = new Padding(10, 0, 0, 0);
+            btnReset.Size = new Size(103, 34);
             btnReset.TabIndex = 29;
             btnReset.Text = "Reset";
             btnReset.TextAlign = ContentAlignment.MiddleLeft;
@@ -265,12 +272,11 @@ namespace LibrarySystem.UControl
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 22;
-            btnSearch.Location = new Point(550, 88);
-            btnSearch.Margin = new Padding(4, 5, 4, 5);
+            btnSearch.Location = new Point(385, 53);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(249, 40);
+            btnSearch.Size = new Size(94, 28);
             btnSearch.TabIndex = 28;
-            btnSearch.Text = "Search Username";
+            btnSearch.Text = "Search ";
             btnSearch.TextAlign = ContentAlignment.MiddleLeft;
             btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = false;
@@ -280,21 +286,19 @@ namespace LibrarySystem.UControl
             // 
             lbMembers.AutoSize = true;
             lbMembers.Font = new Font("Modern No. 20", 35.9999962F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbMembers.Location = new Point(351, 8);
-            lbMembers.Margin = new Padding(4, 0, 4, 0);
+            lbMembers.Location = new Point(246, 5);
             lbMembers.Name = "lbMembers";
-            lbMembers.Size = new Size(347, 75);
+            lbMembers.Size = new Size(233, 50);
             lbMembers.TabIndex = 26;
             lbMembers.Text = "Librarians";
             // 
             // dataGridStaff
             // 
             dataGridStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridStaff.Location = new Point(30, 475);
-            dataGridStaff.Margin = new Padding(4, 5, 4, 5);
+            dataGridStaff.Location = new Point(21, 285);
             dataGridStaff.Name = "dataGridStaff";
             dataGridStaff.RowHeadersWidth = 62;
-            dataGridStaff.Size = new Size(1103, 223);
+            dataGridStaff.Size = new Size(772, 134);
             dataGridStaff.TabIndex = 24;
             dataGridStaff.CellClick += dataGridStaff_CellClick;
             // 
@@ -308,43 +312,19 @@ namespace LibrarySystem.UControl
             createLibAcc.IconColor = Color.White;
             createLibAcc.IconFont = FontAwesome.Sharp.IconFont.Auto;
             createLibAcc.IconSize = 30;
-            createLibAcc.Location = new Point(397, 705);
-            createLibAcc.Margin = new Padding(4, 5, 4, 5);
+            createLibAcc.Location = new Point(278, 423);
             createLibAcc.Name = "createLibAcc";
-            createLibAcc.Padding = new Padding(14, 0, 0, 0);
-            createLibAcc.Size = new Size(314, 40);
+            createLibAcc.Padding = new Padding(10, 0, 0, 0);
+            createLibAcc.Size = new Size(220, 29);
             createLibAcc.TabIndex = 33;
             createLibAcc.Text = "Create New Account";
             createLibAcc.TextImageRelation = TextImageRelation.ImageBeforeText;
             createLibAcc.UseVisualStyleBackColor = false;
             createLibAcc.Click += createLibAcc_Click;
             // 
-            // btnSave
-            // 
-            btnSave.BackColor = SystemColors.Highlight;
-            btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnSave.ForeColor = SystemColors.ControlLightLight;
-            btnSave.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
-            btnSave.IconColor = Color.White;
-            btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSave.IconSize = 22;
-            btnSave.Location = new Point(223, 253);
-            btnSave.Margin = new Padding(4, 5, 4, 5);
-            btnSave.Name = "btnSave";
-            btnSave.Padding = new Padding(50, 0, 0, 0);
-            btnSave.Size = new Size(260, 57);
-            btnSave.TabIndex = 32;
-            btnSave.Text = "Update";
-            btnSave.TextAlign = ContentAlignment.MiddleLeft;
-            btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSave.UseVisualStyleBackColor = false;
-            btnSave.Visible = false;
-            btnSave.Click += btnSave_Click;
-            // 
             // Librarians
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(createLibAcc);
             Controls.Add(txtSearch);
@@ -355,9 +335,8 @@ namespace LibrarySystem.UControl
             Controls.Add(btnSearch);
             Controls.Add(lbMembers);
             Controls.Add(dataGridStaff);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "Librarians";
-            Size = new Size(1164, 750);
+            Size = new Size(815, 469);
             Load += Librarians_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

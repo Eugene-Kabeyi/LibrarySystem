@@ -33,6 +33,7 @@
             btnEditBooks = new FontAwesome.Sharp.IconButton();
             btnLibDash = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
+            lblLogout = new Label();
             btnRequestedBooks = new FontAwesome.Sharp.IconButton();
             btnBorrowedBooks = new FontAwesome.Sharp.IconButton();
             libName = new Label();
@@ -41,7 +42,6 @@
             picLibrarian = new PictureBox();
             lblUsername = new Label();
             pnlContent = new Panel();
-            lblLogout = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             panel1.SuspendLayout();
@@ -127,8 +127,20 @@
             panel2.Controls.Add(logo);
             panel2.Location = new Point(-1, -4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(174, 562);
+            panel2.Size = new Size(174, 588);
             panel2.TabIndex = 4;
+            // 
+            // lblLogout
+            // 
+            lblLogout.AutoSize = true;
+            lblLogout.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLogout.ForeColor = Color.Red;
+            lblLogout.Location = new Point(44, 457);
+            lblLogout.Name = "lblLogout";
+            lblLogout.Size = new Size(59, 18);
+            lblLogout.TabIndex = 7;
+            lblLogout.Text = "Logout";
+            lblLogout.Click += lblLogout_Click;
             // 
             // btnRequestedBooks
             // 
@@ -230,27 +242,15 @@
             // 
             pnlContent.Location = new Point(179, 64);
             pnlContent.Name = "pnlContent";
-            pnlContent.Size = new Size(824, 494);
+            pnlContent.Size = new Size(824, 520);
             pnlContent.TabIndex = 5;
             pnlContent.Paint += pnlContent_Paint;
-            // 
-            // lblLogout
-            // 
-            lblLogout.AutoSize = true;
-            lblLogout.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLogout.ForeColor = Color.Red;
-            lblLogout.Location = new Point(44, 457);
-            lblLogout.Name = "lblLogout";
-            lblLogout.Size = new Size(59, 18);
-            lblLogout.TabIndex = 7;
-            lblLogout.Text = "Logout";
-            lblLogout.Click += lblLogout_Click;
             // 
             // LibrariansPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1007, 559);
+            ClientSize = new Size(1007, 587);
             Controls.Add(pnlContent);
             Controls.Add(panel2);
             Controls.Add(panel1);

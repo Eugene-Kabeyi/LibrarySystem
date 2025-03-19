@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridViewBooks = new DataGridView();
             grpBookDetails = new GroupBox();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             btnSave = new FontAwesome.Sharp.IconButton();
             btnDelete = new FontAwesome.Sharp.IconButton();
-            btnReset = new FontAwesome.Sharp.IconButton();
+            btnClear = new FontAwesome.Sharp.IconButton();
+            btnAdd = new FontAwesome.Sharp.IconButton();
             txtPublisher = new TextBox();
             txtISBN = new TextBox();
             txtTitle = new TextBox();
@@ -44,26 +44,30 @@
             lblTitle = new Label();
             btnSearch = new FontAwesome.Sharp.IconButton();
             textBox1 = new TextBox();
-            btnClear = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnEdit = new FontAwesome.Sharp.IconButton();
+            txtBookNo = new TextBox();
+            lblBookNo = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             grpBookDetails.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewBooks
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(30, 305);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(662, 124);
-            dataGridView1.TabIndex = 31;
+            dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewBooks.Location = new Point(30, 336);
+            dataGridViewBooks.Name = "dataGridViewBooks";
+            dataGridViewBooks.Size = new Size(662, 133);
+            dataGridViewBooks.TabIndex = 31;
             // 
             // grpBookDetails
             // 
-            grpBookDetails.Controls.Add(btnClear);
-            grpBookDetails.Controls.Add(iconButton1);
+            grpBookDetails.Controls.Add(txtBookNo);
+            grpBookDetails.Controls.Add(lblBookNo);
+            grpBookDetails.Controls.Add(btnEdit);
             grpBookDetails.Controls.Add(btnSave);
             grpBookDetails.Controls.Add(btnDelete);
-            grpBookDetails.Controls.Add(btnReset);
+            grpBookDetails.Controls.Add(btnClear);
+            grpBookDetails.Controls.Add(btnAdd);
             grpBookDetails.Controls.Add(txtPublisher);
             grpBookDetails.Controls.Add(txtISBN);
             grpBookDetails.Controls.Add(txtTitle);
@@ -77,30 +81,10 @@
             grpBookDetails.Margin = new Padding(2);
             grpBookDetails.Name = "grpBookDetails";
             grpBookDetails.Padding = new Padding(2);
-            grpBookDetails.Size = new Size(662, 249);
+            grpBookDetails.Size = new Size(662, 278);
             grpBookDetails.TabIndex = 30;
             grpBookDetails.TabStop = false;
             grpBookDetails.Text = "Book Details";
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.Maroon;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 22;
-            iconButton1.Location = new Point(526, 122);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Padding = new Padding(10, 0, 0, 0);
-            iconButton1.Size = new Size(103, 34);
-            iconButton1.TabIndex = 27;
-            iconButton1.Text = "Delete";
-            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
@@ -112,60 +96,81 @@
             btnSave.IconColor = Color.White;
             btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSave.IconSize = 22;
-            btnSave.Location = new Point(526, 83);
+            btnSave.Location = new Point(211, 244);
             btnSave.Name = "btnSave";
-            btnSave.Padding = new Padding(10, 0, 0, 0);
-            btnSave.Size = new Size(103, 34);
-            btnSave.TabIndex = 26;
+            btnSave.Padding = new Padding(30, 0, 0, 0);
+            btnSave.Size = new Size(166, 34);
+            btnSave.TabIndex = 28;
             btnSave.Text = "Save";
             btnSave.TextAlign = ContentAlignment.MiddleLeft;
             btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Visible = false;
             // 
             // btnDelete
             // 
-            btnDelete.BackColor = SystemColors.Highlight;
+            btnDelete.BackColor = Color.Maroon;
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
             btnDelete.ForeColor = SystemColors.ControlLightLight;
-            btnDelete.IconChar = FontAwesome.Sharp.IconChar.CirclePlus;
+            btnDelete.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
             btnDelete.IconColor = Color.White;
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 22;
-            btnDelete.Location = new Point(526, 43);
+            btnDelete.Location = new Point(522, 144);
             btnDelete.Name = "btnDelete";
             btnDelete.Padding = new Padding(10, 0, 0, 0);
             btnDelete.Size = new Size(103, 34);
-            btnDelete.TabIndex = 25;
-            btnDelete.Text = "Add";
+            btnDelete.TabIndex = 27;
+            btnDelete.Text = "Delete";
             btnDelete.TextAlign = ContentAlignment.MiddleLeft;
             btnDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
-            // btnReset
+            // btnClear
             // 
-            btnReset.BackColor = Color.Maroon;
-            btnReset.FlatStyle = FlatStyle.Flat;
-            btnReset.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnReset.ForeColor = SystemColors.ControlLightLight;
-            btnReset.IconChar = FontAwesome.Sharp.IconChar.SignIn;
-            btnReset.IconColor = Color.White;
-            btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnReset.IconSize = 22;
-            btnReset.Location = new Point(526, 163);
-            btnReset.Name = "btnReset";
-            btnReset.Padding = new Padding(10, 0, 0, 0);
-            btnReset.Size = new Size(103, 34);
-            btnReset.TabIndex = 24;
-            btnReset.Text = "Close";
-            btnReset.TextAlign = ContentAlignment.MiddleLeft;
-            btnReset.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnReset.UseVisualStyleBackColor = false;
+            btnClear.BackColor = SystemColors.Highlight;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnClear.ForeColor = SystemColors.ControlLightLight;
+            btnClear.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            btnClear.IconColor = Color.White;
+            btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnClear.IconSize = 22;
+            btnClear.Location = new Point(522, 105);
+            btnClear.Name = "btnClear";
+            btnClear.Padding = new Padding(10, 0, 0, 0);
+            btnClear.Size = new Size(103, 34);
+            btnClear.TabIndex = 26;
+            btnClear.Text = "Clear";
+            btnClear.TextAlign = ContentAlignment.MiddleLeft;
+            btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = SystemColors.Highlight;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnAdd.ForeColor = SystemColors.ControlLightLight;
+            btnAdd.IconChar = FontAwesome.Sharp.IconChar.CirclePlus;
+            btnAdd.IconColor = Color.White;
+            btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAdd.IconSize = 22;
+            btnAdd.Location = new Point(522, 65);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Padding = new Padding(10, 0, 0, 0);
+            btnAdd.Size = new Size(103, 34);
+            btnAdd.TabIndex = 25;
+            btnAdd.Text = "Add";
+            btnAdd.TextAlign = ContentAlignment.MiddleLeft;
+            btnAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnDelete_Click;
             // 
             // txtPublisher
             // 
-            txtPublisher.Location = new Point(162, 175);
+            txtPublisher.Location = new Point(162, 160);
             txtPublisher.Margin = new Padding(2);
             txtPublisher.Name = "txtPublisher";
             txtPublisher.Size = new Size(256, 30);
@@ -173,7 +178,7 @@
             // 
             // txtISBN
             // 
-            txtISBN.Location = new Point(162, 127);
+            txtISBN.Location = new Point(162, 112);
             txtISBN.Margin = new Padding(2);
             txtISBN.Name = "txtISBN";
             txtISBN.Size = new Size(256, 30);
@@ -181,7 +186,7 @@
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(162, 42);
+            txtTitle.Location = new Point(162, 27);
             txtTitle.Margin = new Padding(2);
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(256, 30);
@@ -189,7 +194,7 @@
             // 
             // txtAuthor
             // 
-            txtAuthor.Location = new Point(162, 83);
+            txtAuthor.Location = new Point(162, 68);
             txtAuthor.Margin = new Padding(2);
             txtAuthor.Name = "txtAuthor";
             txtAuthor.Size = new Size(256, 30);
@@ -199,7 +204,7 @@
             // 
             lblPublisher.AutoSize = true;
             lblPublisher.Font = new Font("Modern No. 20", 11.9999981F);
-            lblPublisher.Location = new Point(67, 181);
+            lblPublisher.Location = new Point(67, 166);
             lblPublisher.Margin = new Padding(2, 0, 2, 0);
             lblPublisher.Name = "lblPublisher";
             lblPublisher.Size = new Size(71, 18);
@@ -210,7 +215,7 @@
             // 
             lblISBN.AutoSize = true;
             lblISBN.Font = new Font("Modern No. 20", 11.9999981F);
-            lblISBN.Location = new Point(67, 135);
+            lblISBN.Location = new Point(67, 120);
             lblISBN.Margin = new Padding(2, 0, 2, 0);
             lblISBN.Name = "lblISBN";
             lblISBN.Size = new Size(45, 18);
@@ -221,7 +226,7 @@
             // 
             lblAuthor.AutoSize = true;
             lblAuthor.Font = new Font("Modern No. 20", 11.9999981F);
-            lblAuthor.Location = new Point(67, 89);
+            lblAuthor.Location = new Point(67, 74);
             lblAuthor.Margin = new Padding(2, 0, 2, 0);
             lblAuthor.Name = "lblAuthor";
             lblAuthor.Size = new Size(54, 18);
@@ -232,7 +237,7 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(67, 42);
+            lblTitle.Location = new Point(67, 27);
             lblTitle.Margin = new Padding(2, 0, 2, 0);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(39, 18);
@@ -264,37 +269,57 @@
             textBox1.TabIndex = 32;
             textBox1.Text = "Search";
             // 
-            // btnClear
+            // btnEdit
             // 
-            btnClear.BackColor = SystemColors.Highlight;
-            btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnClear.ForeColor = SystemColors.ControlLightLight;
-            btnClear.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            btnClear.IconColor = Color.White;
-            btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnClear.IconSize = 22;
-            btnClear.Location = new Point(210, 210);
-            btnClear.Name = "btnClear";
-            btnClear.Padding = new Padding(30, 0, 0, 0);
-            btnClear.Size = new Size(166, 34);
-            btnClear.TabIndex = 28;
-            btnClear.Text = "Clear";
-            btnClear.TextAlign = ContentAlignment.MiddleLeft;
-            btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnClear.UseVisualStyleBackColor = false;
+            btnEdit.BackColor = SystemColors.Highlight;
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnEdit.ForeColor = SystemColors.ControlLightLight;
+            btnEdit.IconChar = FontAwesome.Sharp.IconChar.Pencil;
+            btnEdit.IconColor = Color.White;
+            btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEdit.IconSize = 22;
+            btnEdit.Location = new Point(522, 184);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Padding = new Padding(10, 0, 0, 0);
+            btnEdit.Size = new Size(103, 34);
+            btnEdit.TabIndex = 29;
+            btnEdit.Text = "Edit";
+            btnEdit.TextAlign = ContentAlignment.MiddleLeft;
+            btnEdit.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Visible = false;
+            // 
+            // txtBookNo
+            // 
+            txtBookNo.Location = new Point(162, 209);
+            txtBookNo.Margin = new Padding(2);
+            txtBookNo.Name = "txtBookNo";
+            txtBookNo.Size = new Size(256, 30);
+            txtBookNo.TabIndex = 31;
+            // 
+            // lblBookNo
+            // 
+            lblBookNo.AutoSize = true;
+            lblBookNo.Font = new Font("Modern No. 20", 11.9999981F);
+            lblBookNo.Location = new Point(67, 215);
+            lblBookNo.Margin = new Padding(2, 0, 2, 0);
+            lblBookNo.Name = "lblBookNo";
+            lblBookNo.Size = new Size(88, 18);
+            lblBookNo.TabIndex = 30;
+            lblBookNo.Text = "No of Books";
             // 
             // BookDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewBooks);
             Controls.Add(grpBookDetails);
             Controls.Add(btnSearch);
             Controls.Add(textBox1);
             Name = "BookDetails";
-            Size = new Size(729, 432);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Size = new Size(729, 472);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).EndInit();
             grpBookDetails.ResumeLayout(false);
             grpBookDetails.PerformLayout();
             ResumeLayout(false);
@@ -303,12 +328,11 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewBooks;
         private GroupBox grpBookDetails;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnSave;
         private FontAwesome.Sharp.IconButton btnDelete;
-        private FontAwesome.Sharp.IconButton btnReset;
+        private FontAwesome.Sharp.IconButton btnClear;
+        private FontAwesome.Sharp.IconButton btnAdd;
         private TextBox txtPublisher;
         private TextBox txtISBN;
         private TextBox txtTitle;
@@ -319,6 +343,9 @@
         private Label lblTitle;
         private FontAwesome.Sharp.IconButton btnSearch;
         private TextBox textBox1;
-        private FontAwesome.Sharp.IconButton btnClear;
+        private FontAwesome.Sharp.IconButton btnSave;
+        private FontAwesome.Sharp.IconButton btnEdit;
+        private TextBox txtBookNo;
+        private Label lblBookNo;
     }
 }

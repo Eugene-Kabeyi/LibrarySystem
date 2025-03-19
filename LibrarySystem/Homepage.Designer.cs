@@ -125,7 +125,7 @@
             panel2.Controls.Add(logo);
             panel2.Location = new Point(-1, -4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(174, 564);
+            panel2.Size = new Size(174, 595);
             panel2.TabIndex = 4;
             // 
             // lblLogout
@@ -218,7 +218,7 @@
             // 
             pnlContent.Location = new Point(179, 71);
             pnlContent.Name = "pnlContent";
-            pnlContent.Size = new Size(825, 489);
+            pnlContent.Size = new Size(825, 520);
             pnlContent.TabIndex = 6;
             pnlContent.Paint += pnlContent_Paint;
             // 
@@ -226,7 +226,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1004, 559);
+            ClientSize = new Size(1004, 591);
             Controls.Add(pnlContent);
             Controls.Add(panel2);
             Controls.Add(panel1);

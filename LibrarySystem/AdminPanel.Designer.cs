@@ -153,7 +153,7 @@ namespace LibrarySystem
             panel2.Controls.Add(logo);
             panel2.Location = new Point(-2, -5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(174, 551);
+            panel2.Size = new Size(174, 584);
             panel2.TabIndex = 1;
             // 
             // btnRequestedBooks
@@ -270,7 +270,7 @@ namespace LibrarySystem
             pnlContent.Location = new Point(176, 59);
             pnlContent.Margin = new Padding(2);
             pnlContent.Name = "pnlContent";
-            pnlContent.Size = new Size(848, 487);
+            pnlContent.Size = new Size(848, 520);
             pnlContent.TabIndex = 2;
             pnlContent.Paint += pnlContent_Paint_1;
             // 
@@ -279,7 +279,7 @@ namespace LibrarySystem
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1023, 546);
+            ClientSize = new Size(1023, 581);
             Controls.Add(pnlContent);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -294,8 +294,6 @@ namespace LibrarySystem
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picAdmin).EndInit();
             ResumeLayout(false);
-
-
         }
 
         #endregion
