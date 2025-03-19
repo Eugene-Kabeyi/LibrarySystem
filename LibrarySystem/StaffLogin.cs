@@ -38,9 +38,9 @@ namespace LibrarySystem
         }
         private void StaffLogin_Load(object sender, EventArgs e)
         {
-            
+
         }
-       
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -85,7 +85,7 @@ namespace LibrarySystem
                                 {
                                     AdminPanel adminPanel = new AdminPanel();
                                     adminPanel.Show();
-                                    
+
                                 }
                                 else
                                 {
@@ -109,6 +109,10 @@ namespace LibrarySystem
             }
         }
 
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

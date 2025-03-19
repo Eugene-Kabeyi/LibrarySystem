@@ -112,6 +112,8 @@ namespace LibrarySystem
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(299, 23);
             txtPassword.TabIndex = 11;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // txtUsername
             // 
