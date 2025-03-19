@@ -46,7 +46,7 @@ namespace LibrarySystem.UControl
             txtAuthor.Clear();
             txtPublisher.Clear();
             txtNoBooks.Clear();
-            textBox1.Clear(); // Also clear search box
+            txtSearch.Clear(); // Also clear search box
             LoadBooks();
         }
         private void dataGridViewBooks_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -65,7 +65,7 @@ namespace LibrarySystem.UControl
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchText = textBox1.Text.Trim(); // Get search input and remove spaces
+            string searchText = txtSearch.Text.Trim(); // Get search input and remove spaces
 
             if (string.IsNullOrEmpty(searchText))
             {

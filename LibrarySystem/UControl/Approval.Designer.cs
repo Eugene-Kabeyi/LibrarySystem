@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             grBxBorrowed = new GroupBox();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+            txtISBN = new TextBox();
+            lblISBN = new Label();
             textBox2 = new TextBox();
             lblTitle = new Label();
             lblBorrower = new Label();
             textBox1 = new TextBox();
-            lblBorrowDate = new Label();
             dateTimePicker1 = new DateTimePicker();
             lblReturnDate = new Label();
             dateTimePicker2 = new DateTimePicker();
             btnApprove = new FontAwesome.Sharp.IconButton();
             btnReset = new FontAwesome.Sharp.IconButton();
             dgvBorrowedBooks = new DataGridView();
-            txtISBN = new TextBox();
-            lblISBN = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            lblBorrowDate = new Label();
             grBxBorrowed.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).BeginInit();
@@ -66,6 +66,26 @@
             grBxBorrowed.TabStop = false;
             grBxBorrowed.Text = "Approval of Request";
             // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = Color.Maroon;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            iconButton1.ForeColor = SystemColors.ControlLightLight;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.X;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 22;
+            iconButton1.Location = new Point(563, 110);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Padding = new Padding(10, 0, 0, 0);
+            iconButton1.Size = new Size(124, 34);
+            iconButton1.TabIndex = 28;
+            iconButton1.Text = "Deny";
+            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = false;
+            // 
             // panel1
             // 
             panel1.Controls.Add(txtISBN);
@@ -82,6 +102,25 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(504, 187);
             panel1.TabIndex = 20;
+            // 
+            // txtISBN
+            // 
+            txtISBN.Location = new Point(158, 78);
+            txtISBN.Margin = new Padding(2);
+            txtISBN.Name = "txtISBN";
+            txtISBN.Size = new Size(289, 30);
+            txtISBN.TabIndex = 12;
+            // 
+            // lblISBN
+            // 
+            lblISBN.AutoSize = true;
+            lblISBN.Font = new Font("Modern No. 20", 11.9999981F);
+            lblISBN.Location = new Point(25, 83);
+            lblISBN.Margin = new Padding(2, 0, 2, 0);
+            lblISBN.Name = "lblISBN";
+            lblISBN.Size = new Size(45, 18);
+            lblISBN.TabIndex = 11;
+            lblISBN.Text = "ISBN";
             // 
             // textBox2
             // 
@@ -120,17 +159,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(289, 30);
             textBox1.TabIndex = 1;
-            // 
-            // lblBorrowDate
-            // 
-            lblBorrowDate.AutoSize = true;
-            lblBorrowDate.Font = new Font("Modern No. 20", 11.9999981F);
-            lblBorrowDate.Location = new Point(25, 115);
-            lblBorrowDate.Margin = new Padding(0, 0, 2, 0);
-            lblBorrowDate.Name = "lblBorrowDate";
-            lblBorrowDate.Size = new Size(90, 18);
-            lblBorrowDate.TabIndex = 4;
-            lblBorrowDate.Text = "Borrow Date";
             // 
             // dateTimePicker1
             // 
@@ -212,44 +240,16 @@
             dgvBorrowedBooks.Size = new Size(720, 141);
             dgvBorrowedBooks.TabIndex = 12;
             // 
-            // txtISBN
+            // lblBorrowDate
             // 
-            txtISBN.Location = new Point(158, 78);
-            txtISBN.Margin = new Padding(2);
-            txtISBN.Name = "txtISBN";
-            txtISBN.Size = new Size(289, 30);
-            txtISBN.TabIndex = 12;
-            // 
-            // lblISBN
-            // 
-            lblISBN.AutoSize = true;
-            lblISBN.Font = new Font("Modern No. 20", 11.9999981F);
-            lblISBN.Location = new Point(25, 83);
-            lblISBN.Margin = new Padding(2, 0, 2, 0);
-            lblISBN.Name = "lblISBN";
-            lblISBN.Size = new Size(45, 18);
-            lblISBN.TabIndex = 11;
-            lblISBN.Text = "ISBN";
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.Maroon;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.X;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 22;
-            iconButton1.Location = new Point(563, 110);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Padding = new Padding(10, 0, 0, 0);
-            iconButton1.Size = new Size(124, 34);
-            iconButton1.TabIndex = 28;
-            iconButton1.Text = "Deny";
-            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = false;
+            lblBorrowDate.AutoSize = true;
+            lblBorrowDate.Font = new Font("Modern No. 20", 11.9999981F);
+            lblBorrowDate.Location = new Point(25, 115);
+            lblBorrowDate.Margin = new Padding(0, 0, 2, 0);
+            lblBorrowDate.Name = "lblBorrowDate";
+            lblBorrowDate.Size = new Size(101, 18);
+            lblBorrowDate.TabIndex = 4;
+            lblBorrowDate.Text = "Requsted Date";
             // 
             // Approval
             // 
@@ -273,7 +273,6 @@
         private Label lblTitle;
         private Label lblBorrower;
         private TextBox textBox1;
-        private Label lblBorrowDate;
         private DateTimePicker dateTimePicker1;
         private Label lblReturnDate;
         private DateTimePicker dateTimePicker2;
@@ -283,5 +282,6 @@
         private TextBox txtISBN;
         private Label lblISBN;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private Label lblBorrowDate;
     }
 }

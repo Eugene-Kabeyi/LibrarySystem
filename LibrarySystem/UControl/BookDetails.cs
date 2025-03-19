@@ -62,6 +62,11 @@ namespace LibrarySystem.UControl
         {
             ClearFields();
             LoadBooks();
+            btnEdit.Visible = false; // Hide Edit button
+            btnSave.Visible = false; // Hide Save button
+            btnAdd.Visible = true;
+            btnClear.Visible = true;
+
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -138,7 +143,7 @@ namespace LibrarySystem.UControl
                 btnSave.Visible = true;  // Enable Save button
                 btnSave.Text = "Update"; // Change text to "Update"
                 btnSave.Visible = false;
-                btnDelete.Visible = false;
+                btnDelete.Visible = true;
                 btnAdd.Visible = false;
             }
         }
@@ -180,7 +185,11 @@ namespace LibrarySystem.UControl
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Enter the fields then click SAVE");
+            MessageBox.Show("Fill in all required fields, then click 'Save' to proceed.",
+                "Information",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
             btnSave.Visible = true;
             btnEdit.Visible = false;    
             btnAdd.Visible = false;

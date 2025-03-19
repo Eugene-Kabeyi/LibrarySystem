@@ -42,7 +42,7 @@
             lblTitle = new Label();
             btnClear = new FontAwesome.Sharp.IconButton();
             btnSearch = new FontAwesome.Sharp.IconButton();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             grpBookDetails.SuspendLayout();
             SuspendLayout();
@@ -84,6 +84,7 @@
             txtNoBooks.Location = new Point(199, 216);
             txtNoBooks.Margin = new Padding(2);
             txtNoBooks.Name = "txtNoBooks";
+            txtNoBooks.ReadOnly = true;
             txtNoBooks.Size = new Size(256, 30);
             txtNoBooks.TabIndex = 41;
             // 
@@ -103,6 +104,7 @@
             txtPublisher.Location = new Point(199, 167);
             txtPublisher.Margin = new Padding(2);
             txtPublisher.Name = "txtPublisher";
+            txtPublisher.ReadOnly = true;
             txtPublisher.Size = new Size(256, 30);
             txtPublisher.TabIndex = 39;
             // 
@@ -111,6 +113,7 @@
             txtISBN.Location = new Point(199, 119);
             txtISBN.Margin = new Padding(2);
             txtISBN.Name = "txtISBN";
+            txtISBN.ReadOnly = true;
             txtISBN.Size = new Size(256, 30);
             txtISBN.TabIndex = 38;
             // 
@@ -119,6 +122,7 @@
             txtTitle.Location = new Point(199, 34);
             txtTitle.Margin = new Padding(2);
             txtTitle.Name = "txtTitle";
+            txtTitle.ReadOnly = true;
             txtTitle.Size = new Size(256, 30);
             txtTitle.TabIndex = 37;
             // 
@@ -127,6 +131,7 @@
             txtAuthor.Location = new Point(199, 75);
             txtAuthor.Margin = new Padding(2);
             txtAuthor.Name = "txtAuthor";
+            txtAuthor.ReadOnly = true;
             txtAuthor.Size = new Size(256, 30);
             txtAuthor.TabIndex = 36;
             // 
@@ -213,13 +218,12 @@
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Location = new Point(39, 18);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(303, 23);
-            textBox1.TabIndex = 36;
-            textBox1.Text = "Search";
+            txtSearch.Location = new Point(39, 18);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(303, 23);
+            txtSearch.TabIndex = 36;
             // 
             // UserBooklist
             // 
@@ -228,7 +232,7 @@
             Controls.Add(dataGridViewBooks);
             Controls.Add(grpBookDetails);
             Controls.Add(btnSearch);
-            Controls.Add(textBox1);
+            Controls.Add(txtSearch);
             Name = "UserBooklist";
             Size = new Size(743, 512);
             Load += UserBooklist_Load;
@@ -245,7 +249,7 @@
         private GroupBox grpBookDetails;
         private FontAwesome.Sharp.IconButton btnClear;
         private FontAwesome.Sharp.IconButton btnSearch;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private TextBox txtNoBooks;
         private Label lblBookNo;
         private TextBox txtPublisher;
