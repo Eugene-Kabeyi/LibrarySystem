@@ -55,8 +55,10 @@ namespace LibrarySystem.UControl
                 txtUsername.Text = row.Cells["username"].Value.ToString();
                 txtEmail.Text = row.Cells["email"].Value.ToString();
 
-                btnSave.Enabled = false; // Disable Save until Edit is clicked
             }
+            btnDelete.Visible = true;
+            btnEdit.Visible = true;
+            btnSave.Visible = false;
         }
 
         private void uploadPic_Click(object sender, EventArgs e)
@@ -77,6 +79,7 @@ namespace LibrarySystem.UControl
             btnSave.Visible = true; // Enable the Save button when Edit is clicked
             btnSave.Enabled = true;
             btnEdit.Visible = false;
+            btnDelete.Visible = false;  
 
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -118,6 +121,10 @@ namespace LibrarySystem.UControl
                     {
                         MessageBox.Show("Staff details updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadUsers(); // Refresh table
+                        btnDelete.Visible = false;
+                        btnEdit.Visible = false;
+                        btnSave.Visible = false;
+
                     }
                     else
                     {
@@ -155,7 +162,8 @@ namespace LibrarySystem.UControl
 
         }
         private void btnDelete_Click(object sender, EventArgs e)
-        {
+        { 
+
             if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
                 MessageBox.Show("Please select a staff member.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -187,7 +195,11 @@ namespace LibrarySystem.UControl
                         }
                     }
                 }
+
             }
+            btnDelete.Visible = false;
+            btnEdit.Visible = false;
+            btnSave.Visible = false;
         }
     }
 }

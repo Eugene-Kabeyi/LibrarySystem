@@ -73,6 +73,7 @@
             uploadPic.TextImageRelation = TextImageRelation.ImageBeforeText;
             uploadPic.UseVisualStyleBackColor = false;
             uploadPic.Visible = false;
+            uploadPic.Click += uploadPic_Click;
             // 
             // btnEdit
             // 
@@ -93,6 +94,7 @@
             btnEdit.TextAlign = ContentAlignment.MiddleLeft;
             btnEdit.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnSave
             // 
@@ -114,6 +116,7 @@
             btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Visible = false;
+            btnSave.Click += btnSave_Click;
             // 
             // txtEmail
             // 
@@ -174,6 +177,7 @@
             user_pic.Location = new Point(38, 80);
             user_pic.Name = "user_pic";
             user_pic.Size = new Size(146, 137);
+            user_pic.SizeMode = PictureBoxSizeMode.Zoom;
             user_pic.TabIndex = 56;
             user_pic.TabStop = false;
             // 

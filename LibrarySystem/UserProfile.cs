@@ -71,9 +71,11 @@ namespace LibrarySystem
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             btnEdit.Visible = true;
-            if (string.IsNullOrWhiteSpace(txtFname.Text) || string.IsNullOrWhiteSpace(txtLname.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text))
+
+            if (string.IsNullOrWhiteSpace(txtFname.Text) ||
+                string.IsNullOrWhiteSpace(txtLname.Text) ||
+                string.IsNullOrWhiteSpace(txtEmail.Text))
             {
                 MessageBox.Show("Please fill in all fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -91,32 +93,53 @@ namespace LibrarySystem
 
             using (MySqlConnection conn = new MySqlConnection(mySqlConn))
             {
-                string query = "UPDATE User SET firstname=@firstname, lastname=@lastname, email=@email, picture=@picture WHERE username=@username";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@firstname", txtFname.Text);
-                    cmd.Parameters.AddWithValue("@lastname", txtLname.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@picture", imageBytes ?? (object)DBNull.Value);
+                    conn.Open(); // Open connection first
 
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    // Ensure email exists before proceeding
+                    if (string.IsNullOrWhiteSpace(txtEmail.Text))
+                    {
+                        MessageBox.Show("Email is required for updating.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-                    if (rowsAffected > 0)
+                    string query = "UPDATE User SET firstname=@firstname, lastname=@lastname, picture=@picture WHERE email=@email";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        MessageBox.Show("Staff details updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadUsers();
-                        btnSave.Visible = false;
-                        btnEdit.Visible = true;
-                        uploadPic.Visible = false;
+                        cmd.Parameters.AddWithValue("@firstname", txtFname.Text);
+                        cmd.Parameters.AddWithValue("@lastname", txtLname.Text);
+                        cmd.Parameters.AddWithValue("@picture", imageBytes ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@email", txtEmail.Text); // Using email instead of username
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Staff details updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadUsers();
+                            btnSave.Visible = false;
+                            btnEdit.Visible = true;
+                            uploadPic.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Update failed! No matching email found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Update failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Database error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+
     }
 }

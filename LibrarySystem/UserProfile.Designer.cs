@@ -84,6 +84,7 @@ namespace LibrarySystem
             btnEdit.TextAlign = ContentAlignment.MiddleLeft;
             btnEdit.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnSave
             // 
@@ -105,6 +106,7 @@ namespace LibrarySystem
             btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Visible = false;
+            btnSave.Click += btnSave_Click;
             // 
             // txtLname
             // 
@@ -165,6 +167,7 @@ namespace LibrarySystem
             user_pic.Location = new Point(12, 90);
             user_pic.Name = "user_pic";
             user_pic.Size = new Size(146, 137);
+            user_pic.SizeMode = PictureBoxSizeMode.Zoom;
             user_pic.TabIndex = 43;
             user_pic.TabStop = false;
             // 

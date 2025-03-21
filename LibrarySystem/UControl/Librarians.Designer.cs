@@ -29,7 +29,7 @@ namespace LibrarySystem.UControl
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             txtSearch = new TextBox();
             txtUsername = new TextBox();
             label1 = new Label();
@@ -98,6 +98,7 @@ namespace LibrarySystem.UControl
             btnEdit.TextAlign = ContentAlignment.MiddleLeft;
             btnEdit.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Visible = false;
             btnEdit.Click += btnEdit_Click;
             // 
             // panel2
@@ -240,6 +241,7 @@ namespace LibrarySystem.UControl
             btnDelete.TextAlign = ContentAlignment.MiddleLeft;
             btnDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Visible = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnReset
@@ -296,14 +298,14 @@ namespace LibrarySystem.UControl
             // dataGridStaff
             // 
             dataGridStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Gadugi", 12F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridStaff.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Gadugi", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridStaff.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridStaff.Location = new Point(21, 285);
             dataGridStaff.Name = "dataGridStaff";
             dataGridStaff.RowHeadersWidth = 62;

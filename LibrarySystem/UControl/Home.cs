@@ -27,7 +27,7 @@ namespace LibrarySystem.UControl
             {
                 lblRequested.Text = $" {statistics.GetTotalRequestedBooks(UserSession.Email)}";
                 lblFine.Text = $"{statistics.CalculateFine(UserSession.Email):N0}";
-                lblBorrowed.Text = $"Borrowed Books: {statistics.GetTotalBorrowedBooks(UserSession.Email)}";
+                lblBorrowed.Text = $"{statistics.GetTotalBorrowedBooks(UserSession.Email)}";
             }
             catch (Exception ex)
             {

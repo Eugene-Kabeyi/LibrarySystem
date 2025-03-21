@@ -103,6 +103,7 @@
             user_pic.Location = new Point(23, 79);
             user_pic.Name = "user_pic";
             user_pic.Size = new Size(146, 137);
+            user_pic.SizeMode = PictureBoxSizeMode.Zoom;
             user_pic.TabIndex = 12;
             user_pic.TabStop = false;
             // 

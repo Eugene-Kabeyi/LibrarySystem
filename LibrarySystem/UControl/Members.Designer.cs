@@ -107,6 +107,7 @@
             btnDelete.TextAlign = ContentAlignment.MiddleLeft;
             btnDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Visible = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnReset
@@ -243,6 +244,7 @@
             btnEdit.TextAlign = ContentAlignment.MiddleLeft;
             btnEdit.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Visible = false;
             btnEdit.Click += btnEdit_Click;
             // 
             // panel2

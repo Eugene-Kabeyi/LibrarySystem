@@ -77,6 +77,7 @@ namespace LibrarySystem.UControl
         {
             btnSave.Visible = true;
             btnEdit.Visible = false;
+            btnDelete.Visible = false;
 
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -117,12 +118,18 @@ namespace LibrarySystem.UControl
                     {
                         MessageBox.Show("Staff details updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadStaffData(); // Refresh table
+                        btnDelete.Visible = false;
+                        btnEdit.Visible = false;
+                        btnSave.Visible = false;
+
                     }
                     else
                     {
                         MessageBox.Show("Update failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
+
             }
         }
 
@@ -160,13 +167,16 @@ namespace LibrarySystem.UControl
                     }
                 }
             }
+            btnDelete.Visible = true;
+            btnEdit.Visible = true;
+            btnSave.Visible = false;
         }
 
 
 
         private void Librarians_Load(object sender, EventArgs e)
         {
-
+            
         }
         private void createLibAcc_Click(object sender, EventArgs e)
         {
@@ -217,6 +227,10 @@ namespace LibrarySystem.UControl
                     pictureBox1.Image = null; // Clear image if empty
                 }
             }
+            btnDelete.Visible = true;
+            btnEdit.Visible = true;
+            btnSave.Visible = false;
+
         }
 
     }

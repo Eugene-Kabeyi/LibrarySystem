@@ -63,57 +63,70 @@ namespace LibrarySystem
             txtUsername.ReadOnly = false;
             btnSave.Visible = true; // Show Save button
             btnEdit.Visible = false; // Hide Edit button
+            uploadPic.Visible = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtUsername.Text))
             {
-                MessageBox.Show("Email and Contact cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Email and Username cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            byte[] imageBytes = null;
+            if (user_pic.Image != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    user_pic.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    imageBytes = ms.ToArray();
+                }
             }
 
             using (MySqlConnection conn = new MySqlConnection(mySqlConn))
             {
-                conn.Open();
-                string query = "UPDATE Staff SET email = @Email, username = @Contact, picture = @Picture WHERE id = @UserId";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@Contact", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@UserId", StaffSession.UserId);
+                    conn.Open();
+                    string query = "UPDATE Staff SET email = @Email, picture = @Picture WHERE username = @Username";
 
-                    if (StaffSession.Picture != null)
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@Picture", StaffSession.Picture);
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@Picture", DBNull.Value);
-                    }
+                        cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+                        cmd.Parameters.AddWithValue("@Username", txtUsername.Text);  // Now using username instead of id
+                        cmd.Parameters.AddWithValue("@Picture", imageBytes ?? (object)DBNull.Value);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Update session details
-                        StaffSession.Email = txtEmail.Text;
-                        StaffSession.Username = txtUsername.Text;
+                            // Update session details
+                            StaffSession.Email = txtEmail.Text;
 
-                        btnEdit.Visible = true;
-                        btnSave.Visible = false;
-                        txtEmail.ReadOnly = true;
-                        txtUsername.ReadOnly = true;
+                            btnEdit.Visible = true;
+                            btnSave.Visible = false;
+                            txtEmail.ReadOnly = true;
+                            txtUsername.ReadOnly = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Update failed! No changes were made.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Update failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Database error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
 
         private void AdminProfile_Load(object sender, EventArgs e)
