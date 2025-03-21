@@ -40,7 +40,12 @@ namespace LibrarySystem
         {
 
         }
-
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            StartupPage startup = new StartupPage();
+            startup.Show();
+            this.Hide();
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

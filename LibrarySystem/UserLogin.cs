@@ -56,6 +56,14 @@ namespace LibrarySystem
         {
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            StartupPage startup = new StartupPage();
+            startup.Show();
+            this.Hide();
+        }
+
         private void lblSignup_Click(object sender, EventArgs e)
         {
             Register registerForm = new Register();
@@ -124,6 +132,11 @@ namespace LibrarySystem
                     MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
 
         }
     }

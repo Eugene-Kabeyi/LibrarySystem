@@ -36,7 +36,7 @@
             txtEmail = new TextBox();
             lblTitle = new Label();
             lblBorrower = new Label();
-            textBox1 = new TextBox();
+            txtTitle = new TextBox();
             lblBorrowDate = new Label();
             btnApprove = new FontAwesome.Sharp.IconButton();
             btnClear = new FontAwesome.Sharp.IconButton();
@@ -83,6 +83,7 @@
             btnDeny.TextAlign = ContentAlignment.MiddleLeft;
             btnDeny.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDeny.UseVisualStyleBackColor = false;
+            btnDeny.Click += btnDeny_Click;
             // 
             // panel1
             // 
@@ -90,7 +91,7 @@
             panel1.Controls.Add(txtEmail);
             panel1.Controls.Add(lblTitle);
             panel1.Controls.Add(lblBorrower);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtTitle);
             panel1.Controls.Add(lblBorrowDate);
             panel1.Location = new Point(5, 32);
             panel1.Name = "panel1";
@@ -137,14 +138,14 @@
             lblBorrower.TabIndex = 2;
             lblBorrower.Text = "Borrower Email";
             // 
-            // textBox1
+            // txtTitle
             // 
-            textBox1.Location = new Point(163, 32);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(289, 30);
-            textBox1.TabIndex = 1;
+            txtTitle.Location = new Point(163, 32);
+            txtTitle.Margin = new Padding(2);
+            txtTitle.Name = "txtTitle";
+            txtTitle.ReadOnly = true;
+            txtTitle.Size = new Size(289, 30);
+            txtTitle.TabIndex = 1;
             // 
             // lblBorrowDate
             // 
@@ -176,6 +177,7 @@
             btnApprove.TextAlign = ContentAlignment.MiddleLeft;
             btnApprove.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnApprove.UseVisualStyleBackColor = false;
+            btnApprove.Click += btnApprove_Click;
             // 
             // btnClear
             // 
@@ -196,6 +198,7 @@
             btnClear.TextAlign = ContentAlignment.MiddleLeft;
             btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // dgvBorrowedBooks
             // 
@@ -210,11 +213,14 @@
             dgvBorrowedBooks.DefaultCellStyle = dataGridViewCellStyle1;
             dgvBorrowedBooks.Location = new Point(0, 231);
             dgvBorrowedBooks.Margin = new Padding(2);
+            dgvBorrowedBooks.MultiSelect = false;
             dgvBorrowedBooks.Name = "dgvBorrowedBooks";
             dgvBorrowedBooks.RowHeadersWidth = 62;
             dgvBorrowedBooks.RowTemplate.Height = 28;
+            dgvBorrowedBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBorrowedBooks.Size = new Size(720, 146);
             dgvBorrowedBooks.TabIndex = 12;
+            dgvBorrowedBooks.CellClick += dgvBorrowedBooks_CellClick;
             // 
             // Approval
             // 
@@ -238,7 +244,7 @@
         private TextBox txtEmail;
         private Label lblTitle;
         private Label lblBorrower;
-        private TextBox textBox1;
+        private TextBox txtTitle;
         private FontAwesome.Sharp.IconButton btnApprove;
         private FontAwesome.Sharp.IconButton btnClear;
         private DataGridView dgvBorrowedBooks;

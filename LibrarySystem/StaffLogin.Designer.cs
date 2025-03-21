@@ -40,6 +40,7 @@ namespace LibrarySystem
             txtUsername = new TextBox();
             label5 = new Label();
             llb = new Label();
+            btnback = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -55,7 +56,7 @@ namespace LibrarySystem
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(llb);
-            panel1.Location = new Point(83, 26);
+            panel1.Location = new Point(72, 54);
             panel1.Name = "panel1";
             panel1.Size = new Size(469, 382);
             panel1.TabIndex = 22;
@@ -142,11 +143,34 @@ namespace LibrarySystem
             llb.TabIndex = 8;
             llb.Text = "Username";
             // 
+            // btnback
+            // 
+            btnback.BackColor = SystemColors.Highlight;
+            btnback.FlatStyle = FlatStyle.Flat;
+            btnback.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnback.ForeColor = SystemColors.ControlLightLight;
+            btnback.IconChar = FontAwesome.Sharp.IconChar.ArrowUpRightFromSquare;
+            btnback.IconColor = Color.White;
+            btnback.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnback.IconSize = 22;
+            btnback.Location = new Point(21, 3);
+            btnback.Name = "btnback";
+            btnback.Padding = new Padding(10, 0, 0, 0);
+            btnback.Rotation = 270D;
+            btnback.Size = new Size(189, 34);
+            btnback.TabIndex = 23;
+            btnback.Text = "Back to Start Up";
+            btnback.TextAlign = ContentAlignment.MiddleLeft;
+            btnback.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnback.UseVisualStyleBackColor = false;
+            btnback.Click += btnBack_Click;
+            // 
             // StaffLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(625, 467);
+            Controls.Add(btnback);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StaffLogin";
@@ -172,5 +196,6 @@ namespace LibrarySystem
         private TextBox txtUsername;
         private Label label5;
         private Label llb;
+        private FontAwesome.Sharp.IconButton btnback;
     }
 }

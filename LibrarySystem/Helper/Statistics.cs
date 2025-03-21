@@ -43,9 +43,12 @@ namespace LibrarySystem.Helper
         // Get total number of staff excluding "Admin"
         public int GetTotalStaff()
         {
-            string query = "SELECT COUNT(*) FROM Staff WHERE firstname <> 'Admin'";
+            string query = "SELECT COUNT(*) FROM Staff WHERE LOWER(firstname) <> 'admin'";
             return ExecuteScalarQuery(query);
         }
+
+
+
 
         // Get total number of books
         public int GetTotalBooks()
@@ -66,6 +69,20 @@ namespace LibrarySystem.Helper
         {
             string query = "SELECT COUNT(*) FROM Borrowed WHERE user_email = @UserEmail AND status = 'Borrowed'";
             return ExecuteScalarQuery(query, new MySqlParameter("@UserEmail", userEmail));
+        }
+
+        // ✅ Get total number of borrowed books for all users
+        public int GetTotalBorrowedBooksAll()
+        {
+            string query = "SELECT COUNT(*) FROM Borrowed WHERE status = 'Borrowed'";
+            return ExecuteScalarQuery(query);
+        }
+
+        // ✅ Get total number of requested books for all users
+        public int GetTotalRequestedBooksAll()
+        {
+            string query = "SELECT COUNT(*) FROM Request";
+            return ExecuteScalarQuery(query);
         }
 
         // Calculate overdue fine for a specific user (100 Ksh per day per book)

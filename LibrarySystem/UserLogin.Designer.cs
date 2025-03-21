@@ -40,6 +40,7 @@ namespace LibrarySystem
             txtEmail = new TextBox();
             lblPassword = new Label();
             lblEmail = new Label();
+            btnback = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -56,9 +57,9 @@ namespace LibrarySystem
             panel1.Controls.Add(txtEmail);
             panel1.Controls.Add(lblPassword);
             panel1.Controls.Add(lblEmail);
-            panel1.Location = new Point(50, 30);
+            panel1.Location = new Point(50, 63);
             panel1.Name = "panel1";
-            panel1.Size = new Size(450, 418);
+            panel1.Size = new Size(450, 385);
             panel1.TabIndex = 21;
             // 
             // label8
@@ -86,7 +87,7 @@ namespace LibrarySystem
             // 
             lblSignup.AutoSize = true;
             lblSignup.Font = new Font("Modern No. 20", 8.999999F);
-            lblSignup.Location = new Point(238, 313);
+            lblSignup.Location = new Point(272, 316);
             lblSignup.Name = "lblSignup";
             lblSignup.Size = new Size(45, 15);
             lblSignup.TabIndex = 17;
@@ -98,7 +99,7 @@ namespace LibrarySystem
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Modern No. 20", 8.999999F);
-            label7.Location = new Point(117, 313);
+            label7.Location = new Point(151, 316);
             label7.Name = "label7";
             label7.Size = new Size(127, 15);
             label7.TabIndex = 16;
@@ -155,11 +156,34 @@ namespace LibrarySystem
             lblEmail.Text = "Email";
             lblEmail.Click += label4_Click;
             // 
+            // btnback
+            // 
+            btnback.BackColor = SystemColors.Highlight;
+            btnback.FlatStyle = FlatStyle.Flat;
+            btnback.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnback.ForeColor = SystemColors.ControlLightLight;
+            btnback.IconChar = FontAwesome.Sharp.IconChar.ArrowUpRightFromSquare;
+            btnback.IconColor = Color.White;
+            btnback.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnback.IconSize = 22;
+            btnback.Location = new Point(22, 12);
+            btnback.Name = "btnback";
+            btnback.Padding = new Padding(10, 0, 0, 0);
+            btnback.Rotation = 270D;
+            btnback.Size = new Size(189, 34);
+            btnback.TabIndex = 22;
+            btnback.Text = "Back to Start Up";
+            btnback.TextAlign = ContentAlignment.MiddleLeft;
+            btnback.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnback.UseVisualStyleBackColor = false;
+            btnback.Click += btnBack_Click;
+            // 
             // UserLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(548, 521);
+            Controls.Add(btnback);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -172,7 +196,7 @@ namespace LibrarySystem
             ResumeLayout(false);
         }
 
-       
+
 
         #endregion
 
@@ -186,5 +210,6 @@ namespace LibrarySystem
         private TextBox txtEmail;
         private Label lblPassword;
         private Label lblEmail;
+        private FontAwesome.Sharp.IconButton btnback;
     }
 }

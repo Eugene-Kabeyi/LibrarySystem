@@ -35,10 +35,10 @@ namespace LibrarySystem.UControl
             using (MySqlConnection conn = new MySqlConnection(mySqlConn))
             {
                 conn.Open();
-                string query = "SELECT r.request_id, r.user_email, b.title, r.request_date, r.status " +
+                string query = "SELECT r.request_id, r.book_id, r.user_email, b.title, r.request_date, r.status " +
                                "FROM Request r " +
                                "JOIN Books b ON r.book_id = b.id " +
-                               "WHERE r.status = 'Pending'"; // Only load pending requests
+                               "WHERE r.status = 'Pending'";
 
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
                 {
@@ -48,6 +48,7 @@ namespace LibrarySystem.UControl
                 }
             }
         }
+
         // Deny Request - Update Status to 'Rejected'
         private void btnDeny_Click(object sender, EventArgs e)
         {
@@ -81,91 +82,147 @@ namespace LibrarySystem.UControl
             }
         }
 
+        // Handle DataGridView Row Selection
+        private void dgvBorrowedBooks_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Ensure a row is actually clicked
+            {
+                DataGridViewRow row = dgvBorrowedBooks.Rows[e.RowIndex];
+
+                // Check if "book_id" exists in DataGridView
+                if (dgvBorrowedBooks.Rows.Count > 0 && dgvBorrowedBooks.Columns.Contains("book_id"))
+                {
+                    object cellValue = row.Cells["book_id"].Value;
+
+                    if (cellValue != null && cellValue != DBNull.Value) // Ensure the cell is not empty
+                    {
+                        selectedBookId = Convert.ToInt32(cellValue);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Book ID is missing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No data available in the table.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                txtEmail.Text = row.Cells["user_email"].Value.ToString();
+                txtRequestDate.Text = row.Cells["request_date"].Value.ToString();
+                txtTitle.Text = row.Cells["Title"].Value.ToString();    
+
+            }
+        }
+
+
         private void btnApprove_Click(object sender, EventArgs e)
         {
-            if (dgvBorrowedBooks.SelectedRows.Count == 0)
+            // Ensure a row is selected
+            if (dgvBorrowedBooks.CurrentRow == null)
             {
                 MessageBox.Show("Please select a request to approve.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Get selected request details
-            int requestId = Convert.ToInt32(dgvBorrowedBooks.SelectedRows[0].Cells["request_id"].Value);
-            string userEmail = dgvBorrowedBooks.SelectedRows[0].Cells["user_email"].Value.ToString();
-            string bookTitle = dgvBorrowedBooks.SelectedRows[0].Cells["title"].Value.ToString();
+            DataGridViewRow selectedRow = dgvBorrowedBooks.CurrentRow;
+
+            // Ensure required columns exist
+            string[] requiredColumns = { "request_id", "user_email", "title" };
+            foreach (string col in requiredColumns)
+            {
+                if (!dgvBorrowedBooks.Columns.Contains(col))
+                {
+                    MessageBox.Show($"Missing column: {col}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            int requestId = Convert.ToInt32(selectedRow.Cells["request_id"].Value);
+            string userEmail = selectedRow.Cells["user_email"].Value.ToString();
+            string bookTitle = selectedRow.Cells["title"].Value.ToString();
 
             using (MySqlConnection conn = new MySqlConnection(mySqlConn))
             {
                 conn.Open();
-
-                MySqlTransaction transaction = conn.BeginTransaction(); // Start a transaction
-
-                try
+                using (MySqlTransaction transaction = conn.BeginTransaction()) // Start transaction
                 {
-                    // Get the Book ID and check availability
-                    string getBookQuery = "SELECT id, number_of_books FROM Books WHERE title = @Title";
-                    int bookId = -1;
-                    int availableBooks = 0;
-
-                    using (MySqlCommand getBookCmd = new MySqlCommand(getBookQuery, conn, transaction))
+                    try
                     {
-                        getBookCmd.Parameters.AddWithValue("@Title", bookTitle);
-                        using (MySqlDataReader reader = getBookCmd.ExecuteReader())
+                        // Get Book ID and check availability
+                        string getBookQuery = "SELECT id, number_of_books FROM Books WHERE title = @Title";
+                        int bookId = -1;
+                        int availableBooks = 0;
+
+                        using (MySqlCommand getBookCmd = new MySqlCommand(getBookQuery, conn, transaction))
                         {
-                            if (reader.Read())
+                            getBookCmd.Parameters.AddWithValue("@Title", bookTitle);
+                            using (MySqlDataReader reader = getBookCmd.ExecuteReader())
                             {
-                                bookId = reader.GetInt32("id");
-                                availableBooks = reader.GetInt32("number_of_books");
+                                if (reader.Read())
+                                {
+                                    bookId = reader.GetInt32("id");
+                                    availableBooks = reader.GetInt32("number_of_books");
+                                }
+                                reader.Close(); // Close reader properly
                             }
                         }
-                    }
 
-                    // Check if the book is available
-                    if (availableBooks <= 0)
+                        // Validate book availability
+                        if (bookId == -1)
+                        {
+                            MessageBox.Show("Book not found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            transaction.Rollback();
+                            return;
+                        }
+
+                        if (availableBooks <= 0)
+                        {
+                            MessageBox.Show("This book is currently out of stock.", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            transaction.Rollback();
+                            return;
+                        }
+
+                        // Approve the request
+                        string updateRequestQuery = "UPDATE Request SET status = 'Approved' WHERE request_id = @RequestId";
+                        using (MySqlCommand updateRequestCmd = new MySqlCommand(updateRequestQuery, conn, transaction))
+                        {
+                            updateRequestCmd.Parameters.AddWithValue("@RequestId", requestId);
+                            updateRequestCmd.ExecuteNonQuery();
+                        }
+
+                        // Insert into Borrowed table
+                        string insertBorrowedQuery = "INSERT INTO Borrowed (user_email, book_id, borrow_date, return_date, status) " +
+                                                     "VALUES (@UserEmail, @BookId, NOW(), DATE_ADD(NOW(), INTERVAL 14 DAY), 'Borrowed')";
+                        using (MySqlCommand insertBorrowedCmd = new MySqlCommand(insertBorrowedQuery, conn, transaction))
+                        {
+                            insertBorrowedCmd.Parameters.AddWithValue("@UserEmail", userEmail);
+                            insertBorrowedCmd.Parameters.AddWithValue("@BookId", bookId);
+                            insertBorrowedCmd.ExecuteNonQuery();
+                        }
+
+                        // Update book quantity
+                        string updateBooksQuery = "UPDATE Books SET number_of_books = number_of_books - 1 WHERE id = @BookId";
+                        using (MySqlCommand updateBooksCmd = new MySqlCommand(updateBooksQuery, conn, transaction))
+                        {
+                            updateBooksCmd.Parameters.AddWithValue("@BookId", bookId);
+                            updateBooksCmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit(); // Commit transaction
+                        MessageBox.Show("Request approved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        LoadRequests(); // Refresh the pending requests
+                    }
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("This book is currently out of stock.", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        transaction.Rollback(); // Cancel transaction
-                        return;
+                        transaction.Rollback(); // Undo changes if an error occurs
+                        MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                    // Approve the request in the Request table
-                    string updateRequestQuery = "UPDATE Request SET status = 'Approved' WHERE request_id = @RequestId";
-                    using (MySqlCommand updateRequestCmd = new MySqlCommand(updateRequestQuery, conn, transaction))
-                    {
-                        updateRequestCmd.Parameters.AddWithValue("@RequestId", requestId);
-                        updateRequestCmd.ExecuteNonQuery();
-                    }
-
-                    // Insert into Borrowed table
-                    string insertBorrowedQuery = "INSERT INTO Borrowed (user_email, book_id, borrow_date, return_date, status) VALUES (@UserEmail, @BookId, NOW(), DATE_ADD(NOW(), INTERVAL 14 DAY), 'Borrowed')";
-                    using (MySqlCommand insertBorrowedCmd = new MySqlCommand(insertBorrowedQuery, conn, transaction))
-                    {
-                        insertBorrowedCmd.Parameters.AddWithValue("@UserEmail", userEmail);
-                        insertBorrowedCmd.Parameters.AddWithValue("@BookId", bookId);
-                        insertBorrowedCmd.ExecuteNonQuery();
-                    }
-
-                    // Decrease number_of_books by 1 in Books table
-                    string updateBooksQuery = "UPDATE Books SET number_of_books = number_of_books - 1 WHERE id = @BookId";
-                    using (MySqlCommand updateBooksCmd = new MySqlCommand(updateBooksQuery, conn, transaction))
-                    {
-                        updateBooksCmd.Parameters.AddWithValue("@BookId", bookId);
-                        updateBooksCmd.ExecuteNonQuery();
-                    }
-
-                    transaction.Commit(); // Commit transaction
-
-                    MessageBox.Show("Request approved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    LoadRequests(); // Refresh the pending requests
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback(); // Undo changes if an error occurs
-                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
 
         private void grBxBorrowed_Enter(object sender, EventArgs e)

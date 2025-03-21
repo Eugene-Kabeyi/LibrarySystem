@@ -32,19 +32,19 @@
             userName = new Label();
             pictureBox1 = new PictureBox();
             panel8 = new Panel();
-            label11 = new Label();
+            lblBorrowed = new Label();
             label8 = new Label();
             panel9 = new Panel();
-            label9 = new Label();
+            lblRequested = new Label();
             label10 = new Label();
-            lbBook4 = new Label();
-            lbBook2 = new Label();
-            lbBook3 = new Label();
-            lbBook1 = new Label();
+            lblBook4 = new Label();
+            lblBook2 = new Label();
+            lblBook3 = new Label();
+            lblBook1 = new Label();
             label13 = new Label();
             label1 = new Label();
             panel1 = new Panel();
-            label2 = new Label();
+            lblFine = new Label();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel8.SuspendLayout();
@@ -85,24 +85,24 @@
             // panel8
             // 
             panel8.BackColor = SystemColors.Highlight;
-            panel8.Controls.Add(label11);
+            panel8.Controls.Add(lblBorrowed);
             panel8.Controls.Add(label8);
             panel8.Font = new Font("Modern No. 20", 11.9999981F);
             panel8.ForeColor = SystemColors.ControlLightLight;
-            panel8.Location = new Point(250, 210);
+            panel8.Location = new Point(322, 220);
             panel8.Name = "panel8";
             panel8.Size = new Size(125, 121);
             panel8.TabIndex = 16;
             // 
-            // label11
+            // lblBorrowed
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Modern No. 20", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(41, 42);
-            label11.Name = "label11";
-            label11.Size = new Size(45, 50);
-            label11.TabIndex = 7;
-            label11.Text = "0";
+            lblBorrowed.AutoSize = true;
+            lblBorrowed.Font = new Font("Modern No. 20", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBorrowed.Location = new Point(41, 42);
+            lblBorrowed.Name = "lblBorrowed";
+            lblBorrowed.Size = new Size(45, 50);
+            lblBorrowed.TabIndex = 7;
+            lblBorrowed.Text = "0";
             // 
             // label8
             // 
@@ -117,24 +117,24 @@
             // panel9
             // 
             panel9.BackColor = SystemColors.Highlight;
-            panel9.Controls.Add(label9);
+            panel9.Controls.Add(lblRequested);
             panel9.Controls.Add(label10);
             panel9.Font = new Font("Modern No. 20", 11.9999981F);
             panel9.ForeColor = SystemColors.ControlLightLight;
-            panel9.Location = new Point(99, 210);
+            panel9.Location = new Point(171, 220);
             panel9.Name = "panel9";
             panel9.Size = new Size(130, 121);
             panel9.TabIndex = 17;
             // 
-            // label9
+            // lblRequested
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Modern No. 20", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(44, 42);
-            label9.Name = "label9";
-            label9.Size = new Size(45, 50);
-            label9.TabIndex = 7;
-            label9.Text = "0";
+            lblRequested.AutoSize = true;
+            lblRequested.Font = new Font("Modern No. 20", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRequested.Location = new Point(44, 42);
+            lblRequested.Name = "lblRequested";
+            lblRequested.Size = new Size(45, 50);
+            lblRequested.TabIndex = 7;
+            lblRequested.Text = "0";
             // 
             // label10
             // 
@@ -146,45 +146,45 @@
             label10.TabIndex = 1;
             label10.Text = "Requested Books";
             // 
-            // lbBook4
+            // lblBook4
             // 
-            lbBook4.AutoSize = true;
-            lbBook4.Font = new Font("Modern No. 20", 11.249999F, FontStyle.Italic);
-            lbBook4.Location = new Point(40, 470);
-            lbBook4.Name = "lbBook4";
-            lbBook4.Size = new Size(52, 17);
-            lbBook4.TabIndex = 27;
-            lbBook4.Text = "Book 4";
+            lblBook4.AutoSize = true;
+            lblBook4.Font = new Font("Modern No. 20", 11.249999F, FontStyle.Italic);
+            lblBook4.Location = new Point(40, 470);
+            lblBook4.Name = "lblBook4";
+            lblBook4.Size = new Size(52, 17);
+            lblBook4.TabIndex = 27;
+            lblBook4.Text = "Book 4";
             // 
-            // lbBook2
+            // lblBook2
             // 
-            lbBook2.AutoSize = true;
-            lbBook2.Font = new Font("Modern No. 20", 11.249999F, FontStyle.Italic);
-            lbBook2.Location = new Point(40, 426);
-            lbBook2.Name = "lbBook2";
-            lbBook2.Size = new Size(52, 17);
-            lbBook2.TabIndex = 26;
-            lbBook2.Text = "Book 2";
+            lblBook2.AutoSize = true;
+            lblBook2.Font = new Font("Modern No. 20", 11.249999F, FontStyle.Italic);
+            lblBook2.Location = new Point(40, 426);
+            lblBook2.Name = "lblBook2";
+            lblBook2.Size = new Size(52, 17);
+            lblBook2.TabIndex = 26;
+            lblBook2.Text = "Book 2";
             // 
-            // lbBook3
+            // lblBook3
             // 
-            lbBook3.AutoSize = true;
-            lbBook3.Font = new Font("Modern No. 20", 11.249999F, FontStyle.Italic);
-            lbBook3.Location = new Point(40, 448);
-            lbBook3.Name = "lbBook3";
-            lbBook3.Size = new Size(52, 17);
-            lbBook3.TabIndex = 25;
-            lbBook3.Text = "Book 3";
+            lblBook3.AutoSize = true;
+            lblBook3.Font = new Font("Modern No. 20", 11.249999F, FontStyle.Italic);
+            lblBook3.Location = new Point(40, 448);
+            lblBook3.Name = "lblBook3";
+            lblBook3.Size = new Size(52, 17);
+            lblBook3.TabIndex = 25;
+            lblBook3.Text = "Book 3";
             // 
-            // lbBook1
+            // lblBook1
             // 
-            lbBook1.AutoSize = true;
-            lbBook1.Font = new Font("Modern No. 20", 11.249999F, FontStyle.Italic);
-            lbBook1.Location = new Point(40, 405);
-            lbBook1.Name = "lbBook1";
-            lbBook1.Size = new Size(52, 17);
-            lbBook1.TabIndex = 24;
-            lbBook1.Text = "Book 1";
+            lblBook1.AutoSize = true;
+            lblBook1.Font = new Font("Modern No. 20", 11.249999F, FontStyle.Italic);
+            lblBook1.Location = new Point(40, 405);
+            lblBook1.Name = "lblBook1";
+            lblBook1.Size = new Size(52, 17);
+            lblBook1.TabIndex = 24;
+            lblBook1.Text = "Book 1";
             // 
             // label13
             // 
@@ -209,24 +209,24 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(192, 64, 0);
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(lblFine);
             panel1.Controls.Add(label3);
             panel1.Font = new Font("Modern No. 20", 11.9999981F);
             panel1.ForeColor = SystemColors.ControlLightLight;
-            panel1.Location = new Point(399, 210);
+            panel1.Location = new Point(471, 220);
             panel1.Name = "panel1";
             panel1.Size = new Size(198, 121);
             panel1.TabIndex = 17;
             // 
-            // label2
+            // lblFine
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Modern No. 20", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(77, 42);
-            label2.Name = "label2";
-            label2.Size = new Size(45, 50);
-            label2.TabIndex = 7;
-            label2.Text = "0";
+            lblFine.AutoSize = true;
+            lblFine.Font = new Font("Modern No. 20", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFine.Location = new Point(77, 42);
+            lblFine.Name = "lblFine";
+            lblFine.Size = new Size(45, 50);
+            lblFine.TabIndex = 7;
+            lblFine.Text = "0";
             // 
             // label3
             // 
@@ -244,10 +244,10 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Controls.Add(lbBook4);
-            Controls.Add(lbBook2);
-            Controls.Add(lbBook3);
-            Controls.Add(lbBook1);
+            Controls.Add(lblBook4);
+            Controls.Add(lblBook2);
+            Controls.Add(lblBook3);
+            Controls.Add(lblBook1);
             Controls.Add(label13);
             Controls.Add(label1);
             Controls.Add(panel8);
@@ -257,6 +257,7 @@
             Controls.Add(lblWelcome);
             Name = "Home";
             Size = new Size(776, 490);
+            Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
@@ -274,19 +275,19 @@
         private Label userName;
         private PictureBox pictureBox1;
         private Panel panel8;
-        private Label label11;
+        private Label lblBorrowed;
         private Label label8;
         private Panel panel9;
-        private Label label9;
+        private Label lblRequested;
         private Label label10;
-        private Label lbBook4;
-        private Label lbBook2;
-        private Label lbBook3;
-        private Label lbBook1;
+        private Label lblBook4;
+        private Label lblBook2;
+        private Label lblBook3;
+        private Label lblBook1;
         private Label label13;
         private Label label1;
         private Panel panel1;
-        private Label label2;
+        private Label lblFine;
         private Label label3;
     }
 }
