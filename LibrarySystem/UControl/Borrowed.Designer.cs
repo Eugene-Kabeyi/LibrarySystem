@@ -31,18 +31,18 @@
             dgvBorrowedBooks = new DataGridView();
             grBxBorrowed = new GroupBox();
             panel1 = new Panel();
+            txtoverdueDays = new TextBox();
+            label1 = new Label();
+            txtReturnDate = new TextBox();
+            txtBorrowDate = new TextBox();
             txtBorrowerEmail = new TextBox();
             lblTitle = new Label();
             lblBorrower = new Label();
             txtBookTitle = new TextBox();
             lblBorrowDate = new Label();
             lblReturnDate = new Label();
-            btnSave = new FontAwesome.Sharp.IconButton();
-            btnReset = new FontAwesome.Sharp.IconButton();
-            txtBorrowDate = new TextBox();
-            txtReturnDate = new TextBox();
-            txtoverdueDays = new TextBox();
-            label1 = new Label();
+            btnReturn = new FontAwesome.Sharp.IconButton();
+            btnClear = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).BeginInit();
             grBxBorrowed.SuspendLayout();
             panel1.SuspendLayout();
@@ -53,27 +53,32 @@
             dgvBorrowedBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBorrowedBooks.Location = new Point(4, 227);
             dgvBorrowedBooks.Margin = new Padding(2);
+            dgvBorrowedBooks.MultiSelect = false;
             dgvBorrowedBooks.Name = "dgvBorrowedBooks";
+            dgvBorrowedBooks.ReadOnly = true;
             dgvBorrowedBooks.RowHeadersWidth = 62;
             dgvBorrowedBooks.RowTemplate.Height = 28;
-            dgvBorrowedBooks.Size = new Size(720, 141);
+            dgvBorrowedBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBorrowedBooks.Size = new Size(720, 213);
             dgvBorrowedBooks.TabIndex = 12;
+            dgvBorrowedBooks.CellClick += dgvBorrowedBooks_CellClick;
             // 
             // grBxBorrowed
             // 
             grBxBorrowed.Controls.Add(panel1);
-            grBxBorrowed.Controls.Add(btnSave);
-            grBxBorrowed.Controls.Add(btnReset);
+            grBxBorrowed.Controls.Add(btnReturn);
+            grBxBorrowed.Controls.Add(btnClear);
             grBxBorrowed.Controls.Add(dgvBorrowedBooks);
             grBxBorrowed.Font = new Font("Modern No. 20", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grBxBorrowed.Location = new Point(19, 24);
             grBxBorrowed.Margin = new Padding(2);
             grBxBorrowed.Name = "grBxBorrowed";
             grBxBorrowed.Padding = new Padding(2);
-            grBxBorrowed.Size = new Size(728, 375);
+            grBxBorrowed.Size = new Size(728, 453);
             grBxBorrowed.TabIndex = 14;
             grBxBorrowed.TabStop = false;
             grBxBorrowed.Text = "Borrowed Books";
+            grBxBorrowed.Enter += grBxBorrowed_Enter;
             // 
             // panel1
             // 
@@ -91,6 +96,44 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(504, 187);
             panel1.TabIndex = 20;
+            // 
+            // txtoverdueDays
+            // 
+            txtoverdueDays.Location = new Point(158, 147);
+            txtoverdueDays.Margin = new Padding(2);
+            txtoverdueDays.Name = "txtoverdueDays";
+            txtoverdueDays.ReadOnly = true;
+            txtoverdueDays.Size = new Size(289, 30);
+            txtoverdueDays.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Modern No. 20", 11.9999981F);
+            label1.Location = new Point(25, 154);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 18);
+            label1.TabIndex = 9;
+            label1.Text = "Overdue Days";
+            // 
+            // txtReturnDate
+            // 
+            txtReturnDate.Location = new Point(158, 113);
+            txtReturnDate.Margin = new Padding(2);
+            txtReturnDate.Name = "txtReturnDate";
+            txtReturnDate.ReadOnly = true;
+            txtReturnDate.Size = new Size(289, 30);
+            txtReturnDate.TabIndex = 8;
+            // 
+            // txtBorrowDate
+            // 
+            txtBorrowDate.Location = new Point(158, 78);
+            txtBorrowDate.Margin = new Padding(2);
+            txtBorrowDate.Name = "txtBorrowDate";
+            txtBorrowDate.ReadOnly = true;
+            txtBorrowDate.Size = new Size(289, 30);
+            txtBorrowDate.TabIndex = 7;
             // 
             // txtBorrowerEmail
             // 
@@ -154,83 +197,47 @@
             lblReturnDate.TabIndex = 6;
             lblReturnDate.Text = "Return Date";
             // 
-            // btnSave
+            // btnReturn
             // 
-            btnSave.BackColor = SystemColors.Highlight;
-            btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnSave.ForeColor = SystemColors.ControlLightLight;
-            btnSave.IconChar = FontAwesome.Sharp.IconChar.HandHoldingHand;
-            btnSave.IconColor = Color.White;
-            btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSave.IconSize = 22;
-            btnSave.Location = new Point(563, 69);
-            btnSave.Name = "btnSave";
-            btnSave.Padding = new Padding(10, 0, 0, 0);
-            btnSave.Size = new Size(124, 34);
-            btnSave.TabIndex = 18;
-            btnSave.Text = "Return";
-            btnSave.TextAlign = ContentAlignment.MiddleLeft;
-            btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSave.UseVisualStyleBackColor = false;
+            btnReturn.BackColor = SystemColors.Highlight;
+            btnReturn.FlatStyle = FlatStyle.Flat;
+            btnReturn.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnReturn.ForeColor = SystemColors.ControlLightLight;
+            btnReturn.IconChar = FontAwesome.Sharp.IconChar.HandHoldingHand;
+            btnReturn.IconColor = Color.White;
+            btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnReturn.IconSize = 22;
+            btnReturn.Location = new Point(563, 69);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Padding = new Padding(10, 0, 0, 0);
+            btnReturn.Size = new Size(124, 34);
+            btnReturn.TabIndex = 18;
+            btnReturn.Text = "Return";
+            btnReturn.TextAlign = ContentAlignment.MiddleLeft;
+            btnReturn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnReturn.UseVisualStyleBackColor = false;
+            btnReturn.Click += btnReturn_Click;
             // 
-            // btnReset
+            // btnClear
             // 
-            btnReset.BackColor = SystemColors.Highlight;
-            btnReset.FlatStyle = FlatStyle.Flat;
-            btnReset.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
-            btnReset.ForeColor = SystemColors.ControlLightLight;
-            btnReset.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            btnReset.IconColor = Color.White;
-            btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnReset.IconSize = 22;
-            btnReset.Location = new Point(563, 118);
-            btnReset.Name = "btnReset";
-            btnReset.Padding = new Padding(10, 0, 0, 0);
-            btnReset.Size = new Size(124, 34);
-            btnReset.TabIndex = 15;
-            btnReset.Text = "Clear";
-            btnReset.TextAlign = ContentAlignment.MiddleLeft;
-            btnReset.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnReset.UseVisualStyleBackColor = false;
-            // 
-            // txtBorrowDate
-            // 
-            txtBorrowDate.Location = new Point(158, 78);
-            txtBorrowDate.Margin = new Padding(2);
-            txtBorrowDate.Name = "txtBorrowDate";
-            txtBorrowDate.ReadOnly = true;
-            txtBorrowDate.Size = new Size(289, 30);
-            txtBorrowDate.TabIndex = 7;
-            // 
-            // txtReturnDate
-            // 
-            txtReturnDate.Location = new Point(158, 113);
-            txtReturnDate.Margin = new Padding(2);
-            txtReturnDate.Name = "txtReturnDate";
-            txtReturnDate.ReadOnly = true;
-            txtReturnDate.Size = new Size(289, 30);
-            txtReturnDate.TabIndex = 8;
-            // 
-            // txtoverdueDays
-            // 
-            txtoverdueDays.Location = new Point(158, 147);
-            txtoverdueDays.Margin = new Padding(2);
-            txtoverdueDays.Name = "txtoverdueDays";
-            txtoverdueDays.ReadOnly = true;
-            txtoverdueDays.Size = new Size(289, 30);
-            txtoverdueDays.TabIndex = 10;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Modern No. 20", 11.9999981F);
-            label1.Location = new Point(25, 154);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(96, 18);
-            label1.TabIndex = 9;
-            label1.Text = "Overdue Days";
+            btnClear.BackColor = SystemColors.Highlight;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold);
+            btnClear.ForeColor = SystemColors.ControlLightLight;
+            btnClear.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            btnClear.IconColor = Color.White;
+            btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnClear.IconSize = 22;
+            btnClear.Location = new Point(563, 118);
+            btnClear.Name = "btnClear";
+            btnClear.Padding = new Padding(10, 0, 0, 0);
+            btnClear.Size = new Size(124, 34);
+            btnClear.TabIndex = 15;
+            btnClear.Text = "Clear";
+            btnClear.TextAlign = ContentAlignment.MiddleLeft;
+            btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // Borrowed
             // 
@@ -238,7 +245,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(grBxBorrowed);
             Name = "Borrowed";
-            Size = new Size(781, 399);
+            Size = new Size(781, 479);
             ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).EndInit();
             grBxBorrowed.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -257,8 +264,8 @@
         private TextBox txtBookTitle;
         private Label lblBorrowDate;
         private Label lblReturnDate;
-        private FontAwesome.Sharp.IconButton btnSave;
-        private FontAwesome.Sharp.IconButton btnReset;
+        private FontAwesome.Sharp.IconButton btnReturn;
+        private FontAwesome.Sharp.IconButton btnClear;
         private TextBox txtReturnDate;
         private TextBox txtBorrowDate;
         private TextBox txtoverdueDays;

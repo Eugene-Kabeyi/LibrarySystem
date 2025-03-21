@@ -1,4 +1,5 @@
-﻿namespace LibrarySystem.UControl
+﻿
+namespace LibrarySystem.UControl
 {
     partial class UserBorrowed
     {
@@ -28,20 +29,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridViewBooks = new DataGridView();
-            lblPublisher = new Label();
             grpBookDetails = new GroupBox();
             btnClear = new FontAwesome.Sharp.IconButton();
-            txtPublisher = new TextBox();
-            txtISBN = new TextBox();
-            txtTitle = new TextBox();
-            txtAuthor = new TextBox();
-            lblISBN = new Label();
-            lblAuthor = new Label();
-            lblTitle = new Label();
             btnSearch = new FontAwesome.Sharp.IconButton();
             textBox1 = new TextBox();
+            txtoverdueDays = new TextBox();
+            label1 = new Label();
+            txtReturnDate = new TextBox();
+            txtBorrowDate = new TextBox();
+            lblTitle = new Label();
+            txtBookTitle = new TextBox();
+            lblBorrowDate = new Label();
+            lblReturnDate = new Label();
+            txtFine = new TextBox();
+            lblFine = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             grpBookDetails.SuspendLayout();
             SuspendLayout();
@@ -49,41 +52,32 @@
             // dataGridViewBooks
             // 
             dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Gadugi", 12F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridViewBooks.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Gadugi", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewBooks.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewBooks.Location = new Point(27, 266);
             dataGridViewBooks.Name = "dataGridViewBooks";
             dataGridViewBooks.Size = new Size(662, 139);
             dataGridViewBooks.TabIndex = 39;
             // 
-            // lblPublisher
-            // 
-            lblPublisher.AutoSize = true;
-            lblPublisher.Font = new Font("Modern No. 20", 11.9999981F);
-            lblPublisher.Location = new Point(65, 179);
-            lblPublisher.Margin = new Padding(2, 0, 2, 0);
-            lblPublisher.Name = "lblPublisher";
-            lblPublisher.Size = new Size(71, 18);
-            lblPublisher.TabIndex = 4;
-            lblPublisher.Text = "Publisher";
-            // 
             // grpBookDetails
             // 
-            grpBookDetails.Controls.Add(btnClear);
-            grpBookDetails.Controls.Add(txtPublisher);
-            grpBookDetails.Controls.Add(txtISBN);
-            grpBookDetails.Controls.Add(txtTitle);
-            grpBookDetails.Controls.Add(txtAuthor);
-            grpBookDetails.Controls.Add(lblPublisher);
-            grpBookDetails.Controls.Add(lblISBN);
-            grpBookDetails.Controls.Add(lblAuthor);
+            grpBookDetails.Controls.Add(txtFine);
+            grpBookDetails.Controls.Add(lblFine);
+            grpBookDetails.Controls.Add(txtoverdueDays);
+            grpBookDetails.Controls.Add(label1);
+            grpBookDetails.Controls.Add(txtReturnDate);
+            grpBookDetails.Controls.Add(txtBorrowDate);
             grpBookDetails.Controls.Add(lblTitle);
+            grpBookDetails.Controls.Add(txtBookTitle);
+            grpBookDetails.Controls.Add(lblBorrowDate);
+            grpBookDetails.Controls.Add(lblReturnDate);
+            grpBookDetails.Controls.Add(btnClear);
             grpBookDetails.Font = new Font("Modern No. 20", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grpBookDetails.Location = new Point(26, 40);
             grpBookDetails.Margin = new Padding(2);
@@ -115,75 +109,6 @@
             btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClear.UseVisualStyleBackColor = false;
             // 
-            // txtPublisher
-            // 
-            txtPublisher.Location = new Point(162, 175);
-            txtPublisher.Margin = new Padding(2);
-            txtPublisher.Name = "txtPublisher";
-            txtPublisher.ReadOnly = true;
-            txtPublisher.Size = new Size(256, 30);
-            txtPublisher.TabIndex = 11;
-            // 
-            // txtISBN
-            // 
-            txtISBN.Location = new Point(162, 127);
-            txtISBN.Margin = new Padding(2);
-            txtISBN.Name = "txtISBN";
-            txtISBN.ReadOnly = true;
-            txtISBN.Size = new Size(256, 30);
-            txtISBN.TabIndex = 10;
-            // 
-            // txtTitle
-            // 
-            txtTitle.Location = new Point(162, 42);
-            txtTitle.Margin = new Padding(2);
-            txtTitle.Name = "txtTitle";
-            txtTitle.ReadOnly = true;
-            txtTitle.Size = new Size(256, 30);
-            txtTitle.TabIndex = 9;
-            // 
-            // txtAuthor
-            // 
-            txtAuthor.Location = new Point(162, 83);
-            txtAuthor.Margin = new Padding(2);
-            txtAuthor.Name = "txtAuthor";
-            txtAuthor.ReadOnly = true;
-            txtAuthor.Size = new Size(256, 30);
-            txtAuthor.TabIndex = 5;
-            // 
-            // lblISBN
-            // 
-            lblISBN.AutoSize = true;
-            lblISBN.Font = new Font("Modern No. 20", 11.9999981F);
-            lblISBN.Location = new Point(65, 133);
-            lblISBN.Margin = new Padding(2, 0, 2, 0);
-            lblISBN.Name = "lblISBN";
-            lblISBN.Size = new Size(45, 18);
-            lblISBN.TabIndex = 3;
-            lblISBN.Text = "ISBN";
-            // 
-            // lblAuthor
-            // 
-            lblAuthor.AutoSize = true;
-            lblAuthor.Font = new Font("Modern No. 20", 11.9999981F);
-            lblAuthor.Location = new Point(65, 87);
-            lblAuthor.Margin = new Padding(2, 0, 2, 0);
-            lblAuthor.Name = "lblAuthor";
-            lblAuthor.Size = new Size(54, 18);
-            lblAuthor.TabIndex = 2;
-            lblAuthor.Text = "Author";
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(65, 40);
-            lblTitle.Margin = new Padding(2, 0, 2, 0);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(39, 18);
-            lblTitle.TabIndex = 1;
-            lblTitle.Text = "Title";
-            // 
             // btnSearch
             // 
             btnSearch.BackColor = SystemColors.Highlight;
@@ -200,6 +125,7 @@
             btnSearch.TextAlign = ContentAlignment.MiddleLeft;
             btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // textBox1
             // 
@@ -208,6 +134,106 @@
             textBox1.Size = new Size(303, 23);
             textBox1.TabIndex = 40;
             textBox1.Text = "Search";
+            // 
+            // txtoverdueDays
+            // 
+            txtoverdueDays.Location = new Point(153, 156);
+            txtoverdueDays.Margin = new Padding(2);
+            txtoverdueDays.Name = "txtoverdueDays";
+            txtoverdueDays.ReadOnly = true;
+            txtoverdueDays.Size = new Size(289, 30);
+            txtoverdueDays.TabIndex = 35;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Modern No. 20", 11.9999981F);
+            label1.Location = new Point(20, 163);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 18);
+            label1.TabIndex = 34;
+            label1.Text = "Overdue Days";
+            // 
+            // txtReturnDate
+            // 
+            txtReturnDate.Location = new Point(153, 122);
+            txtReturnDate.Margin = new Padding(2);
+            txtReturnDate.Name = "txtReturnDate";
+            txtReturnDate.ReadOnly = true;
+            txtReturnDate.Size = new Size(289, 30);
+            txtReturnDate.TabIndex = 33;
+            // 
+            // txtBorrowDate
+            // 
+            txtBorrowDate.Location = new Point(153, 87);
+            txtBorrowDate.Margin = new Padding(2);
+            txtBorrowDate.Name = "txtBorrowDate";
+            txtBorrowDate.ReadOnly = true;
+            txtBorrowDate.Size = new Size(289, 30);
+            txtBorrowDate.TabIndex = 32;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Modern No. 20", 11.9999981F);
+            lblTitle.Location = new Point(20, 60);
+            lblTitle.Margin = new Padding(2, 0, 2, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(77, 18);
+            lblTitle.TabIndex = 28;
+            lblTitle.Text = "Book Title";
+            // 
+            // txtBookTitle
+            // 
+            txtBookTitle.Location = new Point(153, 53);
+            txtBookTitle.Margin = new Padding(2);
+            txtBookTitle.Name = "txtBookTitle";
+            txtBookTitle.ReadOnly = true;
+            txtBookTitle.Size = new Size(289, 30);
+            txtBookTitle.TabIndex = 29;
+            // 
+            // lblBorrowDate
+            // 
+            lblBorrowDate.AutoSize = true;
+            lblBorrowDate.Font = new Font("Modern No. 20", 11.9999981F);
+            lblBorrowDate.Location = new Point(20, 92);
+            lblBorrowDate.Margin = new Padding(0, 0, 2, 0);
+            lblBorrowDate.Name = "lblBorrowDate";
+            lblBorrowDate.Size = new Size(90, 18);
+            lblBorrowDate.TabIndex = 30;
+            lblBorrowDate.Text = "Borrow Date";
+            // 
+            // lblReturnDate
+            // 
+            lblReturnDate.AutoSize = true;
+            lblReturnDate.Font = new Font("Modern No. 20", 11.9999981F);
+            lblReturnDate.Location = new Point(20, 129);
+            lblReturnDate.Margin = new Padding(2, 0, 2, 0);
+            lblReturnDate.Name = "lblReturnDate";
+            lblReturnDate.Size = new Size(88, 18);
+            lblReturnDate.TabIndex = 31;
+            lblReturnDate.Text = "Return Date";
+            // 
+            // txtFine
+            // 
+            txtFine.Location = new Point(153, 190);
+            txtFine.Margin = new Padding(2);
+            txtFine.Name = "txtFine";
+            txtFine.ReadOnly = true;
+            txtFine.Size = new Size(289, 30);
+            txtFine.TabIndex = 37;
+            // 
+            // lblFine
+            // 
+            lblFine.AutoSize = true;
+            lblFine.Font = new Font("Modern No. 20", 11.9999981F);
+            lblFine.Location = new Point(20, 197);
+            lblFine.Margin = new Padding(2, 0, 2, 0);
+            lblFine.Name = "lblFine";
+            lblFine.Size = new Size(95, 18);
+            lblFine.TabIndex = 36;
+            lblFine.Text = "Fine Amount";
             // 
             // UserBorrowed
             // 
@@ -227,20 +253,23 @@
             PerformLayout();
         }
 
+
         #endregion
 
         private DataGridView dataGridViewBooks;
-        private Label lblPublisher;
         private GroupBox grpBookDetails;
-        private TextBox txtPublisher;
-        private TextBox txtISBN;
-        private TextBox txtTitle;
-        private TextBox txtAuthor;
-        private Label lblISBN;
-        private Label lblAuthor;
-        private Label lblTitle;
         private FontAwesome.Sharp.IconButton btnSearch;
         private TextBox textBox1;
         private FontAwesome.Sharp.IconButton btnClear;
+        private TextBox txtoverdueDays;
+        private Label label1;
+        private TextBox txtReturnDate;
+        private TextBox txtBorrowDate;
+        private Label lblTitle;
+        private TextBox txtBookTitle;
+        private Label lblBorrowDate;
+        private Label lblReturnDate;
+        private TextBox txtFine;
+        private Label lblFine;
     }
 }
