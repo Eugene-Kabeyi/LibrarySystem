@@ -179,6 +179,7 @@
             btnDelete.TextAlign = ContentAlignment.MiddleLeft;
             btnDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Visible = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnClear

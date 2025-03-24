@@ -93,6 +93,7 @@ namespace LibrarySystem.UControl
                                 ClearFields(); // Reset input fields
                                 btnEdit.Visible = false; // Hide Edit button
                                 btnSave.Visible = false; // Hide Save button
+                                btnDelete.Visible = false;
                             }
                             else
                             {
@@ -119,6 +120,7 @@ namespace LibrarySystem.UControl
             {
                 btnSave.Visible = true;  // Show the Save button
                 btnSave.Text = "Update"; // Change Save button text to Update
+                btnDelete.Visible = false;
             }
             else
             {

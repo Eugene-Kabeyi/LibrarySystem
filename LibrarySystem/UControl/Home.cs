@@ -23,6 +23,7 @@ namespace LibrarySystem.UControl
         }
         private void LoadUserStatistics()
         {
+            userName.Text = UserSession.FirstName;
             try
             {
                 lblRequested.Text = $" {statistics.GetTotalRequestedBooks(UserSession.Email)}";

@@ -23,8 +23,9 @@ namespace LibrarySystem
         }
         private void LoadLibDash()
         {
+            
             LoadUserControl(new UControl.LibDash());
-            lblUsername.Text = StaffSession.FirstName;
+            lblUsername.Text = StaffSession.Username;
             // Load Profile Picture
             if (StaffSession.Picture != null)
             {
@@ -103,13 +104,17 @@ namespace LibrarySystem
         {
 
         }
-   
-       
+
+
 
         private void pnlContent_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

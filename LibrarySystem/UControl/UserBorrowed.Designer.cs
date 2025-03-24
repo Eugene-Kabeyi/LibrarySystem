@@ -64,6 +64,7 @@ namespace LibrarySystem.UControl
             dataGridViewBooks.Name = "dataGridViewBooks";
             dataGridViewBooks.Size = new Size(662, 139);
             dataGridViewBooks.TabIndex = 39;
+            dataGridViewBooks.CellClick += dataGridViewBooks_CellClick;
             // 
             // grpBookDetails
             // 
@@ -108,6 +109,7 @@ namespace LibrarySystem.UControl
             btnClear.TextAlign = ContentAlignment.MiddleLeft;
             btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnSearch
             // 

@@ -77,7 +77,7 @@
             pictureBox1.Image = Properties.Resources.liblib;
             pictureBox1.Location = new Point(13, 40);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(746, 164);
+            pictureBox1.Size = new Size(834, 174);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
@@ -256,7 +256,7 @@
             Controls.Add(userName);
             Controls.Add(lblWelcome);
             Name = "Home";
-            Size = new Size(776, 490);
+            Size = new Size(850, 490);
             Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel8.ResumeLayout(false);

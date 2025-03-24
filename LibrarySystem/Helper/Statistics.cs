@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using MySql.Data.MySqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LibrarySystem.Helper
 {
@@ -94,13 +95,13 @@ namespace LibrarySystem.Helper
                 {
                     conn.Open();
                     string query = @"
-                        SELECT SUM(DATEDIFF(NOW(), return_date) * 100) 
-                        FROM Borrowed 
-                        WHERE user_email = @UserEmail 
-                        AND status = 'Borrowed' 
-                        AND return_date < NOW()";
-
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                SELECT SUM(GREATEST(DATEDIFF(actual_return_date, return_date), 0) * 100) AS FineAmount 
+                FROM Borrowed 
+                WHERE user_email = @UserEmail 
+                AND status = 'Returned'
+                AND actual_return_date > return_date"; //Fine applies only if returned late
+        
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@UserEmail", userEmail);
                         object result = cmd.ExecuteScalar();
@@ -114,5 +115,6 @@ namespace LibrarySystem.Helper
                 return 0; // Return 0 in case of an error
             }
         }
+
     }
 }

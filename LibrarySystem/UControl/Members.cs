@@ -38,7 +38,7 @@ namespace LibrarySystem.UControl
             txtLastname.Clear();
             txtUsername.Clear();
             txtEmail.Clear();
-            pictureBox1.Image = null;
+            user_pic.Image = null;
             btnSave.Visible = false; // Disable save button until Edit is clicked
         }
         private void btnReset_Click(object sender, EventArgs e)
@@ -54,6 +54,18 @@ namespace LibrarySystem.UControl
                 txtLastname.Text = row.Cells["lastname"].Value.ToString();
                 txtUsername.Text = row.Cells["username"].Value.ToString();
                 txtEmail.Text = row.Cells["email"].Value.ToString();
+                if (row.Cells["picture"].Value != DBNull.Value)
+                {
+                    byte[] imageBytes = (byte[])row.Cells["picture"].Value;
+                    using (MemoryStream ms = new MemoryStream(imageBytes))
+                    {
+                        user_pic.Image = Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    user_pic.Image = null; // Clear image if empty
+                }
 
             }
             btnDelete.Visible = true;

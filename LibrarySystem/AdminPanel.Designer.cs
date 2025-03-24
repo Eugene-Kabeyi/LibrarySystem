@@ -86,10 +86,10 @@ namespace LibrarySystem
             btnEditBooks.Location = new Point(3, 237);
             btnEditBooks.Margin = new Padding(3, 10, 3, 10);
             btnEditBooks.Name = "btnEditBooks";
-            btnEditBooks.Padding = new Padding(10, 0, 30, 0);
+            btnEditBooks.Padding = new Padding(0, 0, 30, 0);
             btnEditBooks.Size = new Size(171, 36);
             btnEditBooks.TabIndex = 3;
-            btnEditBooks.Text = "Edit Books";
+            btnEditBooks.Text = "Books";
             btnEditBooks.TextAlign = ContentAlignment.MiddleLeft;
             btnEditBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEditBooks.UseVisualStyleBackColor = true;

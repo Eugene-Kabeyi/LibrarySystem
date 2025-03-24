@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static LibrarySystem.UserLogin;
+using LibrarySystem.Helper;
 
 namespace LibrarySystem.UControl
 {
@@ -27,31 +28,32 @@ namespace LibrarySystem.UControl
             {
                 conn.Open();
 
-                string query = "SELECT b.borrow_id AS 'ID', " +
-                               "b.user_email AS 'Borrower Email', " +
-                               "bk.title AS 'Book Title', " +
-                               "b.borrow_date AS 'Borrow Date', " +
-                               "b.return_date AS 'Return Due Date', " +
-                               "b.actual_return_date AS 'Actual Return Date', " +
-                               "b.status AS 'Status' " +
-                               "FROM Borrowed b " +
-                               "JOIN Books bk ON b.book_id = bk.id " +
-                               "WHERE b.user_email = @UserEmail";
+                string query = @"SELECT b.borrow_id AS 'ID', 
+                                b.user_email AS 'Borrower Email', 
+                                bk.title AS 'Book Title', 
+                                b.borrow_date AS 'Borrow Date', 
+                                b.return_date AS 'Return Due Date', 
+                                b.actual_return_date AS 'Actual Return Date', 
+                                b.status AS 'Status' 
+                         FROM Borrowed b 
+                         JOIN Books bk ON b.book_id = bk.id 
+                         WHERE b.user_email = @UserEmail";
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {
-                    query += " AND (b.borrow_id LIKE @SearchText " +
-                             "OR b.user_email LIKE @SearchText " +
-                             "OR bk.title LIKE @SearchText " +
-                             "OR b.borrow_date LIKE @SearchText " +
-                             "OR b.return_date LIKE @SearchText " +
-                             "OR b.actual_return_date LIKE @SearchText " +
-                             "OR b.status LIKE @SearchText)";
+                    query += @" AND (CAST(b.borrow_id AS CHAR) LIKE @SearchText 
+                        OR b.user_email LIKE @SearchText 
+                        OR bk.title LIKE @SearchText 
+                        OR CAST(b.borrow_date AS CHAR) LIKE @SearchText 
+                        OR CAST(b.return_date AS CHAR) LIKE @SearchText 
+                        OR CAST(b.actual_return_date AS CHAR) LIKE @SearchText 
+                        OR b.status LIKE @SearchText)";
                 }
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@UserEmail", UserSession.Email);
+
                     if (!string.IsNullOrWhiteSpace(searchText))
                     {
                         cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
@@ -66,6 +68,7 @@ namespace LibrarySystem.UControl
                 }
             }
         }
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -82,12 +85,15 @@ namespace LibrarySystem.UControl
             if (e.RowIndex >= 0) // Ensure a valid row is clicked
             {
                 DataGridViewRow row = dataGridViewBooks.Rows[e.RowIndex];
+                Statistics stats = new Statistics();
 
-                txtBorrowerEmail.Text = row.Cells["Borrower Email"].Value?.ToString();
+               // txtEmail.Text = row.Cells["Borrower Email"].Value?.ToString();
                 txtBookTitle.Text = row.Cells["Book Title"].Value?.ToString();
                 txtBorrowDate.Text = row.Cells["Borrow Date"].Value?.ToString();
                 txtReturnDate.Text = row.Cells["Return Due Date"].Value?.ToString();
                 txtoverdueDays.Text = CalculateOverdueDays(row.Cells["Return Due Date"].Value?.ToString());
+                txtFine.Text = stats.CalculateFine(UserSession.Email).ToString();
+
             }
         }
 

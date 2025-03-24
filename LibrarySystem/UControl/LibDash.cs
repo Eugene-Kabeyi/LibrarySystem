@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystem.Helper;
+using static LibrarySystem.StaffLogin;
 
 namespace LibrarySystem.UControl
 {
@@ -23,6 +24,7 @@ namespace LibrarySystem.UControl
 
         private void LoadStats()
         {
+            userName.Text = StaffSession.FirstName;
             try
             {
                 lblBooks.Text = $"{statistics.GetTotalBooks()}";

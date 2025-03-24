@@ -72,7 +72,7 @@ namespace LibrarySystem
 
         private void btnBorrowed_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UControl.Borrowed());  // Load Dashboard UserControl
+            LoadUserControl(new UControl.UserBorrowed());  // Load Dashboard UserControl
         }
         private void lblLogout_Click(object sender, EventArgs e)
         {

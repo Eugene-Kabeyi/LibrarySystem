@@ -83,10 +83,10 @@
             btnEditBooks.Location = new Point(0, 210);
             btnEditBooks.Margin = new Padding(3, 10, 3, 10);
             btnEditBooks.Name = "btnEditBooks";
-            btnEditBooks.Padding = new Padding(10, 0, 30, 0);
+            btnEditBooks.Padding = new Padding(0, 0, 30, 0);
             btnEditBooks.Size = new Size(174, 36);
             btnEditBooks.TabIndex = 3;
-            btnEditBooks.Text = "Edit Books";
+            btnEditBooks.Text = "Books";
             btnEditBooks.TextAlign = ContentAlignment.MiddleLeft;
             btnEditBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEditBooks.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
             btnRequestedBooks.FlatStyle = FlatStyle.Flat;
             btnRequestedBooks.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRequestedBooks.ForeColor = SystemColors.ControlLightLight;
-            btnRequestedBooks.IconChar = FontAwesome.Sharp.IconChar.Book;
+            btnRequestedBooks.IconChar = FontAwesome.Sharp.IconChar.BookBookmark;
             btnRequestedBooks.IconColor = Color.White;
             btnRequestedBooks.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRequestedBooks.IconSize = 30;
@@ -170,7 +170,7 @@
             btnBorrowedBooks.FlatStyle = FlatStyle.Flat;
             btnBorrowedBooks.Font = new Font("Modern No. 20", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBorrowedBooks.ForeColor = SystemColors.ControlLightLight;
-            btnBorrowedBooks.IconChar = FontAwesome.Sharp.IconChar.Book;
+            btnBorrowedBooks.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
             btnBorrowedBooks.IconColor = Color.White;
             btnBorrowedBooks.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnBorrowedBooks.IconSize = 30;
@@ -215,6 +215,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(837, 59);
             panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
             // 
             // picLibrarian
             // 

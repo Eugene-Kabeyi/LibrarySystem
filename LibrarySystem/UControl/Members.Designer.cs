@@ -44,13 +44,13 @@
             lbFname = new Label();
             btnEdit = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
-            pictureBox1 = new PictureBox();
+            user_pic = new PictureBox();
             btnSearch = new FontAwesome.Sharp.IconButton();
             txtSearch = new TextBox();
             lbMembers = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridUsers).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)user_pic).BeginInit();
             SuspendLayout();
             // 
             // dataGridUsers
@@ -256,7 +256,7 @@
             panel2.Controls.Add(btnSave);
             panel2.Controls.Add(txtEmail);
             panel2.Controls.Add(txtFirstname);
-            panel2.Controls.Add(pictureBox1);
+            panel2.Controls.Add(user_pic);
             panel2.Controls.Add(lbEmail);
             panel2.Controls.Add(lbLname);
             panel2.Controls.Add(lbFname);
@@ -265,14 +265,14 @@
             panel2.Size = new Size(565, 192);
             panel2.TabIndex = 35;
             // 
-            // pictureBox1
+            // user_pic
             // 
-            pictureBox1.Location = new Point(427, 19);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(116, 119);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
+            user_pic.Location = new Point(427, 19);
+            user_pic.Name = "user_pic";
+            user_pic.Size = new Size(116, 119);
+            user_pic.SizeMode = PictureBoxSizeMode.Zoom;
+            user_pic.TabIndex = 5;
+            user_pic.TabStop = false;
             // 
             // btnSearch
             // 
@@ -329,7 +329,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridUsers).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)user_pic).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -355,5 +355,6 @@
         private FontAwesome.Sharp.IconButton btnSearch;
         private TextBox txtSearch;
         private Label lbMembers;
+        private PictureBox user_pic;
     }
 }
