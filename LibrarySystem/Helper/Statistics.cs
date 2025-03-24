@@ -80,41 +80,41 @@ namespace LibrarySystem.Helper
         }
 
         // ✅ Get total number of requested books for all users
-        public int GetTotalRequestedBooksAll()
+       public int CalculateFine(string userEmail)
+{
+    try
+    {
+        using (MySqlConnection conn = new MySqlConnection(connectionString))
         {
-            string query = "SELECT COUNT(*) FROM Request";
-            return ExecuteScalarQuery(query);
-        }
-
-        // Calculate overdue fine for a specific user (100 Ksh per day per book)
-        public int CalculateFine(string userEmail)
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = @"
-                SELECT SUM(GREATEST(DATEDIFF(actual_return_date, return_date), 0) * 100) AS FineAmount 
-                FROM Borrowed 
-                WHERE user_email = @UserEmail 
-                AND status = 'Returned'
-                AND actual_return_date > return_date"; //Fine applies only if returned late
-        
+            conn.Open();
+            string query = @"
+                SELECT 
+                    SUM(
+                        CASE 
+                            WHEN status = 'Returned' AND actual_return_date > return_date THEN
+                                DATEDIFF(actual_return_date, return_date) * 100
+                            WHEN status = 'Borrowed' AND CURDATE() > return_date THEN
+                                DATEDIFF(CURDATE(), return_date) * 100
+                            ELSE
+                                0
+                        END
+                    ) AS FineAmount
+                FROM Borrowed
+                WHERE user_email = @UserEmail";
+            
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@UserEmail", userEmail);
-                        object result = cmd.ExecuteScalar();
-                        return result != DBNull.Value ? Convert.ToInt32(result) : 0;
-                    }
-                }
-            }
-            catch (Exception ex)
             {
-                Console.WriteLine("Error calculating fine: " + ex.Message);
-                return 0; // Return 0 in case of an error
+                cmd.Parameters.AddWithValue("@UserEmail", userEmail);
+                object result = cmd.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToInt32(result) : 0;
             }
         }
-
     }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error calculating fine: " + ex.Message);
+        return 0; // Return 0 in case of an error
+    }
+ }
+  }
 }
