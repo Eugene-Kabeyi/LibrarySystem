@@ -88,33 +88,47 @@ namespace LibrarySystem.Helper
 
         // Calculate overdue fine for a specific user (100 Ksh per day per book)
         public int CalculateFine(string userEmail)
+{
+    try
+    {
+        using (MySqlConnection conn = new MySqlConnection(connectionString))
         {
-            try
+            conn.Open();
+
+            // Fetch fine amount from the Fines table
+            string fineQuery = "SELECT fine_amount FROM Fines LIMIT 1"; // Modify this if you need filtering logic
+            int fineAmount = 0;
+
+            using (MySqlCommand fineCmd = new MySqlCommand(fineQuery, conn))
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = @"
-                SELECT SUM(GREATEST(DATEDIFF(actual_return_date, return_date), 0) * 100) AS FineAmount 
-                FROM Borrowed 
-                WHERE user_email = @UserEmail 
-                AND status = 'Returned'
-                AND actual_return_date > return_date"; //Fine applies only if returned late
-        
-            using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@UserEmail", userEmail);
-                        object result = cmd.ExecuteScalar();
-                        return result != DBNull.Value ? Convert.ToInt32(result) : 0;
-                    }
-                }
+                object result = fineCmd.ExecuteScalar();
+                fineAmount = result != DBNull.Value ? Convert.ToInt32(result) : 0; // Default to 0 if no fine amount is found
             }
-            catch (Exception ex)
+
+            // Calculate the total fine using the fetched fine amount
+            string calculationQuery = @"
+                SELECT SUM(GREATEST(DATEDIFF(actual_return_date, return_date), 0) * @FineAmount) AS FineAmount
+                FROM Borrowed
+                WHERE user_email = @UserEmail
+                AND status = 'Returned'
+                AND actual_return_date > return_date"; // Fine applies only if returned late
+
+            using (MySqlCommand cmd = new MySqlCommand(calculationQuery, conn))
             {
-                Console.WriteLine("Error calculating fine: " + ex.Message);
-                return 0; // Return 0 in case of an error
+                cmd.Parameters.AddWithValue("@UserEmail", userEmail);
+                cmd.Parameters.AddWithValue("@FineAmount", fineAmount); // Use fetched fine amount
+
+                object result = cmd.ExecuteScalar();
+                return result != DBNull.Value ? Convert.ToInt32(result) : 0;
             }
         }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error calculating fine: " + ex.Message);
+        return 0; // Return 0 in case of an error
+    }
+}
 
     }
 }
